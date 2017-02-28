@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "ng:class": {
+            "context": "span"
+        },
+        "file-model": {
+            "context": "input"
+        }
+    }
+}

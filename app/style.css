@@ -1,0 +1,52 @@
+.searchandselect {
+    cursor: pointer;
+    position: relative;
+    width: 300px;
+    border: 1px solid #e6e8ea;
+}
+
+    .searchandselect .search {
+        padding: 5px;
+        display: none;
+        background-color: #fff;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .searchandselect .dropdown {
+        border: 1px solid #e6e8ea;
+        left: 0;
+        list-style: outside none none;
+        overflow: auto;
+        position: relative;
+        right: 0;
+        top: 100%;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+
+    .searchandselect.active .search {
+        display: inherit;
+    }
+
+    .searchandselect.active .dropdown {
+        display: inherit;
+        max-height: 290px;
+    }
+
+    .searchandselect .dropdown li {
+        margin: 10px 0 0;
+        padding: 0 10px;
+    }
+
+        .searchandselect .dropdown li i {
+            color: inherit;
+            margin-right: 5px;
+            vertical-align: middle;
+            float: right;
+        }
+
+        .searchandselect .dropdown li small {
+            margin-right: 10px;
+        }

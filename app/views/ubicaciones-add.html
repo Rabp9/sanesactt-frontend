@@ -1,0 +1,33 @@
+<form ng-submit="saveUbicacion(ubicacion, 'btnSaveUbicacion')">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Nueva Ubicación</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="txtDescripcion">Descripción</label>
+            <input id="txtDescripcion" class="form-control" type="text" ng-model="ubicacion.descripcion" />
+        </div>
+        <div class="form-group">
+            <label for="txtLongitud">Longitud</label>
+            <input id="txtLongitud" class="form-control" type="text" ng-model="ubicacion.longitud" />
+        </div>
+        <div class="form-group">
+            <label for="txtLatitud">Latitud</label>
+            <input id="txtLatitud" class="form-control" type="text" ng-model="ubicacion.latitud" />
+        </div>
+        <div class="form-group">
+            <label for="flFoto">Foto</label>
+            <input id="flFoto" class="form-control" type="file" ng-model="ubicacion.foto" />
+        </div>
+        <div class="form-group">
+            <label for="txtVariaciones">Variaciones </label>
+            <input id="txtVariaciones" class="form-control" type="text" ng-model="ubicacion.variaciones" />
+            <span class="help-block">Separado por puntos y comas (;)</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+        <button id="btnSaveUbicacion" class="btn btn-success" type="submit">Guardar Ubicación</button>
+    </div>
+</form>
