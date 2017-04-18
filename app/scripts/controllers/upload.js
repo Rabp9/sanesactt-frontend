@@ -9,9 +9,9 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, CausasService, $uibModal) {
-    $scope.uploadFile = function(file, errFiles) {
+    $scope.uploadFile = function(csv, errFiles) {
         var fd = new FormData();
-        fd.append('file', file);
+        fd.append('file', csv);
         
         AccidentesService.load(fd, function(data) {
             $scope.accidentes = data.accidentes;

@@ -9,7 +9,8 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label for="fluAccidentes">Seleccionar archivo</label>
-            <input id="fluAccidentes" type="file" class="form-control" file-model="csv" ngf-select="uploadFile()"/>
+            <input id="fluAccidentes" type="file" class="form-control" 
+                ngf-select="uploadFile($file, $invalidFiles)"/>
         </div>
     </div>
 </div>
