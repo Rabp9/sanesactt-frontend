@@ -48,4 +48,4 @@ angular
                 redirectTo: '/'
             });
     })
-    .path_location = 'http://localhost:8000/SANESACTT-backend/';
+    .path_location = 'http://localhost:8000/sanesactt-backend/';
