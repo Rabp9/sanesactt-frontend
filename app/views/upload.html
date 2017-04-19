@@ -12,5 +12,12 @@
             <input id="fluAccidentes" type="file" class="form-control" 
                 ngf-select="uploadFile($file, $invalidFiles)"/>
         </div>
+        <div class="form-group">
+            <button id="btnSaveAccidentes" type="button" class="btn btn-primary" ng-click="saveAccidentes(gridOptions.data, 'btnSaveAccidentes')">Guardar Accidentes</button>
+        <div ui-i18n="{{lang}}">
+            <div ui-grid="gridOptions" ui-grid-edit 
+                ui-grid-row-edit ui-grid-resize-columns class="myGrid">
+            </div>
+        </div>
     </div>
 </div>

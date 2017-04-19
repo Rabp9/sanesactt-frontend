@@ -6,6 +6,10 @@ angular.module("sanesacttFrontendApp")
             url: angular.module("sanesacttFrontendApp").path_location + "accidentes/load/.json",
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
+        },
+        saveMany: {
+            method: 'POST',
+            url: angular.module("sanesacttFrontendApp").path_location + "accidentes/saveMany.json",
         }
     });
 });

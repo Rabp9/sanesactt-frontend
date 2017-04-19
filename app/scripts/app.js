@@ -9,19 +9,23 @@
  * Main module of the application.
  */
 angular
-    .module('sanesacttFrontendApp', [
-        'ngAnimate',
-        'ngCookies',
-        'ngResource',
-        'ngRoute',
-        'ngSanitize',
-        'ngTouch',
-        'ngFileUpload',
-        'ui.grid',
-        'ui.bootstrap',
-        'angular-search-and-select',
-        "checklist-model"
-    ])
+.module('sanesacttFrontendApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'ngFileUpload',
+    'ui.grid',
+    'ui.grid.cellNav',
+    'ui.grid.edit',
+    'ui.grid.rowEdit',
+    'ui.grid.resizeColumns',
+    'ui.bootstrap',
+    'angular-search-and-select',
+    "checklist-model"
+])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
