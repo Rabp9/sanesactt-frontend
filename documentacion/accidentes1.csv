@@ -1,5 +1,5 @@
-﻿nro;fecha;hora;ubicacion;causa;tipo_vehiculo;tipo_servicio;fallecidos_hombres;fallecidos_mujeres;heridos_hombres;heridos_mujeres;dia
-1;01-ene-13;19,00;Interseccion de la Av. Mansiche y Psje La Merced(Urb. Cortijo);Imprudencia de los Conductores;UT1.Cmta Pickup y UT2 Automovil;Servicio Particular;;;         -;          -;  Martes
-2;02-ene-13;12,15;Av. Pablo Casal y Av. Mansiche;Imprudencia de los Conductores;;Servicio Particular;;;         -;          -;   Miercoles
-3;02-ene-13;20,00;Cuadra 11 Av. Mansiche;Imprudencia del peaton; ;Servicio Particular;;;         -;1; Miercoles
-4;03-ene-13;11,45;Calle Pedro Muñiz y Calle Managua;Imprudencia del peaton;Automovil;Servicio Particular;;;1;;Jueves
+﻿nro;fecha;hora;ubicacion_dirty;causa_dirty;tipo_vehiculo_dirty;tipo_servicio_dirty;fallecidos_hombres;fallecidos_mujeres;heridos_hombres;heridos_mujeres;dia
+1;2017-01-02;19:00;Interseccion de la Av. Mansiche y Psje La Merced(Urb. Cortijo);Imprudencia de los Conductores;UT1.Cmta Pickup y UT2 Automovil;Servicio Particular;;;         -;          -;Martes
+2;2018-01-02;12:15;Av. Pablo Casal y Av. Mansiche;Imprudencia de los Conductores;;Servicio Particular;;;         -;          -;Miercoles
+3;2017-01-02;20:00;Cuadra 11 Av. Mansiche;Imprudencia del peaton; ;Servicio Particular;;;         -;1;Miercoles
+4;2018-01-03;11:45;Calle Pedro Muñiz y Calle Managua;Imprudencia del peaton;Automovil;Servicio Particular;;;1;;Jueves
