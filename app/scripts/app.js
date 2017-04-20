@@ -26,30 +26,35 @@ angular
     'angular-search-and-select',
     "checklist-model"
 ])
-    .config(function ($routeProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: 'views/main.html',
-                controller: 'MainCtrl',
-                controllerAs: 'main'
-            })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'AboutCtrl',
-                controllerAs: 'about'
-            })
-            .when('/upload', {
-                templateUrl: 'views/upload.html',
-                controller: 'UploadCtrl',
-                controllerAs: 'upload'
-            })
-            .when('/causas-add', {
-              templateUrl: 'views/causas-add.html',
-              controller: 'CausasAddCtrl',
-              controllerAs: 'causasAdd'
-            })
-            .otherwise({
-                redirectTo: '/'
-            });
-    })
-    .path_location = 'http://localhost:8000/sanesactt-backend/';
+.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl',
+            controllerAs: 'main'
+        })
+        .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'AboutCtrl',
+            controllerAs: 'about'
+        })
+        .when('/upload', {
+            templateUrl: 'views/upload.html',
+            controller: 'UploadCtrl',
+            controllerAs: 'upload'
+        })
+        .when('/causas-add', {
+          templateUrl: 'views/causas-add.html',
+          controller: 'CausasAddCtrl',
+          controllerAs: 'causasAdd'
+        })
+        .when('/accidentes', {
+          templateUrl: 'views/accidentes.html',
+          controller: 'AccidentesCtrl',
+          controllerAs: 'accidentes'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+})
+.path_location = 'http://localhost:8000/sanesactt-backend/';

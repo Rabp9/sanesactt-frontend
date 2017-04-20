@@ -1,0 +1,35 @@
+<!-- app\views\accidentes.html -->
+<div ng-show="message != null" class="alert alert-dismissible" ng-class="{'alert-danger': message.type == 'error', 'alert-success': message.type == 'success'}" role="alert">
+    <button type="button" class="close" ng-click="message = null"><span aria-hidden="true">&times;</span></button>
+    {{ message.text }} 
+</div>
+<h2>Accidentes</h2>
+<hr>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nro.</th>
+                        <th>Año</th>
+                        <th>Ubicación</th>
+                        <th>Causa</th>
+                        <th>Fecha y Hora</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="accidente in accidentes">
+                        <td>{{ accidente.nro_id }}</td>
+                        <td>{{ accidente.anio }} </td>
+                        <td>{{ accidente.ubicacion_dirty }}</td>
+                        <td>{{ accidente.cauda_dirty }}</td>
+                        <td>{{ accidente.fechaHora }}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
