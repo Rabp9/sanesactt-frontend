@@ -7,6 +7,9 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
+        <div class="form-group">
+            <input class="form-control" placeholder="Buscar" ng-model="filtro" />
+        </div>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
@@ -20,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="accidente in accidentes">
+                    <tr ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | filter: filtro">
                         <td>{{ accidente.nro_id }}</td>
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}</td>
