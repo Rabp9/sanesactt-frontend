@@ -1,0 +1,94 @@
+<form ng-submit="saveAccidente(accidente, 'btnSaveAccidente')">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modificar Accidente</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="txtAnio">Año</label>
+                    <input id="txtAnio" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="txtFechaHora">Fecha y Hora</label>
+                    <input id="txtFechaHora" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="sltDia">Día</label>
+                    <select id="sltDia" class="form-control">
+                        <option value="">Selecciona uno</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <label for="sltUbicacion">Ubicación</label>
+                    <select id="sltUbicacion" class="form-control">
+                        <option value="">Selecciona una</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <label for="sltCausa">Causa</label>
+                    <select id="sltCausa" class="form-control">
+                        <option value="">Selecciona una</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-3">
+                <label for="txtFallecidosHombres">Fll. H.</label>
+                <input id="txtFallecidosHombres" class="form-control" type="text" />
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="txtFallecidosMujeres">Fll. M.</label>
+                <input id="txtFallecidosMujeres" class="form-control" type="text" />
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="txtHeridosHombres">Hr. H.</label>
+                <input id="txtHeridosHombres" class="form-control" type="text" />
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="txtHeridosMujeres">Hr. M.</label>
+                <input id="txtHeridosMujeres" class="form-control" type="text" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tipo de Vehiculo y Servicios</label>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Tipo Vehículo</th>
+                        <th>Tipo Servicio</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr ng-repeat="">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Estado</label>
+            <div>
+                <label><input type="radio" ng-model="accidente.estado_id" ng-value="1"> Activo</label>
+                <label><input type="radio" ng-model="accidente.estado_id" ng-value="2"> Inactivo</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+        <button id="btnSaveAccidente" class="btn btn-success" type="submit">Guardar Accidente</button>
+    </div>
+</form>

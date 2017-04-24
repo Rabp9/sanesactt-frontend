@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | filter: filtro">
+                    <tr context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | filter: filtro">
                         <td>{{ accidente.nro_id }}</td>
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}</td>

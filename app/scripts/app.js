@@ -24,7 +24,8 @@ angular
     'ui.grid.resizeColumns',
     'ui.bootstrap',
     'angular-search-and-select',
-    "checklist-model"
+    "checklist-model",
+    'ui.bootstrap.contextMenu'
 ])
 .config(function ($routeProvider) {
     $routeProvider
@@ -52,6 +53,11 @@ angular
           templateUrl: 'views/accidentes.html',
           controller: 'AccidentesCtrl',
           controllerAs: 'accidentes'
+        })
+        .when('/accidentes-edit', {
+          templateUrl: 'views/accidentes-edit.html',
+          controller: 'AccidentesEditCtrl',
+          controllerAs: 'accidentesEdit'
         })
         .otherwise({
             redirectTo: '/'
