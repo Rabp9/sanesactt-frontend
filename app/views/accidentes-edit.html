@@ -11,16 +11,17 @@
                     <input id="txtAnio" class="form-control" type="text" />
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <div class="form-group">
                     <label for="txtFechaHora">Fecha y Hora</label>
-                    <input id="txtFechaHora" class="form-control" type="text" />
+                    <input id="txtFechaHora" class="form-control" type="datetime-local" />
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">             
                 <div class="form-group">
                     <label for="sltDia">Día</label>
-                    <select id="sltDia" class="form-control">
+                    <select id="sltDia" class="form-control" required
+                        ng-options="dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="producto.type">
                         <option value="">Selecciona uno</option>
                     </select>
                 </div>
@@ -30,9 +31,12 @@
             <div class="col-sm-7">
                 <div class="form-group">
                     <label for="sltUbicacion">Ubicación</label>
-                    <select id="sltUbicacion" class="form-control">
-                        <option value="">Selecciona una</option>
+                    <select id="sltUbicacion" class="form-control"
+                        ng-options="ubicacion.id as ubicacion.descripcion for ubicacion in ubicaciones"
+                        ng-model="accidente.ubicacion_id">
+                        <option value="">Selecciona una Ubicación</option>
                     </select>
+                    <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
                 </div>
             </div>
             <div class="col-sm-5">
