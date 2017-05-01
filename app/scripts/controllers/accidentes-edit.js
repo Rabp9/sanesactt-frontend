@@ -8,12 +8,16 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('AccidentesEditCtrl', function ($scope, accidente, $uibModalInstance, AccidentesService, UbicacionesService) {
+.controller('AccidentesEditCtrl', function ($scope, accidente, $uibModalInstance, AccidentesService, UbicacionesService, CausasService) {
     $scope.accidente = $.extend(true, {}, accidente)
     
     UbicacionesService.get(function(data) {
         $scope.ubicaciones = data.ubicaciones;
-    })
+    });
+    
+    CausasService.get(function(data) {
+        $scope.causas = data.causas;
+    });
     
     $scope.cancel = function() {
         $uibModalInstance.dismiss('cancel');

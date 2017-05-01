@@ -19,6 +19,7 @@ angular.module('sanesacttFrontendApp')
                 templateUrl: 'views/accidentes-edit.html',
                 controller: 'AccidentesEditCtrl',
                 backdrop: false,
+                size: 'lg',
                 resolve: {
                     accidente: function() {
                         return $itemScope.accidente;

@@ -42,9 +42,12 @@
             <div class="col-sm-5">
                 <div class="form-group">
                     <label for="sltCausa">Causa</label>
-                    <select id="sltCausa" class="form-control">
-                        <option value="">Selecciona una</option>
+                    <select id="sltCausa" class="form-control"
+                        ng-options="causa.id as causa.descripcion for causa in causas"
+                        ng-model="accidente.causa_id">
+                        <option value="">Selecciona una Causa</option>
                     </select>
+                    <p class="help-block">{{ accidente.causa_dirty }}</p>
                 </div>
             </div>
         </div>
