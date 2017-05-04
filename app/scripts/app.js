@@ -59,6 +59,11 @@ angular
           controller: 'AccidentesEditCtrl',
           controllerAs: 'accidentesEdit'
         })
+        .when('/ubicaciones-add', {
+          templateUrl: 'views/ubicaciones-add.html',
+          controller: 'UbicacionesAddCtrl',
+          controllerAs: 'ubicacionesAdd'
+        })
         .otherwise({
             redirectTo: '/'
         });

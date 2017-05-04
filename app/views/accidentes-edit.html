@@ -31,22 +31,34 @@
             <div class="col-sm-7">
                 <div class="form-group">
                     <label for="sltUbicacion">Ubicación</label>
-                    <select id="sltUbicacion" class="form-control"
-                        ng-options="ubicacion.id as ubicacion.descripcion for ubicacion in ubicaciones"
-                        ng-model="accidente.ubicacion_id">
-                        <option value="">Selecciona una Ubicación</option>
-                    </select>
+                    <div class="input-group">
+                        <select id="sltUbicacion" class="form-control"
+                            ng-options="ubicacion.id as ubicacion.descripcion for ubicacion in ubicaciones"
+                            ng-model="accidente.ubicacion_id">
+                            <option value="">Selecciona una Ubicación</option>
+                        </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default pull-right"
+                                ng-click="showUbicacionesAdd($event, accidente.ubicacion_dirty)"><span class="glyphicon glyphicon-plus"></span></button>
+                        </span>
+                    </div>
                     <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
                 </div>
             </div>
             <div class="col-sm-5">
                 <div class="form-group">
                     <label for="sltCausa">Causa</label>
+                    <div class="input-group">
                     <select id="sltCausa" class="form-control"
                         ng-options="causa.id as causa.descripcion for causa in causas"
                         ng-model="accidente.causa_id">
                         <option value="">Selecciona una Causa</option>
                     </select>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default pull-right"
+                                ng-click="showCausasAdd()"><span class="glyphicon glyphicon-plus"></span></button>
+                        </span>
+                    </div>
                     <p class="help-block">{{ accidente.causa_dirty }}</p>
                 </div>
             </div>
