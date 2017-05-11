@@ -9,9 +9,11 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesAddCtrl', function ($scope, $uibModalInstance, ubicacion_dirty) {
+    $scope.ubicacion = {};
+
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
-    
-    $scope.ubicacion.descripcion = ubicacion_dirty
+    console.log(ubicacion_dirty);
+    $scope.ubicacion.descripcion = ubicacion_dirty;
 });

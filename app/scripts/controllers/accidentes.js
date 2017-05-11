@@ -21,8 +21,8 @@ angular.module('sanesacttFrontendApp')
                 backdrop: false,
                 size: 'lg',
                 resolve: {
-                    accidente: function() {
-                        return $itemScope.accidente;
+                    accidente_id: function() {
+                        return $itemScope.accidente.id;
                     }
                 }
             });

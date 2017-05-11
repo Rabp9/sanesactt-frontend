@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="sltDia">Día</label>
                     <select id="sltDia" class="form-control" required
-                        ng-options="dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="producto.type">
+                        ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="producto.type">
                         <option value="">Selecciona uno</option>
                     </select>
                 </div>
@@ -39,7 +39,7 @@
                         </select>
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-default pull-right"
-                                ng-click="showUbicacionesAdd($event, accidente.ubicacion_dirty)"><span class="glyphicon glyphicon-plus"></span></button>
+                                ng-click="showUbicacionesAdd(accidente.ubicacion_dirty, $event)"><span class="glyphicon glyphicon-plus"></span></button>
                         </span>
                     </div>
                     <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
@@ -90,7 +90,7 @@
                         <th>Tipo Servicio</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr ng-repeat="">
+                    <tr>
                         <td></td>
                         <td></td>
                         <td></td>
