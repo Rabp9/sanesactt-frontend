@@ -8,14 +8,22 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('AccidentesEditCtrl', function ($scope, accidente, $uibModalInstance, 
-    AccidentesService, UbicacionesService, CausasService, $uibModal) {
-    $scope.accidente = $.extend(true, {}, accidente);
+.controller('AccidentesEditCtrl', function ($scope, accidente_id, $uibModalInstance, 
+    AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
+    $scope.message = {};
     
+    var accidente = AccidentesService.get({
+        id: accidente_id
+    }, function () {
+        $scope.accidente = accidente.accidente;
+    }, function (err) {
+        $scope.message = err.data;
+    });
+        
     UbicacionesService.get(function (data) {
         $scope.ubicaciones = data.ubicaciones;
     });
-    
+    /*
     CausasService.get(function (data) {
         $scope.causas = data.causas;
     });
@@ -34,11 +42,9 @@ angular.module('sanesacttFrontendApp')
             $uibModalInstance.close(data);
         });
     };
-    
-    $scope.showUbicacionesAdd = function(event, ubicacion_dirty) {
-        console.log(ubicacion_dirty);
-        $(event.currentTarget).addClass('disabled');
-        $(event.currentTarget).prop('disabled', true);
+    */
+    $scope.showUbicacionesAdd = function(ubicacion_dirty, event) {
+        $utilsViewService.disable(event.currentTarget);
         
         var modalInstanceAdd = $uibModal.open({
             templateUrl: 'views/ubicaciones-add.html',
@@ -51,13 +57,12 @@ angular.module('sanesacttFrontendApp')
             }
         });
         
-        modalInstanceAdd.result.then(function (data) {
-            $scope.ambientes.push(data.ambiente);
-            $scope.message = data.message;
-        });
+        $utilsViewService.enable(event.currentTarget);
         
-        $(event.currentTarget).removeClass('disabled');
-        $(event.currentTarget).prop('disabled', false);
+        modalInstanceAdd.result.then(function (data) {
+            /*$scope.ambientes.push(data.ambiente);
+            $scope.message = data.message;*/
+        });
     };
     
 });

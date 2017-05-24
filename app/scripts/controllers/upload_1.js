@@ -8,7 +8,7 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, CausasService, $uibModal) {
+.controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsService) {
     // Ubicaciones
     var fetchingRecordsUbicaciones = false;
     $scope.accidentes = {};
@@ -38,8 +38,8 @@ angular.module('sanesacttFrontendApp')
         });
     };
                 
-    $scope.showUbicacionesAdd = function(accidente) {
-        $scope.newUbicacion = {};
+    $scope.showUbicacionesAdd = function(ubicacion_dirty, event) {
+        $utilsService.disable(event.currentTarget);
         var modalInstance = $uibModal.open({
             templateUrl: 'views/ubicaciones-add.html',
             controller: 'UbicacionesAddCtrl',

@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group">
-            <input class="form-control" placeholder="Buscar" ng-model="filtro" />
+            <input class="form-control" placeholder="Buscar" ng-model="searchText" />
         </div>
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | filter: filtro">
+                    <tr context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
                         <td>{{ accidente.nro_id }}</td>
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}</td>
