@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module("sanesacttFrontendApp")
 .factory("AccidentesService", function($resource) {
     return $resource(angular.module("sanesacttFrontendApp").path_location + "accidentes/:id.json", {}, {

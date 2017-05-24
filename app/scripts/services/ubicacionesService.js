@@ -1,3 +1,5 @@
+'use strict';
+
 angular
     .module("sanesacttFrontendApp")
         .factory("UbicacionesService", function($resource) {

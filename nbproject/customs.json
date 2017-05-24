@@ -1,5 +1,7 @@
 {
-    "elements": {},
+    "elements": {
+        "ui-view": {}
+    },
     "attributes": {
         "ng:class": {
             "context": "span"

@@ -1,3 +1,5 @@
+'use strict';
+
 angular
     .module("sanesacttFrontendApp")
         .factory("CausasService", function($resource) {

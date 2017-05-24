@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module("sanesacttFrontendApp")
     .directive('fileModel', ['$parse', function ($parse) {
         return {
