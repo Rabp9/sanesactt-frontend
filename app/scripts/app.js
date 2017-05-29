@@ -24,7 +24,8 @@ angular
     'ui.grid.resizeColumns',
     'ui.bootstrap',
     "checklist-model",
-    'ui.bootstrap.contextMenu'
+    'ui.bootstrap.contextMenu',
+    'ngMap'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     var mainState = {
@@ -38,7 +39,7 @@ angular
     
     var uploadState = {
         name: 'upload',
-        url: '/',
+        url: '/upload',
         templateUrl: 'views/upload.html',
         controller: 'UploadCtrl',
         controllerAs: 'upload',
@@ -47,7 +48,7 @@ angular
     
     var accidentesState = {
         name: 'accidentes',
-        url: '/',
+        url: '/accidentes',
         templateUrl: 'views/accidentes.html',
         controller: 'AccidentesCtrl',
         controllerAs: 'accidentes',

@@ -1,16 +1,16 @@
 'use strict';
 
 angular
-    .module("sanesacttFrontendApp")
-        .factory("CausasService", function($resource) {
-            return $resource(angular.module("sanesacttFrontendApp").path_location + "causas/:id.json", {id:'@id'}, {
-                buscar: {
-                    method: 'GET',
-                    url: angular.module("sanesacttFrontendApp").path_location + "causas/buscar/:texto.json"
-                },
-                buscarCausas: {
-                    method: 'POST',
-                    url: angular.module("sanesacttFrontendApp").path_location + "causas/buscarCausas/.json"
-                }
-            });
-        });
+.module("sanesacttFrontendApp")
+.factory("CausasService", function($resource, EnvService) {
+    return $resource(EnvService.getHost() + "causas/:id.json", {id:'@id'}, {
+        buscar: {
+            method: 'GET',
+            url: EnvService.getHost() + "causas/buscar/:texto.json"
+        },
+        buscarCausas: {
+            method: 'POST',
+            url: EnvService.getHost() + "causas/buscarCausas/.json"
+        }
+    });
+});

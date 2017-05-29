@@ -1,6 +1,8 @@
 {
     "elements": {
-        "ui-view": {}
+        "marker": {},
+        "ui-view": {},
+        "ng-map": {}
     },
     "attributes": {
         "ng:class": {
@@ -8,6 +10,9 @@
         },
         "file-model": {
             "context": "input"
+        },
+        "map-lazy-load": {
+            "context": "div"
         }
     }
 }

@@ -8,24 +8,38 @@
             <label for="txtDescripcion">Descripción</label>
             <input id="txtDescripcion" class="form-control" type="text" ng-model="ubicacion.descripcion" />
         </div>
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label for="txtLongitud">Longitud</label>
-                <input id="txtLongitud" class="form-control" type="text" ng-model="ubicacion.longitud" />
+        <div class="form-group">
+            <label>Ubicación</label>
+            <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{ googleMapsUrl }}">
+                <ng-map center="-8.1103401, -79.01554" zoom="13" on-click="setMarker()">
+                    <marker position="{{ubicacion.latitud}}, {{ubicacion.longitud}}">
+                </ng-map>
             </div>
-            <div class="form-group col-sm-6">
-                <label for="txtLatitud">Latitud</label>
-                <input id="txtLatitud" class="form-control" type="text" ng-model="ubicacion.latitud" />
-            </div>
-        </div> 
+        </div>
         <div class="form-group">
             <label for="flFoto">Foto</label>
             <input id="flFoto" class="form-control" type="file" ng-model="ubicacion.foto" />
         </div>
         <div class="form-group">
-            <label for="txtVariaciones">Variaciones </label>
-            <input id="txtVariaciones" class="form-control" type="text" ng-model="ubicacion.variaciones" />
-            <span class="help-block">Separado por puntos y comas (;)</span>
+            <label for="txtDato">Nueva Variación</label>
+            <div class="input-group">
+                <input id="txtDato" class="form-control" type="text" ng-model="ubicacion_variacion_nueva" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" ng-click="addVariacion(ubicacion_variacion_nueva)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
+            <div ui-sortable ng-model="ubicacion.variaciones">
+                <p class="input-group" ng-repeat="variacion in ubicacion.variaciones"
+                    style="padding: 5px 10px; cursor: move;">
+                    <input type="text" class="form-control" ng-model="variacion"
+                        name="variacion{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" ng-click="removeVariacion(variacion)">X</button>
+                    </span>
+                </p>
+            </div>
         </div>
     </div>
     <div class="modal-footer">
