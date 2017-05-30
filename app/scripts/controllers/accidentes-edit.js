@@ -8,12 +8,13 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('AccidentesEditCtrl', function ($scope, accidente_id, $uibModalInstance, 
+.controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
     $scope.message = {};
     
-    var accidente = AccidentesService.get({
-        id: accidente_id
+    var accidente = AccidentesService.getByNroIdNAnio({
+        nro_id: accidente_nro_id,
+        anio: accidente_anio
     }, function () {
         $scope.accidente = accidente.accidente;
     }, function (err) {

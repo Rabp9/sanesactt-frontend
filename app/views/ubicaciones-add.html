@@ -18,7 +18,8 @@
         </div>
         <div class="form-group">
             <label for="flFoto">Foto</label>
-            <input id="flFoto" class="form-control" type="file" ng-model="ubicacion.foto" />
+            <input id="flFoto" type="file" class="form-control" ngf-select="preview($file, $invalidFiles)" 
+                ngf-max-height="5000" ngf-max-size="10MB" accept="image/*"/>
         </div>
         <div class="form-group">
             <label for="txtDato">Nueva Variación</label>
@@ -30,13 +31,13 @@
                     </button>
                 </span>
             </div>
-            <div ui-sortable ng-model="ubicacion.variaciones">
-                <p class="input-group" ng-repeat="variacion in ubicacion.variaciones"
+            <div ui-sortable ng-model="ubicacion.detalle_ubicaciones">
+                <p class="input-group" ng-repeat="detalle_ubicacion in ubicacion.detalle_ubicaciones"
                     style="padding: 5px 10px; cursor: move;">
-                    <input type="text" class="form-control" ng-model="variacion"
-                        name="variacion{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
+                    <input type="text" class="form-control" ng-model="detalle_ubicacion.descripcion"
+                        name="detalleUbicacion{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-danger" ng-click="removeVariacion(variacion)">X</button>
+                        <button type="button" class="btn btn-danger" ng-click="removeDetalleUbicacion(detalle_ubicacion)">X</button>
                     </span>
                 </p>
             </div>

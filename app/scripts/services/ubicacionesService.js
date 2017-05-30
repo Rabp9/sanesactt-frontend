@@ -11,6 +11,12 @@ angular
         buscarUbicaciones: {
             method: 'POST',
             url: EnvService.getHost() + "ubicaciones/buscarUbicaciones/.json"
-        }
+        },
+        preview: {
+            method: 'POST',
+            url: EnvService.getHost() + 'ubicaciones/preview/.json',
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        },
     });
 });

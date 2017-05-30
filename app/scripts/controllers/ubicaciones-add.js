@@ -9,10 +9,16 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesAddCtrl', function ($scope, $uibModalInstance, ubicacion_dirty, 
-    NgMap) {
+    NgMap, UbicacionesService) {
+        
     $scope.ubicacion = {};
     $scope.ubicacion.descripcion = ubicacion_dirty;
-
+    $scope.ubicacion.detalle_ubicaciones = [];
+    $scope.ubicacion.detalle_ubicaciones.push({
+        descripcion: ubicacion_dirty,
+        estado_id: 1
+    });
+    
     NgMap.getMap().then(function(map) {
         google.maps.event.trigger(map, 'resize'); 
     });
@@ -27,5 +33,14 @@ angular.module('sanesacttFrontendApp')
     
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
+    };
+    
+    $scope.preview = function(escaneado, errFiles) {
+        var fd = new FormData();
+        fd.append('file', escaneado);
+        
+        UbicacionesService.preview(fd, function(data) {
+            $scope.foto_url = data.foto_url;
+        });
     };
 });

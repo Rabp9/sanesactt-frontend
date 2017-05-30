@@ -12,6 +12,10 @@ angular.module("sanesacttFrontendApp")
         saveMany: {
             method: 'POST',
             url: EnvService.getHost() + "accidentes/saveMany.json"
+        },
+        getByNroIdNAnio: {
+            method: 'GET',
+            url: EnvService.getHost() + "accidentes/getByNroIdNAnio.json"
         }
     });
 });
