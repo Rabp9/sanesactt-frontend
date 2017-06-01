@@ -11,6 +11,7 @@ angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
     $scope.message = {};
+    getUbicaciones();
     
     var accidente = AccidentesService.getByNroIdNAnio({
         nro_id: accidente_nro_id,
@@ -21,9 +22,11 @@ angular.module('sanesacttFrontendApp')
         $scope.message = err.data;
     });
         
-    UbicacionesService.get(function (data) {
-        $scope.ubicaciones = data.ubicaciones;
-    });
+    function getUbicaciones() {
+        UbicacionesService.get(function (data) {
+            $scope.ubicaciones = data.ubicaciones;
+        });
+    }
     /*
     CausasService.get(function (data) {
         $scope.causas = data.causas;
@@ -61,8 +64,8 @@ angular.module('sanesacttFrontendApp')
         $utilsViewService.enable(event.currentTarget);
         
         modalInstanceAdd.result.then(function (data) {
-            /*$scope.ambientes.push(data.ambiente);
-            $scope.message = data.message;*/
+            getUbicaciones();
+            $scope.message = data;
         });
     };
     

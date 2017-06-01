@@ -17,6 +17,6 @@ angular
             url: EnvService.getHost() + 'ubicaciones/preview/.json',
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
-        },
+        }
     });
 });

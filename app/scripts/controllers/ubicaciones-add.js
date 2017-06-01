@@ -9,8 +9,10 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesAddCtrl', function ($scope, $uibModalInstance, ubicacion_dirty, 
-    NgMap, UbicacionesService) {
-        
+    NgMap, UbicacionesService, EnvService, $utilsViewService) {
+    
+    $scope.tmp_path = EnvService.getHost() + 'tmp/';
+    $scope.loading = false;
     $scope.ubicacion = {};
     $scope.ubicacion.descripcion = ubicacion_dirty;
     $scope.ubicacion.detalle_ubicaciones = [];
@@ -35,12 +37,32 @@ angular.module('sanesacttFrontendApp')
         $uibModalInstance.dismiss('cancel');
     };
     
-    $scope.preview = function(escaneado, errFiles) {
+    $scope.addVariacion = function(variacion) {
+        $scope.ubicacion.detalle_ubicaciones.push({
+            descripcion: variacion,
+            estado_id: 1
+        });
+        $scope.ubicacion_variacion_nueva = '';
+    };
+    
+    $scope.preview = function(foto, errFiles) {
+        $scope.loading = true;
         var fd = new FormData();
-        fd.append('file', escaneado);
+        fd.append('file', foto);
         
         UbicacionesService.preview(fd, function(data) {
-            $scope.foto_url = data.foto_url;
+            $scope.ubicacion.foto = data.filename;      
+            $scope.loading = false;
+        });
+    };
+    
+    $scope.saveUbicacion = function(ubicacion, btn) {
+        $utilsViewService.disable('#' + btn);
+        
+        UbicacionesService.save(ubicacion, function(data) {
+            $uibModalInstance.close(data);
+        }, function (err) {
+            $uibModalInstance.close(err.data);
         });
     };
 });

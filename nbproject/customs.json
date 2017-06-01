@@ -8,6 +8,9 @@
         "ng:class": {
             "context": "span"
         },
+        "ngf-select": {
+            "context": "input"
+        },
         "file-model": {
             "context": "input"
         },
