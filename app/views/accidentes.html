@@ -23,7 +23,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
+                    <tr ng-show="loading"><td colspan="6">Cargando...</td></tr>
+                    <tr ng-show="!loading && accidentes.length === 0"><td colspan="6">No hay registros</td></tr>
+                    <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
                         <td>{{ accidente.nro_id }}</td>
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}</td>

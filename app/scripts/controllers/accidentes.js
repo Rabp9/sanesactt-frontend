@@ -9,9 +9,15 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesCtrl', function ($scope, AccidentesService, $uibModal) {
-    AccidentesService.get(function(data) {
-        $scope.accidentes = data.accidentes;
-    });
+    $scope.getAccidentes = function() {
+        $scope.loading = true;
+        AccidentesService.get(function(data) {
+            $scope.accidentes = data.accidentes;
+            $scope.loading = false;
+        }); 
+    };
+    
+    $scope.getAccidentes();
     
     $scope.menuOptions = [
         ['<span class="glyphicon glyphicon-pencil"></span> Editar Accidente', function ($itemScope, $event, modelValue, text, $li) {

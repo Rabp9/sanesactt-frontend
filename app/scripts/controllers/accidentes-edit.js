@@ -11,8 +11,6 @@ angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
     $scope.message = {};
-    getUbicaciones();
-    
     var accidente = AccidentesService.getByNroIdNAnio({
         nro_id: accidente_nro_id,
         anio: accidente_anio
@@ -21,32 +19,37 @@ angular.module('sanesacttFrontendApp')
     }, function (err) {
         $scope.message = err.data;
     });
-        
-    function getUbicaciones() {
+    
+    $scope.getUbicaciones = function() {
         UbicacionesService.get(function (data) {
             $scope.ubicaciones = data.ubicaciones;
         });
     }
-    /*
-    CausasService.get(function (data) {
-        $scope.causas = data.causas;
-    });
+    
+    $scope.getCausas = function() {
+        CausasService.get(function (data) {
+            $scope.causas = data.causas;
+        });
+    };
+    
+    $scope.getUbicaciones();
+    $scope.getCausas();
     
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
     
+    /*
     $scope.savePage = function (page, boton) {
-        $('#' + boton).addClass('disabled');
-        $('#' + boton).prop('disabled', true);
+        $utilsViewService.disable('#' + boton);
         
         AccidentesService.save(page, function(data) {
-            $('#' + boton).removeClass('disabled');
-            $('#' + boton).prop('disabled', false);
+        $utilsViewService.enable('#' + boton);
             $uibModalInstance.close(data);
         });
     };
     */
+   
     $scope.showUbicacionesAdd = function(ubicacion_dirty, event) {
         $utilsViewService.disable(event.currentTarget);
         
@@ -64,9 +67,32 @@ angular.module('sanesacttFrontendApp')
         $utilsViewService.enable(event.currentTarget);
         
         modalInstanceAdd.result.then(function (data) {
-            getUbicaciones();
+            $scope.getUbicaciones();
             $scope.message = data;
+            $scope.accidente.ubicacion_id = $scope.message.ubicacion.id;
         });
     };
     
+    $scope.showCausasAdd = function(causa_dirty, event) {
+        $utilsViewService.disable(event.currentTarget);
+        
+        var modalInstanceAdd = $uibModal.open({
+            templateUrl: 'views/causas-add.html',
+            controller: 'CausasAddCtrl',
+            backdrop: false,
+            resolve: {
+                causa_dirty: function() {
+                    return causa_dirty;
+                }
+            }
+        });
+        
+        $utilsViewService.enable(event.currentTarget);
+        
+        modalInstanceAdd.result.then(function (data) {
+            $scope.getCausas();
+            $scope.message = data;
+            $scope.accidente.causa_id = $scope.message.causa.id;
+        });
+    };
 });

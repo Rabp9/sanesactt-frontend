@@ -9,23 +9,37 @@
  */
 angular
 .module('sanesacttFrontendApp')
-.controller('CausasAddCtrl', function ($scope, CausasService, $uibModalInstance, causa_text) {
+.controller('CausasAddCtrl', function ($scope, $uibModalInstance, causa_dirty, 
+    CausasService, EnvService, $utilsViewService) {
+    
+    $scope.loading = false;
     $scope.causa = {};
-    $scope.causa.descripcion = causa_text;
-    $scope.causa.variaciones = causa_text + "; ";
-
-    $scope.cancel = function() {
+    $scope.causa.descripcion = causa_dirty;
+    $scope.causa.detalle_causas = [];
+    $scope.causa.detalle_causas.push({
+        descripcion: causa_dirty,
+        estado_id: 1
+    });
+    
+    $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
-
-    $scope.saveCausa = function(causa, boton) {
-        $('#' + boton).addClass('disabled');
-        $('#' + boton).prop('disabled', true);
-
-        CausasService.save(causa, function(data) {
-            $('#' + boton).removeClass('disabled');
-            $('#' + boton).prop('disabled', false);
-            $uibModalInstance.close(data);
+    
+    $scope.addVariacion = function(variacion) {
+        $scope.causa.detalle_causas.push({
+            descripcion: variacion,
+            estado_id: 1
         });
-    }
+        $scope.causa_variacion_nueva = '';
+    };
+        
+    $scope.saveCausa = function(causa, btn) {
+        $utilsViewService.disable('#' + btn);
+        
+        CausasService.save(causa, function(data) {
+            $uibModalInstance.close(data);
+        }, function (err) {
+            $uibModalInstance.close(err.data);
+        });
+    };
 });
