@@ -10,21 +10,27 @@
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
+        
     $scope.message = {};
-    var accidente = AccidentesService.getByNroIdNAnio({
-        nro_id: accidente_nro_id,
-        anio: accidente_anio
-    }, function () {
-        $scope.accidente = accidente.accidente;
-    }, function (err) {
-        $scope.message = err.data;
-    });
+    
+    $scope.getAccidente = function() {
+        AccidentesService.getByNroIdNAnio({
+            nro_id: accidente_nro_id,
+            anio: accidente_anio
+        }, function (data) {
+            $scope.accidente = data.accidente;
+            var parseDate = new Date($scope.accidente.fechaHora);
+            $scope.accidente.fechaHora = parseDate;
+        }, function (err) {
+            $scope.message = err.data;
+        });
+    };
     
     $scope.getUbicaciones = function() {
         UbicacionesService.get(function (data) {
             $scope.ubicaciones = data.ubicaciones;
         });
-    }
+    };
     
     $scope.getCausas = function() {
         CausasService.get(function (data) {
@@ -32,8 +38,11 @@ angular.module('sanesacttFrontendApp')
         });
     };
     
-    $scope.getUbicaciones();
-    $scope.getCausas();
+    $scope.init = function() {
+        $scope.getAccidente();
+        $scope.getUbicaciones();
+        $scope.getCausas();
+    };
     
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
@@ -95,4 +104,6 @@ angular.module('sanesacttFrontendApp')
             $scope.accidente.causa_id = $scope.message.causa.id;
         });
     };
+    
+    $scope.init();
 });

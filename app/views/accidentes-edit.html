@@ -13,20 +13,20 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="txtAnio">Año</label>
-                    <input id="txtAnio" class="form-control" type="text" />
+                    <input id="txtAnio" class="form-control" type="text" ng-model="accidente.anio" />
                 </div>
             </div>
             <div class="col-sm-5">
                 <div class="form-group">
                     <label for="txtFechaHora">Fecha y Hora</label>
-                    <input id="txtFechaHora" class="form-control" type="datetime-local" />
+                    <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.fechaHora" />
                 </div>
             </div>
             <div class="col-sm-3">             
                 <div class="form-group">
                     <label for="sltDia">Día</label>
                     <select id="sltDia" class="form-control" required
-                        ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="producto.type">
+                        ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="accidente.dia">
                         <option value="">Selecciona uno</option>
                     </select>
                 </div>
