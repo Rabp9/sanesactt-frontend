@@ -1,0 +1,26 @@
+<form ng-submit="saveDetalleAccidente(detalleAccidente, 'btnSaveCausa')">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Nuevo Detalle de Accidente</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="sltTipoVehiculo">Tipo de Vehículo</label>
+            <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id"
+                ng-options="tipo_vehiculo.id as tipo_vehiculo.descripcion for tipo_vehiculo in tipo_vehiculos">
+                <option value="">Selecciona uno</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sltTipoServicio">Tipo de Servicio</label>
+            <select id="sltTipoServicio" class="form-control" required ng-model="detalle_accidente.tipo_servicio_id"
+                ng-options="tipo_servicio.id as tipo_servicio.descripcion for tipo_servicio in tipo_servicios">
+                <option value="">Selecciona uno</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+        <button id="btnSaveDetalleAccidente" class="btn btn-success" type="submit">Guardar Detalle de Accidente</button>
+    </div>
+</form>

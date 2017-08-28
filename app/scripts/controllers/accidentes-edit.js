@@ -21,6 +21,7 @@ angular.module('sanesacttFrontendApp')
             $scope.accidente = data.accidente;
             var parseDate = new Date($scope.accidente.fechaHora);
             $scope.accidente.fechaHora = parseDate;
+            console.log($scope.accidente);
         }, function (err) {
             $scope.message = err.data;
         });
@@ -47,18 +48,7 @@ angular.module('sanesacttFrontendApp')
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
-    
-    /*
-    $scope.savePage = function (page, boton) {
-        $utilsViewService.disable('#' + boton);
-        
-        AccidentesService.save(page, function(data) {
-        $utilsViewService.enable('#' + boton);
-            $uibModalInstance.close(data);
-        });
-    };
-    */
-   
+       
     $scope.showUbicacionesAdd = function(ubicacion_dirty, event) {
         $utilsViewService.disable(event.currentTarget);
         
@@ -102,6 +92,30 @@ angular.module('sanesacttFrontendApp')
             $scope.getCausas();
             $scope.message = data;
             $scope.accidente.causa_id = $scope.message.causa.id;
+        });
+    };
+    
+    $scope.showDetalleAccidentesAdd = function(tipo_vehiculo_dirty, tipo_servicio_dirty, event) {
+        $utilsViewService.disable(event.currentTarget);
+        
+        var modalInstanceAdd = $uibModal.open({
+            templateUrl: 'views/detalle-accidentes-add.html',
+            controller: 'DetalleAccidentesAddCtrl',
+            backdrop: false,
+            resolve: {
+                tipo_vehiculo_dirty: function() {
+                    return tipo_vehiculo_dirty;
+                },
+                tipo_servicio_dirty: function() {
+                    return tipo_servicio_dirty;
+                }
+            }
+        });
+        
+        $utilsViewService.enable(event.currentTarget);
+        
+        modalInstanceAdd.result.then(function (data) {
+            
         });
     };
     

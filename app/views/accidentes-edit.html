@@ -1,4 +1,3 @@
-
 <form ng-submit="saveAccidente(accidente, 'btnSaveAccidente')">
     <div class="modal-header">
         <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
@@ -70,24 +69,27 @@
         </div>
         <div class="row">
             <div class="form-group col-sm-3">
-                <label for="txtFallecidosHombres">Fll. H.</label>
-                <input id="txtFallecidosHombres" class="form-control" type="text" />
+                <label for="txtFallecidosHombres">Fallecidos Hombres</label>
+                <input id="txtFallecidosHombres" class="form-control" type="text" ng-model="accidente.fallecidos_hombres" />
             </div>
             <div class="form-group col-sm-3">
-                <label for="txtFallecidosMujeres">Fll. M.</label>
-                <input id="txtFallecidosMujeres" class="form-control" type="text" />
+                <label for="txtFallecidosMujeres">Fallecidos Mujeres</label>
+                <input id="txtFallecidosMujeres" class="form-control" type="text" ng-model="accidente.fallecidos_mujeres" />
             </div>
             <div class="form-group col-sm-3">
-                <label for="txtHeridosHombres">Hr. H.</label>
-                <input id="txtHeridosHombres" class="form-control" type="text" />
+                <label for="txtHeridosHombres">Heridos Hombres</label>
+                <input id="txtHeridosHombres" class="form-control" type="text" ng-model="accidente.heridos_hombres" />
             </div>
             <div class="form-group col-sm-3">
-                <label for="txtHeridosMujeres">Hr. M.</label>
-                <input id="txtHeridosMujeres" class="form-control" type="text" />
+                <label for="txtHeridosMujeres">Heridos Mujeres</label>
+                <input id="txtHeridosMujeres" class="form-control" type="text" ng-model="accidente.heridos_mujeres" />
             </div>
         </div>
         <div class="form-group">
             <label>Tipo de Vehiculo y Servicios</label>
+            <p>Tipo de Vehículo: {{ accidente.tipo_vehiculo_dirty }}</p>
+            <p>Tipo de Servicio: {{ accidente.tipo_servicio_dirty }}</p>
+            <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Registro</button></p>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
@@ -95,10 +97,13 @@
                         <th>Tipo Servicio</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr ng-show="accidente.detalle_accidentes.length === 0">
+                        <td colspan="3">No hay registros</td>
+                    </tr>
+                    <tr ng-show="accidente.detalle_accidentes.length !== 0">
+                        <td>{{ registro.tipo_vehiculo.descripcion }}</td>
+                        <td>{{ registro.tipo_servicio.descripcion }}</td>
+                        <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                     </tr>
                 </table>
             </div>
