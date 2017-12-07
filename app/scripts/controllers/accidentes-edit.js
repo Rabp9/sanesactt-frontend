@@ -9,8 +9,10 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
-    AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService) {
-        
+    AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService,
+    TipoServiciosService, TipoVehiculosService, $q) {
+    
+    $scope.accidente = {};
     $scope.message = {};
     
     $scope.getAccidente = function() {
@@ -21,9 +23,6 @@ angular.module('sanesacttFrontendApp')
             $scope.accidente = data.accidente;
             var parseDate = new Date($scope.accidente.fechaHora);
             $scope.accidente.fechaHora = parseDate;
-            console.log($scope.accidente);
-        }, function (err) {
-            $scope.message = err.data;
         });
     };
     
@@ -115,6 +114,19 @@ angular.module('sanesacttFrontendApp')
         $utilsViewService.enable(event.currentTarget);
         
         modalInstanceAdd.result.then(function (data) {
+            $q.all([
+                 TipoServiciosService.get({id: data.tipo_servicio_id}).$promise,
+                 TipoVehiculosService.get({id: data.tipo_vehiculo_id}).$promise
+            ]).then(function(data) {
+                var tipo_servicio = data[0].tipo_servicio;
+                var tipo_vehiculo = data[1].tipo_vehiculo;
+                
+                var detalle_accidente = {
+                    tipo_vehiculo: tipo_vehiculo,
+                    tipo_servicio: tipo_servicio
+                };
+                $scope.accidente.detalle_accidentes.push(detalle_accidente);
+            });
             
         });
     };

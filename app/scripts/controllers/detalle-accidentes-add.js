@@ -9,8 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('DetalleAccidentesAddCtrl', function ($scope, TipoVehiculosService, 
-    TipoServiciosService, $uibModalInstance, $utilsViewService,
-    DetalleAccidentesService) {
+    TipoServiciosService, $uibModalInstance, $utilsViewService, DetalleAccidentesService) {
         
     $scope.getTipoVehiculos = function() {
         TipoVehiculosService.get(function(data) {
@@ -35,12 +34,7 @@ angular.module('sanesacttFrontendApp')
     
     $scope.saveDetalleAccidente = function(detalle_accidente, btn) {
         $utilsViewService.disable('#' + btn);
-        
-        DetalleAccidentesService.save(detalle_accidente, function(data) {
-            $uibModalInstance.close(data);
-        }, function (err) {
-            $uibModalInstance.close(err.data);
-        });
+        $uibModalInstance.close(detalle_accidente);
     };
     
     $scope.init();

@@ -100,9 +100,9 @@
                     <tr ng-show="accidente.detalle_accidentes.length === 0">
                         <td colspan="3">No hay registros</td>
                     </tr>
-                    <tr ng-show="accidente.detalle_accidentes.length !== 0">
-                        <td>{{ registro.tipo_vehiculo.descripcion }}</td>
-                        <td>{{ registro.tipo_servicio.descripcion }}</td>
+                    <tr ng-show="accidente.detalle_accidentes.length !== 0" ng-repeat="detalle_accidente in accidente.detalle_accidentes">
+                        <td>{{ detalle_accidente.tipo_vehiculo.descripcion }}</td>
+                        <td>{{ detalle_accidente.tipo_servicio.descripcion }}</td>
                         <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
                     </tr>
                 </table>
