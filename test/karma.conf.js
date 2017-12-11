@@ -35,6 +35,7 @@ module.exports = function(config) {
       'bower_components/checklist-model/checklist-model.js',
       'bower_components/angular-bootstrap-contextmenu/contextMenu.js',
       'bower_components/ngmap/build/scripts/ng-map.js',
+      'bower_components/tg-angular-validator/dist/angular-validator.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

@@ -42,8 +42,10 @@
                             <option value="">Selecciona una Ubicación</option>
                         </select>
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default pull-right"
-                                ng-click="showUbicacionesAdd(accidente.ubicacion_dirty, $event)"><span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="button" class="btn btn-default pull-right" title="Nueva Ubicación"
+                                ng-click="showUbicacionesAdd(accidente.ubicacion_dirty, $event)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
                         </span>
                     </div>
                     <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
@@ -59,8 +61,10 @@
                         <option value="">Selecciona una Causa</option>
                     </select>
                         <span class="input-group-btn">
-                            <button type="button" class="btn btn-default pull-right"
-                                ng-click="showCausasAdd(accidente.causa_dirty, $event)"><span class="glyphicon glyphicon-plus"></span></button>
+                            <button type="button" class="btn btn-default pull-right" title="Nueva Causa"
+                                ng-click="showCausasAdd(accidente.causa_dirty, $event)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
                         </span>
                     </div>
                     <p class="help-block">{{ accidente.causa_dirty }}</p>
@@ -89,7 +93,7 @@
             <label>Tipo de Vehiculo y Servicios</label>
             <p>Tipo de Vehículo: {{ accidente.tipo_vehiculo_dirty }}</p>
             <p>Tipo de Servicio: {{ accidente.tipo_servicio_dirty }}</p>
-            <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Registro</button></p>
+            <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Detalle</button></p>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
@@ -103,7 +107,7 @@
                     <tr ng-show="accidente.detalle_accidentes.length !== 0" ng-repeat="detalle_accidente in accidente.detalle_accidentes">
                         <td>{{ detalle_accidente.tipo_vehiculo.descripcion }}</td>
                         <td>{{ detalle_accidente.tipo_servicio.descripcion }}</td>
-                        <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></td>
+                        <td><button type="button" class="btn btn-danger" ng-click="removeDetalle(detalle_accidente)"><span class="glyphicon glyphicon-remove"></span></button></td>
                     </tr>
                 </table>
             </div>

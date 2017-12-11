@@ -1,4 +1,4 @@
-<form ng-submit="saveDetalleAccidente(detalle_accidente, 'btnSaveCausa')">
+<form ng-submit="saveDetalleAccidente(detalle_accidente, 'btnSaveDetalleAccidente')">
     <div class="modal-header">
         <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Nuevo Detalle de Accidente</h4>
@@ -6,17 +6,33 @@
     <div class="modal-body">
         <div class="form-group">
             <label for="sltTipoVehiculo">Tipo de Vehículo</label>
-            <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id"
-                ng-options="tipo_vehiculo.id as tipo_vehiculo.descripcion for tipo_vehiculo in tipo_vehiculos">
-                <option value="">Selecciona uno</option>
-            </select>
+            <div class="input-group">
+                <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id"
+                    ng-options="tipo_vehiculo.id as tipo_vehiculo.descripcion for tipo_vehiculo in tipo_vehiculos">
+                    <option value="">Selecciona uno</option>
+                </select>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default pull-right" title="Nuevo Tipo de Vehiculo"
+                        ng-click="showTipoVehiculosAdd($event)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
         </div>
         <div class="form-group">
             <label for="sltTipoServicio">Tipo de Servicio</label>
-            <select id="sltTipoServicio" class="form-control" required ng-model="detalle_accidente.tipo_servicio_id"
-                ng-options="tipo_servicio.id as tipo_servicio.descripcion for tipo_servicio in tipo_servicios">
-                <option value="">Selecciona uno</option>
-            </select>
+            <div class="input-group">
+                <select id="sltTipoServicio" class="form-control" required ng-model="detalle_accidente.tipo_servicio_id"
+                    ng-options="tipo_servicio.id as tipo_servicio.descripcion for tipo_servicio in tipo_servicios">
+                    <option value="">Selecciona uno</option>
+                </select>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default pull-right" title="Nuevo Tipo de Servicio"
+                        ng-click="showTipoServiciosAdd($event)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
         </div>
     </div>
     <div class="modal-footer">

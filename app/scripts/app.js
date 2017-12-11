@@ -25,7 +25,8 @@ angular
     'ui.bootstrap',
     "checklist-model",
     'ui.bootstrap.contextMenu',
-    'ngMap'
+    'ngMap',
+    'angularValidator'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
     var mainState = {

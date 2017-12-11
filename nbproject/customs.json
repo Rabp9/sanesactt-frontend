@@ -8,6 +8,9 @@
         "ng:class": {
             "context": "span"
         },
+        "angular-validator": {
+            "context": "form"
+        },
         "ngf-select": {
             "context": "input"
         },

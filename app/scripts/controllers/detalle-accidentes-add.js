@@ -9,7 +9,8 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('DetalleAccidentesAddCtrl', function ($scope, TipoVehiculosService, 
-    TipoServiciosService, $uibModalInstance, $utilsViewService, DetalleAccidentesService) {
+    TipoServiciosService, $uibModalInstance, $utilsViewService,
+    $uibModal) {
         
     $scope.getTipoVehiculos = function() {
         TipoVehiculosService.get(function(data) {
@@ -35,6 +36,24 @@ angular.module('sanesacttFrontendApp')
     $scope.saveDetalleAccidente = function(detalle_accidente, btn) {
         $utilsViewService.disable('#' + btn);
         $uibModalInstance.close(detalle_accidente);
+    };
+    
+    $scope.showTipoVehiculosAdd = function($event) {
+        var modalInstanceAdd = $uibModal.open({
+            templateUrl: 'views/tipo-vehiculos-add.html',
+            controller: 'TipoVehiculosAddCtrl',
+            backdrop: false
+        });
+
+        modalInstanceAdd.result.then(function (data) {
+            console.log(data);
+            $scope.message = data.message;
+        });
+    };
+    
+    
+    $scope.showTipoServiciosAdd = function($event) {
+        
     };
     
     $scope.init();

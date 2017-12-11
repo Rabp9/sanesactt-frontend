@@ -131,5 +131,10 @@ angular.module('sanesacttFrontendApp')
         });
     };
     
+    $scope.removeDetalle = function(detalle_accidente) {
+        var index = $scope.accidente.detalle_accidentes.indexOf(detalle_accidente);
+        $scope.accidente.detalle_accidentes.splice(index, 1);
+    };
+    
     $scope.init();
 });
