@@ -4,12 +4,16 @@
         <h4 class="modal-title">Nuevo Detalle de Accidente</h4>
     </div>
     <div class="modal-body">
+        <div class="alert alert-dismissible" ng-class="{'alert-success': message.code === 200, 'alert-danger': message.code !== 200 }" role="alert" ng-show="message.code !== undefined">
+            <button type="button" class="close" ng-click="message.code = undefined" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{ message.message }} 
+        </div>
         <div class="form-group">
             <label for="sltTipoVehiculo">Tipo de Vehículo</label>
             <div class="input-group">
                 <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id"
                     ng-options="tipo_vehiculo.id as tipo_vehiculo.descripcion for tipo_vehiculo in tipo_vehiculos">
-                    <option value="">Selecciona uno</option>
+                    <option value="">{{ loading_tipo_vehiculos }}</option>
                 </select>
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default pull-right" title="Nuevo Tipo de Vehiculo"
@@ -24,7 +28,7 @@
             <div class="input-group">
                 <select id="sltTipoServicio" class="form-control" required ng-model="detalle_accidente.tipo_servicio_id"
                     ng-options="tipo_servicio.id as tipo_servicio.descripcion for tipo_servicio in tipo_servicios">
-                    <option value="">Selecciona uno</option>
+                    <option value="">{{ loading_tipo_servicios }}</option>
                 </select>
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default pull-right" title="Nuevo Tipo de Servicio"

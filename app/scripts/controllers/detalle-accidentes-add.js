@@ -13,13 +13,17 @@ angular.module('sanesacttFrontendApp')
     $uibModal) {
         
     $scope.getTipoVehiculos = function() {
+        $scope.loading_tipo_vehiculos = 'Cargando...';
         TipoVehiculosService.get(function(data) {
+            $scope.loading_tipo_vehiculos = 'Selecciona uno';
             $scope.tipo_vehiculos = data.tipo_vehiculos;
         });
     };
       
     $scope.getTipoServicios = function() {
+        $scope.loading_tipo_servicios = 'Cargando...';
         TipoServiciosService.get(function(data) {
+            $scope.loading_tipo_servicios = 'Selecciona uno';
             $scope.tipo_servicios = data.tipo_servicios;
         });
     };
@@ -38,22 +42,35 @@ angular.module('sanesacttFrontendApp')
         $uibModalInstance.close(detalle_accidente);
     };
     
-    $scope.showTipoVehiculosAdd = function($event) {
+    $scope.showTipoVehiculosAdd = function(event) {
+        $utilsViewService.disable(event.currentTarget);
         var modalInstanceAdd = $uibModal.open({
             templateUrl: 'views/tipo-vehiculos-add.html',
             controller: 'TipoVehiculosAddCtrl',
             backdrop: false
         });
 
+        $utilsViewService.enable(event.currentTarget);
         modalInstanceAdd.result.then(function (data) {
-            console.log(data);
-            $scope.message = data.message;
+            $scope.message = data;
+            $scope.tipo_vehiculos.push(data.tipo_vehiculo);
         });
     };
     
     
-    $scope.showTipoServiciosAdd = function($event) {
-        
+    $scope.showTipoServiciosAdd = function(event) {
+        $utilsViewService.disable(event.currentTarget);
+        var modalInstanceAdd = $uibModal.open({
+            templateUrl: 'views/tipo-servicios-add.html',
+            controller: 'TipoServiciosAddCtrl',
+            backdrop: false
+        });
+
+        $utilsViewService.enable(event.currentTarget);
+        modalInstanceAdd.result.then(function (data) {
+            $scope.message = data;
+            $scope.tipo_servicios.push(data.tipo_servicio);
+        });
     };
     
     $scope.init();
