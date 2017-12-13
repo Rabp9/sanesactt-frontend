@@ -11,6 +11,8 @@ angular.module('sanesacttFrontendApp')
 .controller('DetalleAccidentesAddCtrl', function ($scope, TipoVehiculosService, 
     TipoServiciosService, $uibModalInstance, $utilsViewService,
     $uibModal) {
+    
+    $scope.detalle_accidente = {};
         
     $scope.getTipoVehiculos = function() {
         $scope.loading_tipo_vehiculos = 'Cargando...';
@@ -54,6 +56,7 @@ angular.module('sanesacttFrontendApp')
         modalInstanceAdd.result.then(function (data) {
             $scope.message = data;
             $scope.tipo_vehiculos.push(data.tipo_vehiculo);
+            $scope.detalle_accidente.tipo_vehiculo_id = data.tipo_vehiculo.id;
         });
     };
     
@@ -70,6 +73,7 @@ angular.module('sanesacttFrontendApp')
         modalInstanceAdd.result.then(function (data) {
             $scope.message = data;
             $scope.tipo_servicios.push(data.tipo_servicio);
+            $scope.detalle_accidente.tipo_servicio_id = data.tipo_servicio.id;
         });
     };
     

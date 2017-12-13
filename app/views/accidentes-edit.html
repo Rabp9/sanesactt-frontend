@@ -3,25 +3,25 @@
         <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Modificar Accidente</h4>
     </div>
-    <div class="modal-body">
+    <div class="modal-body accidentes-edit">
         <div class="alert alert-dismissible" ng-class="{'alert-success': message.code === 200, 'alert-danger': message.code !== 200 }" role="alert" ng-show="message.code !== undefined">
             <button type="button" class="close" ng-click="message.code = undefined" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            {{ message.message }} 
+            {{ message.message }}
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="txtAnio">Año</label>
                     <input id="txtAnio" class="form-control" type="text" ng-model="accidente.anio" />
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-3">
                 <div class="form-group">
                     <label for="txtFechaHora">Fecha y Hora</label>
                     <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.fechaHora" />
                 </div>
             </div>
-            <div class="col-sm-3">             
+            <div class="col-sm-2">             
                 <div class="form-group">
                     <label for="sltDia">Día</label>
                     <select id="sltDia" class="form-control" required
@@ -30,9 +30,7 @@
                     </select>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-5">
                 <div class="form-group">
                     <label for="sltUbicacion">Ubicación</label>
                     <div class="input-group">
@@ -51,7 +49,9 @@
                     <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
                 </div>
             </div>
-            <div class="col-sm-5">
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <label for="sltCausa">Causa</label>
                     <div class="input-group">
@@ -70,21 +70,19 @@
                     <p class="help-block">{{ accidente.causa_dirty }}</p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-2">
                 <label for="txtFallecidosHombres">Fallecidos Hombres</label>
                 <input id="txtFallecidosHombres" class="form-control" type="text" ng-model="accidente.fallecidos_hombres" />
             </div>
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-2">
                 <label for="txtFallecidosMujeres">Fallecidos Mujeres</label>
                 <input id="txtFallecidosMujeres" class="form-control" type="text" ng-model="accidente.fallecidos_mujeres" />
             </div>
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-2">
                 <label for="txtHeridosHombres">Heridos Hombres</label>
                 <input id="txtHeridosHombres" class="form-control" type="text" ng-model="accidente.heridos_hombres" />
             </div>
-            <div class="form-group col-sm-3">
+            <div class="form-group col-sm-2">
                 <label for="txtHeridosMujeres">Heridos Mujeres</label>
                 <input id="txtHeridosMujeres" class="form-control" type="text" ng-model="accidente.heridos_mujeres" />
             </div>
