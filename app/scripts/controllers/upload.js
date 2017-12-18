@@ -8,7 +8,8 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, CausasService, $uibModal) {
+.controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, 
+    CausasService, $uibModal, $utilsViewService) {
     $scope.highlightFilteredHeader = function( row, rowRenderIndex, col, colRenderIndex ) {
         if( col.filters[0].term ){
             return 'header-filtered';
@@ -51,11 +52,9 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.saveAccidentes = function(accidentes, boton) {
-        $('#' + boton).addClass('disabled');
-        $('#' + boton).prop('disabled', true);
+        $utilsViewService.disable('#' + boton);
         AccidentesService.saveMany(accidentes, function(data) {
-            $('#' + boton).removeClass('disabled');
-            $('#' + boton).prop('disabled', false);
+            $utilsViewService.enable('#' + boton);
             $scope.message = data.message;
         });
     };

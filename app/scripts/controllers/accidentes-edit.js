@@ -136,5 +136,29 @@ angular.module('sanesacttFrontendApp')
         $scope.accidente.detalle_accidentes.splice(index, 1);
     };
     
+    $scope.saveAccidente = function(accidente, boton) {
+        $utilsViewService.disable('#' + boton);
+        
+        if (accidente.fechaHora !== null) {
+            accidente.fechaHora = formatDateTime(accidente.fechaHora);
+        }
+        AccidentesService.save(accidente, function (data) {
+            $uibModalInstance.close(data);
+        }, function (err) {
+            $uibModalInstance.close(err.data);
+        });
+    };
+    
+    function formatDateTime(fecha) {
+        if (fecha === undefined) {
+            return undefined;
+        }
+        return fecha.getFullYear() + '-' + str_pad((fecha.getMonth() + 1), '00') + '-' + str_pad(fecha.getDate(), '00') + ' ' + str_pad(fecha.getHours(), '00') + ':' + str_pad(fecha.getMinutes(), '00');
+    }
+    
+    function str_pad(str, pad) {
+        return pad.substring(0, (pad.length - str.toString().length)) + str;
+    }
+    
     $scope.init();
 });

@@ -11,6 +11,9 @@
         "angular-validator": {
             "context": "form"
         },
+        "ui-i18n": {
+            "context": "div"
+        },
         "ngf-select": {
             "context": "input"
         },
@@ -18,6 +21,9 @@
             "context": "input"
         },
         "map-lazy-load": {
+            "context": "div"
+        },
+        "ui-grid": {
             "context": "div"
         }
     }
