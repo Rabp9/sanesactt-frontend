@@ -16,10 +16,6 @@ angular.module('sanesacttFrontendApp')
     $scope.ubicacion = {};
     $scope.ubicacion.descripcion = ubicacion_dirty;
     $scope.ubicacion.detalle_ubicaciones = [];
-    $scope.ubicacion.detalle_ubicaciones.push({
-        descripcion: ubicacion_dirty,
-        estado_id: 1
-    });
     
     NgMap.getMap().then(function(map) {
         google.maps.event.trigger(map, 'resize'); 
@@ -65,4 +61,15 @@ angular.module('sanesacttFrontendApp')
             $uibModalInstance.close(err.data);
         });
     };
+    
+    $scope.init = function() {
+        if (ubicacion_dirty !== undefined) {
+            $scope.ubicacion.detalle_ubicaciones.push({
+                descripcion: ubicacion_dirty,
+                estado_id: 1
+            });
+        }
+    };
+    
+    $scope.init();
 });
