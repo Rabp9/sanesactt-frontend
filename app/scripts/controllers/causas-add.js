@@ -16,10 +16,6 @@ angular
     $scope.causa = {};
     $scope.causa.descripcion = causa_dirty;
     $scope.causa.detalle_causas = [];
-    $scope.causa.detalle_causas.push({
-        descripcion: causa_dirty,
-        estado_id: 1
-    });
     
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
@@ -42,4 +38,15 @@ angular
             $uibModalInstance.close(err.data);
         });
     };
+    
+    $scope.init = function() {
+        if (causa_dirty !== undefined) {
+            $scope.causa.detalle_causas.push({
+                descripcion: causa_dirty,
+                estado_id: 1
+            });
+        }
+    };
+    
+    $scope.init();
 });
