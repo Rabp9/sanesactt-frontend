@@ -10,7 +10,7 @@
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService,
-    TipoServiciosService, TipoVehiculosService, $q) {
+    TipoServiciosService, TipoVehiculosService, $q, $timeout) {
     
     $scope.accidente = {};
     $scope.message = {};
@@ -42,6 +42,9 @@ angular.module('sanesacttFrontendApp')
         $scope.getAccidente();
         $scope.getUbicaciones();
         $scope.getCausas();
+        $timeout(function() {
+            $('#txtAnio').focus();
+        }, 500);
     };
     
     $scope.cancel = function () {

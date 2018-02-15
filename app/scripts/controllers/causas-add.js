@@ -10,7 +10,7 @@
 angular
 .module('sanesacttFrontendApp')
 .controller('CausasAddCtrl', function ($scope, $uibModalInstance, causa_dirty, 
-    CausasService, EnvService, $utilsViewService) {
+    CausasService, EnvService, $utilsViewService, $timeout) {
     
     $scope.loading = false;
     $scope.causa = {};
@@ -27,6 +27,7 @@ angular
             estado_id: 1
         });
         $scope.causa_variacion_nueva = '';
+        $('#txtDato').focus();
     };
         
     $scope.saveCausa = function(causa, btn) {
@@ -46,6 +47,9 @@ angular
                 estado_id: 1
             });
         }
+        $timeout(function() {
+            $('#txtDescripcion').focus();
+        }, 500);
     };
     
     $scope.init();

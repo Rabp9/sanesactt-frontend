@@ -58,4 +58,10 @@ angular.module('sanesacttFrontendApp')
             $scope.message = data.message;
         });
     };
+    
+    $scope.init = function() {
+        $('#fluAccidentes').focus();
+    };
+    
+    $scope.init();
 });

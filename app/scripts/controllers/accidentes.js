@@ -17,7 +17,10 @@ angular.module('sanesacttFrontendApp')
         }); 
     };
     
-    $scope.getAccidentes();
+    $scope.init = function() {
+        $scope.getAccidentes();
+        $('#srBuscar').focus();
+    };
     
     $scope.menuOptions = [
         ['<span class="glyphicon glyphicon-pencil"></span> Editar Accidente', function ($itemScope, $event, modelValue, text, $li) {
@@ -41,4 +44,6 @@ angular.module('sanesacttFrontendApp')
             });
         }]
     ];
+    
+    $scope.init();
 });
