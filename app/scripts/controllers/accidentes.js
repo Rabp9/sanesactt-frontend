@@ -8,7 +8,7 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('AccidentesCtrl', function ($scope, AccidentesService, $uibModal) {
+.controller('AccidentesCtrl', function ($scope, AccidentesService, $uibModal, $utilsViewService) {
     $scope.getAccidentes = function() {
         $scope.loading = true;
         AccidentesService.get(function(data) {
@@ -44,6 +44,24 @@ angular.module('sanesacttFrontendApp')
             });
         }]
     ];
+    
+    $scope.showAccidentesAdd = function(event) {
+        $utilsViewService.disable(event.currentTarget);
+        
+        var modalInstanceAdd = $uibModal.open({
+            templateUrl: 'views/accidentes-add.html',
+            controller: 'AccidentesAddCtrl',
+            backdrop: false,
+            size: 'lg'
+        });
+        
+        $utilsViewService.enable(event.currentTarget);
+        
+        modalInstanceAdd.result.then(function(data) {
+            $scope.getAccidentes();
+            $scope.message = data;
+        });
+    };
     
     $scope.init();
 });
