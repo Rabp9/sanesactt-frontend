@@ -27,7 +27,6 @@ angular.module('sanesacttFrontendApp')
         enableGridMenu: true, 
         enableCellEditOnFocus: true,
         columnDefs: [
-            { displayName: 'N°', name: '*nro', field: 'id', headerCellClass: $scope.highlightFilteredHeader, enableCellEditOnFocus: false, width: '7%', minWidth: '2', enableCellEdit: false },
             { displayName: 'Fecha',  name: 'fecha', field: 'fecha', width: '10%', enableCellEditOnFocus: false, minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
             { displayName: 'Hora',  name: 'hora', field: 'hora', width: '10%', enableCellEditOnFocus: false, minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
             { displayName: 'Ubicación',  name: 'ubicacion_dirty', field: 'ubicacion_dirty', enableCellEditOnFocus: true, headerCellClass: $scope.highlightFilteredHeader, width: '25%', minWidth: '25'},
@@ -42,19 +41,20 @@ angular.module('sanesacttFrontendApp')
         ]
     };
             
-    $scope.uploadFile = function(csv, errFiles) {
+    $scope.uploadFile = function(csv, errFiles, boton) {
         var fd = new FormData();
         fd.append('file', csv);
         
         AccidentesService.load(fd, function(data) {
             $scope.gridOptions.data = data.accidentes;
+            $utilsViewService.enable('#' + boton);
         });
     };
     
     $scope.saveAccidentes = function(accidentes, boton) {
-        $utilsViewService.disable('#' + boton);
         AccidentesService.saveMany(accidentes, function(data) {
-            $utilsViewService.enable('#' + boton);
+            $utilsViewService.disable('#' + boton);
+            $scope.gridOptions.data = [];
             $scope.message = data.message;
         });
     };

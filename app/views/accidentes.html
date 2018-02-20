@@ -15,24 +15,20 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Nro.</th>
                         <th>Año</th>
                         <th>Ubicación</th>
                         <th>Causa</th>
                         <th>Fecha y Hora</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-show="loading"><td colspan="6">Cargando...</td></tr>
                     <tr ng-show="!loading && accidentes.length === 0"><td colspan="6">No hay registros</td></tr>
                     <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
-                        <td>{{ accidente.nro_id }}</td>
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}</td>
                         <td>{{ accidente.causa_dirty }}</td>
                         <td>{{ accidente.fechaHora }}</td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
