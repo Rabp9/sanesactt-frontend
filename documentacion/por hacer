@@ -1,12 +1,12 @@
 Cosas por hacer
-1. revisar add ubicacion----------------------------------------
-2. revisar add causa--------------------------------------------
-3. dar los focus a los inputs-----------------------------------
-4. Comprobar correspondencia entre csv y modelo mysql-----------
-5. Boton crear accidente----------------------------------------
-6. Form crear accidente-----------------------------------------
-7. Comprobar carga de csv
-8. inputs fellecidos y heridos en numeros
+1. revisar add ubicacion---------------------------------------------
+2. revisar add causa-------------------------------------------------
+3. dar los focus a los inputs----------------------------------------
+4. Comprobar correspondencia entre csv y modelo mysql----------------
+5. Boton crear accidente---------------------------------------------
+6. Form crear accidente----------------------------------------------
+7. Comprobar carga de csv--------------------------------------------
+8. inputs fellecidos y heridos en numeros----------------------------
 9. Validar form accidente nuevo
 10. Validar form accidente editar
 11. Poner sm al modal de tipo de vehiculo y tipo de servicio
@@ -18,3 +18,4 @@ Cosas por hacer
 17. ficha mantenedores -> ubicaciones -> causas
 18. Probar que funcione crear accidente
 19. Quitar accidente_anio en accidentes edit
+20. Mostrar title en paginas

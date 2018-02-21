@@ -72,19 +72,19 @@
             </div>
             <div class="form-group col-sm-2">
                 <label for="txtFallecidosHombres">Fallecidos Hombres</label>
-                <input id="txtFallecidosHombres" class="form-control" type="text" ng-model="accidente.fallecidos_hombres" />
+                <input id="txtFallecidosHombres" class="form-control" type="number" ng-model="accidente.fallecidos_hombres" />
             </div>
             <div class="form-group col-sm-2">
                 <label for="txtFallecidosMujeres">Fallecidos Mujeres</label>
-                <input id="txtFallecidosMujeres" class="form-control" type="text" ng-model="accidente.fallecidos_mujeres" />
+                <input id="txtFallecidosMujeres" class="form-control" type="number" min="0" ng-model="accidente.fallecidos_mujeres" />
             </div>
             <div class="form-group col-sm-2">
                 <label for="txtHeridosHombres">Heridos Hombres</label>
-                <input id="txtHeridosHombres" class="form-control" type="text" ng-model="accidente.heridos_hombres" />
+                <input id="txtHeridosHombres" class="form-control" type="number" min="0" ng-model="accidente.heridos_hombres" />
             </div>
             <div class="form-group col-sm-2">
                 <label for="txtHeridosMujeres">Heridos Mujeres</label>
-                <input id="txtHeridosMujeres" class="form-control" type="text" ng-model="accidente.heridos_mujeres" />
+                <input id="txtHeridosMujeres" class="form-control" type="number" min="0" ng-model="accidente.heridos_mujeres" />
             </div>
         </div>
         <div class="form-group">
