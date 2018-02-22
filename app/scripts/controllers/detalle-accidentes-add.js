@@ -10,7 +10,7 @@
 angular.module('sanesacttFrontendApp')
 .controller('DetalleAccidentesAddCtrl', function ($scope, TipoVehiculosService, 
     TipoServiciosService, $uibModalInstance, $utilsViewService,
-    $uibModal, $timeout) {
+    $uibModal) {
     
     $scope.detalle_accidente = {};
         
@@ -19,7 +19,6 @@ angular.module('sanesacttFrontendApp')
         TipoVehiculosService.get(function(data) {
             $scope.loading_tipo_vehiculos = 'Selecciona uno';
             $scope.tipo_vehiculos = data.tipo_vehiculos;
-            $('#sltTipoVehiculo').focus();
         });
     };
       

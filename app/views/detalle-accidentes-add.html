@@ -11,7 +11,7 @@
         <div class="form-group">
             <label for="sltTipoVehiculo">Tipo de Vehículo</label>
             <div class="input-group">
-                <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id"
+                <select id="sltTipoVehiculo" class="form-control" required ng-model="detalle_accidente.tipo_vehiculo_id" autofocus
                     ng-options="tipo_vehiculo.id as tipo_vehiculo.descripcion for tipo_vehiculo in tipo_vehiculos">
                     <option value="">{{ loading_tipo_vehiculos }}</option>
                 </select>

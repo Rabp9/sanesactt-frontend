@@ -9,7 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('TipoVehiculosAddCtrl', function ($scope, $uibModalInstance, $utilsViewService,
-    TipoVehiculosService, $timeout) {
+    TipoVehiculosService) {
     
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
@@ -25,12 +25,4 @@ angular.module('sanesacttFrontendApp')
             $uibModalInstance.close(err.data);
         });
     };
-    
-    $scope.init = function() {
-        $timeout(function() {
-            $('#txtDescripcion').focus();
-        }, 500);
-    };
-    
-    $scope.init();
 });

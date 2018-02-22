@@ -9,7 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesAddCtrl', function ($scope, $uibModalInstance, ubicacion_dirty, 
-    NgMap, UbicacionesService, EnvService, $utilsViewService, $timeout) {
+    NgMap, UbicacionesService, EnvService, $utilsViewService) {
     
     $scope.tmp_path = EnvService.getHost() + 'tmp/';
     $scope.loading = false;
@@ -70,9 +70,6 @@ angular.module('sanesacttFrontendApp')
                 estado_id: 1
             });
         }
-        $timeout(function() {
-            $('#txtDescripcion').focus();
-        }, 500);
     };
     
     $scope.init();

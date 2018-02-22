@@ -1,7 +1,7 @@
-<form novalidate angular-validator angular-validator-submit="saveAccidente(accidente, 'btnSaveAccidente')" name="AccidentesAdd">
+<form novalidate angular-validator angular-validator-submit="saveAccidente(accidente, 'btnSaveAccidente')" name="AccidentesAdd" angular-validator-quiet>
     <div class="modal-header">
         <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modificar Accidente</h4>
+        <h4 class="modal-title">Nuevo Accidente</h4>
     </div>
     <div class="modal-body accidentes-edit">
         <div class="alert alert-dismissible" ng-class="{'alert-success': message.code === 200, 'alert-danger': message.code !== 200 }" role="alert" ng-show="message.code !== undefined">
@@ -9,112 +9,148 @@
             {{ message.message }}
         </div>
         <div class="row">
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="txtAnio">Año</label>
-                    <input id="txtAnio" class="form-control" type="text" ng-model="accidente.anio" />
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="form-group">
-                    <label for="txtFechaHora">Fecha y Hora</label>
-                    <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.fechaHora" />
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class="form-group">
-                    <label for="sltDia">Día</label>
-                    <select id="sltDia" class="form-control" required
-                        ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" ng-model="accidente.dia">
-                        <option value="">Selecciona uno</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-5">
-                <div class="form-group">
-                    <label for="sltUbicacion">Ubicación</label>
-                    <div class="input-group">
-                        <select id="sltUbicacion" class="form-control"
-                            ng-options="ubicacion.id as ubicacion.descripcion for ubicacion in ubicaciones"
-                            ng-model="accidente.ubicacion_id">
-                            <option value="">{{ loading_ubicaciones }}</option>
-                        </select>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default pull-right" title="Nueva Ubicación"
-                                ng-click="showUbicacionesAdd(accidente.ubicacion_dirty, $event)">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                        </span>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="txtAnio">Año</label>
+                            <input id="txtAnio" class="form-control" type="text" ng-model="accidente.anio" autofocus
+                                required required-message="'Ingrese un año'" validate-on="blur" name="AccidenteAnio"/>
+                        </div>
                     </div>
-                    <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="txtFechaHora">Fecha y Hora</label>
+                            <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.fechaHora" 
+                                required required-message="'Ingrese una fecha y hora'" validate-on="blur" name="AccidenteFechaHora"
+                                invalid-message="'Ingrese una fecha y hora correctamente'"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="sltDia">Día</label>
+                            <select id="sltDia" class="form-control" ng-model="accidente.dia"
+                                ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" 
+                                required required-message="'Seleccione un día'" validate-on="blur" name="AccidenteDia">
+                                <option value="">Selecciona uno</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="sltUbicacion">Ubicación</label>
+                            <div class="input-group">
+                                <select id="sltUbicacion" class="form-control"
+                                    ng-options="ubicacion.id as ubicacion.descripcion for ubicacion in ubicaciones"
+                                    ng-model="accidente.ubicacion_id"
+                                    required required-message="'Seleccione una Ubicación'" validate-on="blur" name="AccidenteUbicacion">
+                                    <option value="">{{ loading_ubicaciones }}</option>
+                                </select>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default pull-right" title="Nueva Ubicación"
+                                        ng-click="showUbicacionesAdd(accidente.ubicacion_dirty, $event)">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="sltCausa">Causa</label>
+                            <div class="input-group">
+                            <select id="sltCausa" class="form-control"
+                                ng-options="causa.id as causa.descripcion for causa in causas"
+                                ng-model="accidente.causa_id"
+                                required required-message="'Seleccione una Causa'" validate-on="blur" name="AccidenteCausa">
+                                <option value="">Selecciona una Causa</option>
+                            </select>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default pull-right" title="Nueva Causa"
+                                        ng-click="showCausasAdd(accidente.causa_dirty, $event)">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <p class="help-block">{{ accidente.causa_dirty }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="control-label">Hombres</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="control-label">Mujeres</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Fallecidos</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="txtFallecidosHombres" class="form-control" type="number" min="0" ng-model="accidente.fallecidos_hombres"
+                            name="AccidenteFallecidosHombres"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="txtFallecidosMujeres" class="form-control" type="number" min="0" ng-model="accidente.fallecidos_mujeres"
+                            name="AccidenteFallecidosMujeres"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="control-label">Heridos</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="txtHeridosHombres" class="form-control" type="number" min="0" ng-model="accidente.heridos_hombres" 
+                            name="AccidenteHeridosHombres"/>
+                    </div>
+                    <div class="col-sm-4">
+                        <input id="txtHeridosMujeres" class="form-control" type="number" min="0" ng-model="accidente.heridos_mujeres"
+                            name="AccidenteHeridosMujeres"/>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <div class="form-group">
-                    <label for="sltCausa">Causa</label>
-                    <div class="input-group">
-                    <select id="sltCausa" class="form-control"
-                        ng-options="causa.id as causa.descripcion for causa in causas"
-                        ng-model="accidente.causa_id">
-                        <option value="">Selecciona una Causa</option>
-                    </select>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default pull-right" title="Nueva Causa"
-                                ng-click="showCausasAdd(accidente.causa_dirty, $event)">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                        </span>
+                    <label>Tipo de Vehiculo y Servicios</label>
+                    <p>Tipo de Vehículo: {{ accidente.tipo_vehiculo_dirty }}</p>
+                    <p>Tipo de Servicio: {{ accidente.tipo_servicio_dirty }}</p>
+                    <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Detalle</button></p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Tipo Vehículo</th>
+                                <th>Tipo Servicio</th>
+                                <th>Acciones</th>
+                            </tr>
+                            <tr ng-show="accidente.detalle_accidentes.length === 0">
+                                <td colspan="3">No hay registros</td>
+                            </tr>
+                            <tr ng-show="accidente.detalle_accidentes.length !== 0" ng-repeat="detalle_accidente in accidente.detalle_accidentes">
+                                <td>{{ detalle_accidente.tipo_vehiculo.descripcion }}</td>
+                                <td>{{ detalle_accidente.tipo_servicio.descripcion }}</td>
+                                <td><button type="button" class="btn btn-danger" ng-click="removeDetalle(detalle_accidente)"><span class="glyphicon glyphicon-remove"></span></button></td>
+                            </tr>
+                        </table>
                     </div>
-                    <p class="help-block">{{ accidente.causa_dirty }}</p>
                 </div>
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="txtFallecidosHombres">Fallecidos Hombres</label>
-                <input id="txtFallecidosHombres" class="form-control" type="number" min="0" ng-model="accidente.fallecidos_hombres" />
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="txtFallecidosMujeres">Fallecidos Mujeres</label>
-                <input id="txtFallecidosMujeres" class="form-control" type="number" min="0" ng-model="accidente.fallecidos_mujeres" />
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="txtHeridosHombres">Heridos Hombres</label>
-                <input id="txtHeridosHombres" class="form-control" type="number" min="0" ng-model="accidente.heridos_hombres" />
-            </div>
-            <div class="form-group col-sm-2">
-                <label for="txtHeridosMujeres">Heridos Mujeres</label>
-                <input id="txtHeridosMujeres" class="form-control" type="number" min="0" ng-model="accidente.heridos_mujeres" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Tipo de Vehiculo y Servicios</label>
-            <p>Tipo de Vehículo: {{ accidente.tipo_vehiculo_dirty }}</p>
-            <p>Tipo de Servicio: {{ accidente.tipo_servicio_dirty }}</p>
-            <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Detalle</button></p>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Tipo Vehículo</th>
-                        <th>Tipo Servicio</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <tr ng-show="accidente.detalle_accidentes.length === 0">
-                        <td colspan="3">No hay registros</td>
-                    </tr>
-                    <tr ng-show="accidente.detalle_accidentes.length !== 0" ng-repeat="detalle_accidente in accidente.detalle_accidentes">
-                        <td>{{ detalle_accidente.tipo_vehiculo.descripcion }}</td>
-                        <td>{{ detalle_accidente.tipo_servicio.descripcion }}</td>
-                        <td><button type="button" class="btn btn-danger" ng-click="removeDetalle(detalle_accidente)"><span class="glyphicon glyphicon-remove"></span></button></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Estado</label>
-            <div>
-                <label><input type="radio" ng-model="accidente.estado_id" ng-value="1"> Activo</label>
-                <label><input type="radio" ng-model="accidente.estado_id" ng-value="2"> Inactivo</label>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <div>
+                        <label><input type="radio" ng-model="accidente.estado_id" ng-value="1"> Activo</label>
+                        <label><input type="radio" ng-model="accidente.estado_id" ng-value="2"> Inactivo</label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@ Cosas por hacer
 6. Form crear accidente----------------------------------------------
 7. Comprobar carga de csv--------------------------------------------
 8. inputs fellecidos y heridos en numeros----------------------------
-9. Validar form accidente nuevo
+9. Validar form accidente nuevo--------------------------------------
 10. Validar form accidente editar
 11. Poner sm al modal de tipo de vehiculo y tipo de servicio
 12. comprobar que se cargue los detalles en la tabla
@@ -20,3 +20,4 @@ Cosas por hacer
 19. Quitar accidente_anio en accidentes edit
 20. Mostrar title en paginas
 21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)
+22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado

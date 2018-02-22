@@ -10,7 +10,7 @@
 angular
 .module('sanesacttFrontendApp')
 .controller('CausasAddCtrl', function ($scope, $uibModalInstance, causa_dirty, 
-    CausasService, EnvService, $utilsViewService, $timeout) {
+    CausasService, $utilsViewService) {
     
     $scope.loading = false;
     $scope.causa = {};
@@ -47,9 +47,6 @@ angular
                 estado_id: 1
             });
         }
-        $timeout(function() {
-            $('#txtDescripcion').focus();
-        }, 500);
     };
     
     $scope.init();
