@@ -1,15 +1,15 @@
 Cosas por hacer
-1. revisar add ubicacion---------------------------------------------
-2. revisar add causa-------------------------------------------------
-3. dar los focus a los inputs----------------------------------------
-4. Comprobar correspondencia entre csv y modelo mysql----------------
-5. Boton crear accidente---------------------------------------------
-6. Form crear accidente----------------------------------------------
-7. Comprobar carga de csv--------------------------------------------
-8. inputs fellecidos y heridos en numeros----------------------------
-9. Validar form accidente nuevo--------------------------------------
-10. Validar form accidente editar
-11. Poner sm al modal de tipo de vehiculo y tipo de servicio
+1. revisar add ubicacion----------------------------------------------------------------------
+2. revisar add causa--------------------------------------------------------------------------
+3. dar los focus a los inputs-----------------------------------------------------------------
+4. Comprobar correspondencia entre csv y modelo mysql-----------------------------------------
+5. Boton crear accidente----------------------------------------------------------------------
+6. Form crear accidente-----------------------------------------------------------------------
+7. Comprobar carga de csv---------------------------------------------------------------------
+8. inputs fellecidos y heridos en numeros-----------------------------------------------------
+9. Validar form accidente nuevo---------------------------------------------------------------
+10. Validar form accidente editar-------------------------------------------------------------
+11. Poner sm al modal de tipo de vehiculo y tipo de servicio----------------------------------
 12. comprobar que se cargue los detalles en la tabla
 13. crear ficha mapa
 14. crear pagina de mapa

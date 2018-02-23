@@ -1,9 +1,9 @@
-<form novalidate angular-validator angular-validator-submit="saveAccidente(accidente, 'btnSaveAccidente')" name="AccidentesAdd" angular-validator-quiet>
+<form novalidate angular-validator angular-validator-submit="saveAccidente(accidente, 'btnSaveAccidente')" name="AccidentesAdd">
     <div class="modal-header">
         <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Nuevo Accidente</h4>
     </div>
-    <div class="modal-body accidentes-edit">
+    <div class="modal-body accidentes-form">
         <div class="alert alert-dismissible" ng-class="{'alert-success': message.code === 200, 'alert-danger': message.code !== 200 }" role="alert" ng-show="message.code !== undefined">
             <button type="button" class="close" ng-click="message.code = undefined" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             {{ message.message }}

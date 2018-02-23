@@ -49,6 +49,7 @@ angular.module('sanesacttFrontendApp')
         var modalInstanceAdd = $uibModal.open({
             templateUrl: 'views/tipo-vehiculos-add.html',
             controller: 'TipoVehiculosAddCtrl',
+            size: 'sm',
             backdrop: false
         });
 
@@ -66,6 +67,7 @@ angular.module('sanesacttFrontendApp')
         var modalInstanceAdd = $uibModal.open({
             templateUrl: 'views/tipo-servicios-add.html',
             controller: 'TipoServiciosAddCtrl',
+            size: 'sm',
             backdrop: false
         });
 

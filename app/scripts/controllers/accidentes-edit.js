@@ -8,7 +8,7 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('AccidentesEditCtrl', function ($scope, accidente_nro_id, accidente_anio, $uibModalInstance, 
+.controller('AccidentesEditCtrl', function ($scope, accidente_id, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService,
     TipoServiciosService, TipoVehiculosService, $q) {
     
@@ -16,10 +16,7 @@ angular.module('sanesacttFrontendApp')
     $scope.message = {};
     
     $scope.getAccidente = function() {
-        AccidentesService.getByNroIdNAnio({
-            nro_id: accidente_nro_id,
-            anio: accidente_anio
-        }, function (data) {
+        AccidentesService.get({id: accidente_id}, function (data) {
             $scope.accidente = data.accidente;
             var parseDate = new Date($scope.accidente.fechaHora);
             $scope.accidente.fechaHora = parseDate;
