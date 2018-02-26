@@ -56,8 +56,18 @@ angular
         title: 'Accidentes'
     };
     
+    var mapaState = {
+        name: 'mapa',
+        url: '/mapa',
+        templateUrl: 'views/mapa.html',
+        controller: 'MapaCtrl',
+        controllerAs: 'mapa',
+        title: 'Mapa'
+    };
+    
     $stateProvider.state(mainState);
     $stateProvider.state(uploadState);
     $stateProvider.state(accidentesState);
+    $stateProvider.state(mapaState);
     $urlRouterProvider.when('', '/');
 });

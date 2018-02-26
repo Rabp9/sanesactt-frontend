@@ -13,6 +13,7 @@ angular.module('sanesacttFrontendApp')
     TipoServiciosService, TipoVehiculosService, $q) {
     
     $scope.accidente = {};
+    $scope.accidente.detalle_accidentes = [];
     $scope.message = {};
     
     $scope.getUbicaciones = function() {
@@ -85,21 +86,13 @@ angular.module('sanesacttFrontendApp')
         });
     };
     
-    $scope.showDetalleAccidentesAdd = function(tipo_vehiculo_dirty, tipo_servicio_dirty, event) {
+    $scope.showDetalleAccidentesAdd = function(event) {
         $utilsViewService.disable(event.currentTarget);
         
         var modalInstanceAdd = $uibModal.open({
             templateUrl: 'views/detalle-accidentes-add.html',
             controller: 'DetalleAccidentesAddCtrl',
-            backdrop: false,
-            resolve: {
-                tipo_vehiculo_dirty: function() {
-                    return tipo_vehiculo_dirty;
-                },
-                tipo_servicio_dirty: function() {
-                    return tipo_servicio_dirty;
-                }
-            }
+            backdrop: false
         });
         
         $utilsViewService.enable(event.currentTarget);
@@ -118,7 +111,6 @@ angular.module('sanesacttFrontendApp')
                 };
                 $scope.accidente.detalle_accidentes.push(detalle_accidente);
             });
-            
         });
     };
     
