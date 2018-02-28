@@ -2,6 +2,7 @@
     "elements": {
         "marker": {},
         "ui-view": {},
+        "info-window": {},
         "ng-map": {}
     },
     "attributes": {

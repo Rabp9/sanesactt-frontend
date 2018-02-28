@@ -12,8 +12,8 @@ Cosas por hacer
 11. Poner sm al modal de tipo de vehiculo y tipo de servicio----------------------------------
 12. comprobar que se cargue los detalles en la tabla------------------------------------------
 13. crear ficha mapa--------------------------------------------------------------------------
-14. crear pagina de mapa
-15. filtrar puntos negros (solo formato json)
+14. crear pagina de mapa----------------------------------------------------------------------
+15. filtrar puntos negros (solo formato json)-------------------------------------------------
 16. mostrar puntos negros en mapa
 17. ficha mantenedores -> ubicaciones -> causas
 18. Probar que funcione crear accidente
@@ -22,3 +22,4 @@ Cosas por hacer
 21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)
 22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado
 23. Probar que funcione editar accidente
+24. mandar el retrieve al table en ubicaciones/getPuntosNegros
