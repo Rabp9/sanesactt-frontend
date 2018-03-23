@@ -31,9 +31,20 @@ angular.module('sanesacttFrontendApp')
             $scope.puntos_negros = data.ubicaciones;
             
             $scope.ubicacion_lat = data.ubicaciones[0].latitud;
-            $scope.ubicacion_lng = data.ubicaciones[0].longitud;
+            $scope.ubicacion_lng = data.ubicaciones[0].longitud;     
+            
+            if ($scope.puntos_negros.length === 1) {
+                $scope.include_markers = false;
+            } else {
+                $scope.include_markers = true;
+            }
         });
     };
    
+    $scope.showUbicacion = function(event, ubicacion) {
+        $scope.selectedUbicacion = ubicacion;
+        $scope.map.showInfoWindow('myInfoWindow', this);
+    };
+
     $scope.init();
 });

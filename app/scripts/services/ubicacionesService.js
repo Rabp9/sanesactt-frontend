@@ -17,6 +17,10 @@ angular
             url: EnvService.getHost() + 'ubicaciones/preview/.json',
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }
+        },
+        getPuntosNegros: {
+            method: 'GET',
+            url: EnvService.getHost() + "ubicaciones/getPuntosNegros.json"
         }
     });
 });

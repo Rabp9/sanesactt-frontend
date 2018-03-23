@@ -40,7 +40,14 @@
                 <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
                     <ul class="nav navbar-nav">
-                        <li ui-sref-active="active"><a ui-sref="main">Home</a></li>
+                        <li ui-sref-active="active"><a ui-sref="main">Home</a></li>        
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenedores <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li ui-sref-active="active"><a ui-sref="tipos">Ubicaciones</a></li>
+                                <li ui-sref-active="active"><a ui-sref="servicios">Causas</a></li>
+                            </ul>
+                        </li>
                         <li ui-sref-active="active"><a ui-sref="upload">Subir</a></li>
                         <li ui-sref-active="active"><a ui-sref="accidentes">Accidentes</a></li>
                         <li ui-sref-active="active"><a ui-sref="mapa">Mapa</a></li>
@@ -108,6 +115,8 @@
     <script src="scripts/controllers/tipo-servicios-add.js"></script>
     <script src="scripts/controllers/accidentes-add.js"></script>
     <script src="scripts/controllers/mapa.js"></script>
+    <script src="scripts/controllers/ubicaciones.js"></script>
+    <script src="scripts/controllers/causas.js"></script>
     <!-- endbuild -->
 </body>
 </html>
