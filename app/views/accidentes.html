@@ -26,8 +26,8 @@
                     <tr ng-show="!loading && accidentes.length === 0"><td colspan="6">No hay registros</td></tr>
                     <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
                         <td>{{ accidente.anio }} </td>
-                        <td>{{ accidente.ubicacion_dirty }}</td>
-                        <td>{{ accidente.causa_dirty }}</td>
+                        <td>{{ accidente.ubicacion_dirty }}<span ng-if="accidente.ubicacion !== null">{{ accidente.ubicacion.descripcion }}</span></td>
+                        <td>{{ accidente.causa_dirty }}<span ng-if="accidente.causa !== null">{{ accidente.causa.descripcion }}</span></td>
                         <td>{{ accidente.fechaHora }}</td>
                     </tr>
                 </tbody>

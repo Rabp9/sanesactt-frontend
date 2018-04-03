@@ -106,8 +106,10 @@ angular.module('sanesacttFrontendApp')
                 var tipo_vehiculo = data[1].tipo_vehiculo;
                 
                 var detalle_accidente = {
+                    tipo_vehiculo_id: tipo_vehiculo.id,
+                    tipo_servicio_id: tipo_servicio.id,
                     tipo_vehiculo: tipo_vehiculo,
-                    tipo_servicio: tipo_servicio
+                    tipo_servicio: tipo_servicio,
                 };
                 $scope.accidente.detalle_accidentes.push(detalle_accidente);
             });
@@ -122,8 +124,8 @@ angular.module('sanesacttFrontendApp')
     $scope.saveAccidente = function(accidente, boton) {
         $utilsViewService.disable('#' + boton);
         
-        if (accidente.fechaHora !== null) {
-            accidente.fechaHora = formatDateTime(accidente.fechaHora);
+        if (accidente.pre_fechaHora !== null) {
+            accidente.fechaHora = formatDateTime(accidente.pre_fechaHora);
         }
         AccidentesService.save(accidente, function (data) {
             $uibModalInstance.close(data);

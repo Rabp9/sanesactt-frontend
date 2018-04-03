@@ -1,13 +1,3 @@
-.when('/causas', {
-  templateUrl: 'views/causas.html',
-  controller: 'CausasCtrl',
-  controllerAs: 'causas'
-})
-.when('/ubicaciones', {
-  templateUrl: 'views/ubicaciones.html',
-  controller: 'UbicacionesCtrl',
-  controllerAs: 'ubicaciones'
-})
 'use strict';
 
 /**

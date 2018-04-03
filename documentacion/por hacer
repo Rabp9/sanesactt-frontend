@@ -16,8 +16,8 @@ Cosas por hacer
 15. filtrar puntos negros (solo formato json)----------------------------------------------------
 16. mostrar puntos negros en mapa----------------------------------------------------------------
 17. ficha mantenedores -> ubicaciones -> causas--------------------------------------------------
-18. Probar que funcione crear accidente
-19. Quitar accidente_anio en accidentes edit
+18. Probar que funcione crear accidente----------------------------------------------------------
+19. Quitar accidente_anio en accidentes edit-----------------------------------------------------
 20. Mostrar title en paginas
 21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)
 22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado
@@ -25,5 +25,13 @@ Cosas por hacer
 24. mandar el retrieve al table en ubicaciones/getPuntosNegros
 25. Cambiar icono marker en el mapa por un punto negro
 26. Por defecto mostrar como fecha de inicio: fecha actual - 5 años, fecha cierre: actual
-27. Implementar ubicacinoes
-28. Implementar causas
+27. Implementar "Ubicaciones"
+28. Implementar "Causas"
+29. Quitar accidente_anio del modelo de bd y de la bd
+30. Quitar accidente_anio de "Accidentes"
+31. Quitar accidente_anio de "Buevo Accidente"
+32. Quitar accidente_anio de "Subir Archivo"
+33. Enlazar "Nueva Ubicación" a "Ubicaciones"
+33. Enlazar "Modificar Ubicación" a "Ubicaciones"
+33. Enlazar "Nueva Causa" a "Causas"
+33. Enlazar "Modificar Causas" a "Causas"
