@@ -18,8 +18,8 @@ Cosas por hacer
 17. ficha mantenedores -> ubicaciones -> causas--------------------------------------------------
 18. Probar que funcione crear accidente----------------------------------------------------------
 19. Quitar accidente_anio en accidentes edit-----------------------------------------------------
-20. Mostrar title en paginas
-21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)
+20. Mostrar title en paginas---------------------------------------------------------------------
+21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)----------------------------
 22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado
 23. Probar que funcione editar accidente
 24. mandar el retrieve al table en ubicaciones/getPuntosNegros

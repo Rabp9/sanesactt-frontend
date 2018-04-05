@@ -3,7 +3,13 @@
         "marker": {},
         "ui-view": {},
         "info-window": {},
-        "ng-map": {}
+        "ng-map": {},
+        "scrollable-table": {
+            "attributes": {
+                "watch": {},
+                "class": {}
+            }
+        }
     },
     "attributes": {
         "ng:class": {

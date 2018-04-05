@@ -7,11 +7,36 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
-        <div class="form-group">
-            <input id="srBuscar" type="search" class="form-control" placeholder="Buscar" ng-model="searchText" />
+        <form class="form-inline">
+            <button class="btn btn-primary" type="button" ng-click="showAccidentesAdd($event)"><span class="glyphicon glyphicon-plus"></span> Nuevo Accidente</button>
+            <input id="srBuscar" type="search" class="form-control" placeholder="Buscar" ng-model="search.text" />
+        </form>
+        <div class="radio pull-left">
+            <label>
+                <input type="radio" ng-model="search.estado_id" value=""> 
+                Todos
+            </label>
+            <label>
+                <input type="radio" ng-model="search.estado_id" value="1"> 
+                Activos
+            </label>
+            <label>
+                <input type="radio" ng-model="search.estado_id" value="2"> 
+                Inactivos
+            </label>
         </div>
-        <button class="btn btn-primary" type="button" ng-click="showAccidentesAdd($event)"><span class="glyphicon glyphicon-plus"></span> Nuevo Accidente</button>
-        <div class="table-responsive">
+        <div class="pull-right">
+            Mostrando 
+            <select class="form-control" style="width: 70px; display: inline;" ng-change="onChangeItemsPerPage()"
+                ng-model="items_per_page" ng-options="option for option in [10, 50, 100, 150]">
+            </select> 
+            resultados por página
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <scrollable-table watch="accidentes" class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -22,9 +47,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-show="loading"><td colspan="6">Cargando...</td></tr>
-                    <tr ng-show="!loading && accidentes.length === 0"><td colspan="6">No hay registros</td></tr>
-                    <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes | searchTextFilter:searchText:[]">
+                    <tr ng-show="loading"><td colspan="4">Cargando...</td></tr>
+                    <tr ng-show="!loading && accidentes.length === 0"><td colspan="4">No hay registros</td></tr>
+                    <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes" row-id="{{ accidente.id }}">
                         <td>{{ accidente.anio }} </td>
                         <td>{{ accidente.ubicacion_dirty }}<span ng-if="accidente.ubicacion !== null">{{ accidente.ubicacion.descripcion }}</span></td>
                         <td>{{ accidente.causa_dirty }}<span ng-if="accidente.causa !== null">{{ accidente.causa.descripcion }}</span></td>
@@ -32,6 +57,12 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </scrollable-table>
+        
+        <ul uib-pagination total-items="pagination.totalItems" first-text="Primero" 
+            last-text="Último" next-text="Siguiente" previous-text="Anterior"
+            items-per-page="pagination.itemsPerPage" ng-model="page" 
+            class="pagination-sm" boundary-links="true" force-ellipses="true"
+            ng-change="pageChanged()"></ul>
     </div>
 </div>

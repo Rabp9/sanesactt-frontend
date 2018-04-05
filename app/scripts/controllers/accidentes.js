@@ -9,17 +9,49 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesCtrl', function ($scope, AccidentesService, $uibModal, $utilsViewService) {
+    
+    $scope.search = {};
+    $scope.search.text = '';
+    $scope.search.estado_id = '1';
+    $scope.page = 1;
+    $scope.items_per_page = 10;
+
+    $scope.init = function() {
+        $scope.getAccidentes();
+        $('#srBuscar').focus();
+    };
+    
     $scope.getAccidentes = function() {
         $scope.loading = true;
-        AccidentesService.get(function(data) {
+        AccidentesService.get({
+            page: $scope.page,
+            estado_id: $scope.search.estado_id,
+            text: $scope.search.text,
+            items_per_page: $scope.items_per_page
+        }, function(data) {
             $scope.accidentes = data.accidentes;
+            $scope.pagination = data.pagination;
             $scope.loading = false;
         }); 
     };
     
-    $scope.init = function() {
+    $scope.$watch('search.estado_id', function(oldValue, newValue) {
+        $scope.page = 1;
         $scope.getAccidentes();
-        $('#srBuscar').focus();
+    });
+    
+    $scope.$watch('search.text', function(oldValue, newValue) {
+        $scope.page = 1;
+        $scope.getAccidentes();
+    });
+    
+    $scope.pageChanged = function() {
+        $scope.getAccidentes();
+    };
+    
+    $scope.onChangeItemsPerPage = function() {
+        $scope.page = 1;
+        $scope.getAccidentes();
     };
     
     $scope.menuOptions = [
