@@ -20,7 +20,7 @@ Cosas por hacer
 19. Quitar accidente_anio en accidentes edit-----------------------------------------------------
 20. Mostrar title en paginas---------------------------------------------------------------------
 21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)----------------------------
-22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado
+22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado-------------
 23. Probar que funcione editar accidente
 24. mandar el retrieve al table en ubicaciones/getPuntosNegros
 25. Cambiar icono marker en el mapa por un punto negro

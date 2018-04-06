@@ -20,13 +20,15 @@ angular.module('sanesacttFrontendApp')
         $scope.loading_ubicaciones = "Cargando...";
         UbicacionesService.get(function (data) {
             $scope.ubicaciones = data.ubicaciones;
-            $scope.loading_ubicaciones = "Selecciona una Ubicación";
+            $scope.loading_ubicaciones = "Selecciona una Causa";
         });
     };
     
     $scope.getCausas = function() {
+        $scope.loading_causas = "Cargando...";
         CausasService.get(function (data) {
             $scope.causas = data.causas;
+            $scope.loading_causas = "Selecciona una Causa";
         });
     };
     

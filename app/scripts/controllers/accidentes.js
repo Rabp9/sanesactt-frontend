@@ -12,9 +12,15 @@ angular.module('sanesacttFrontendApp')
     
     $scope.search = {};
     $scope.search.text = '';
-    $scope.search.estado_id = '1';
+    $scope.search.estado_1 = true;
+    $scope.search.estado_2 = false;
+    $scope.search.estado_3 = false;
+    $scope.search.estado_4 = false;
     $scope.page = 1;
     $scope.items_per_page = 10;
+    $scope.check_all_estados_list = {
+        value: false
+    };
 
     $scope.init = function() {
         $scope.getAccidentes();
@@ -25,21 +31,20 @@ angular.module('sanesacttFrontendApp')
         $scope.loading = true;
         AccidentesService.get({
             page: $scope.page,
-            estado_id: $scope.search.estado_id,
+            estados_id: $scope.search.estados_id,
             text: $scope.search.text,
-            items_per_page: $scope.items_per_page
+            items_per_page: $scope.items_per_page,
+            estado_1: $scope.search.estado_1,
+            estado_2: $scope.search.estado_2,
+            estado_3: $scope.search.estado_3,
+            estado_4: $scope.search.estado_4
         }, function(data) {
             $scope.accidentes = data.accidentes;
             $scope.pagination = data.pagination;
             $scope.loading = false;
         }); 
     };
-    
-    $scope.$watch('search.estado_id', function(oldValue, newValue) {
-        $scope.page = 1;
-        $scope.getAccidentes();
-    });
-    
+   
     $scope.$watch('search.text', function(oldValue, newValue) {
         $scope.page = 1;
         $scope.getAccidentes();
@@ -92,5 +97,26 @@ angular.module('sanesacttFrontendApp')
         });
     };
     
+    $scope.check_all_list_event = function() {
+        if ($scope.search.check_all) {
+            $scope.search.estado_1 = true;
+            $scope.search.estado_2 = true;
+            $scope.search.estado_3 = true;
+            $scope.search.estado_4 = true;
+        } else {
+            $scope.search.estado_1 = true;
+            $scope.search.estado_2 = false;
+            $scope.search.estado_3 = false;
+            $scope.search.estado_4 = false;
+        }
+        $scope.page = 1;
+        $scope.getAccidentes();
+    };
+    
+    $scope.check_change = function() {
+        $scope.page = 1;
+        $scope.getAccidentes();        
+    };
+   
     $scope.init();
 });

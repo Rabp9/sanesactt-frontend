@@ -13,18 +13,27 @@
         </form>
         <div class="radio pull-left">
             <label>
-                <input type="radio" ng-model="search.estado_id" value=""> 
+                <input type="checkbox" ng-model="search.check_all" ng-click="check_all_list_event()"> 
                 Todos
             </label>
             <label>
-                <input type="radio" ng-model="search.estado_id" value="1"> 
+                <input type="checkbox" ng-model="search.estado_1" ng-value="1" ng-click="check_change()">
                 Activos
             </label>
             <label>
-                <input type="radio" ng-model="search.estado_id" value="2"> 
+                <input type="checkbox" ng-model="search.estado_3" ng-value="1" ng-click="check_change()">
+                Sin procesar
+            </label>
+            <label>
+                <input type="checkbox" ng-model="search.estado_4" ng-value="1" ng-click="check_change()">
+                Procesado
+            </label>
+            <label>
+                <input type="checkbox" ng-model="search.estado_2" ng-value="1" ng-click="check_change()">
                 Inactivos
             </label>
         </div>
+        {{ search.estados_id | json }}
         <div class="pull-right">
             Mostrando 
             <select class="form-control" style="width: 70px; display: inline;" ng-change="onChangeItemsPerPage()"
@@ -50,7 +59,7 @@
                     <tr ng-show="loading"><td colspan="4">Cargando...</td></tr>
                     <tr ng-show="!loading && accidentes.length === 0"><td colspan="4">No hay registros</td></tr>
                     <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes" row-id="{{ accidente.id }}">
-                        <td>{{ accidente.anio }} </td>
+                        <td>{{ accidente.id }} </td>
                         <td>{{ accidente.ubicacion_dirty }}<span ng-if="accidente.ubicacion !== null">{{ accidente.ubicacion.descripcion }}</span></td>
                         <td>{{ accidente.causa_dirty }}<span ng-if="accidente.causa !== null">{{ accidente.causa.descripcion }}</span></td>
                         <td>{{ accidente.fechaHora }}</td>

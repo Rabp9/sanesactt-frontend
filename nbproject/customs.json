@@ -15,6 +15,9 @@
         "ng:class": {
             "context": "span"
         },
+        "checklist-model": {
+            "context": "input"
+        },
         "angular-validator": {
             "context": "form"
         },

@@ -18,20 +18,26 @@ angular.module('sanesacttFrontendApp')
     $scope.getAccidente = function() {
         AccidentesService.get({id: accidente_id}, function (data) {
             $scope.accidente = data.accidente;
+            console.log($scope.accidente);
             var parseDate = new Date($scope.accidente.fechaHora);
             $scope.accidente.fechaHora = parseDate;
+            $scope.accidente.pre_fechaHora = $scope.accidente.fechaHora;
         });
     };
     
     $scope.getUbicaciones = function() {
+        $scope.loading_ubicaciones = "Cargando...";
         UbicacionesService.get(function (data) {
             $scope.ubicaciones = data.ubicaciones;
+            $scope.loading_ubicaciones = "Selecciona una Ubicación";
         });
     };
     
     $scope.getCausas = function() {
+        $scope.loading_causas = "Cargando...";
         CausasService.get(function (data) {
             $scope.causas = data.causas;
+            $scope.loading_causas = "Selecciona una Causa";
         });
     };
     
@@ -119,8 +125,10 @@ angular.module('sanesacttFrontendApp')
                 var tipo_vehiculo = data[1].tipo_vehiculo;
                 
                 var detalle_accidente = {
+                    tipo_vehiculo_id: tipo_vehiculo.id,
+                    tipo_servicio_id: tipo_servicio.id,
                     tipo_vehiculo: tipo_vehiculo,
-                    tipo_servicio: tipo_servicio
+                    tipo_servicio: tipo_servicio,
                 };
                 $scope.accidente.detalle_accidentes.push(detalle_accidente);
             });
@@ -136,8 +144,8 @@ angular.module('sanesacttFrontendApp')
     $scope.saveAccidente = function(accidente, boton) {
         $utilsViewService.disable('#' + boton);
         
-        if (accidente.fechaHora !== null) {
-            accidente.fechaHora = formatDateTime(accidente.fechaHora);
+        if (accidente.pre_fechaHora !== null) {
+            accidente.fechaHora = formatDateTime(accidente.pre_fechaHora);
         }
         AccidentesService.save(accidente, function (data) {
             $uibModalInstance.close(data);

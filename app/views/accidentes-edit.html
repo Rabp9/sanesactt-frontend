@@ -14,7 +14,7 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="txtFechaHora">Fecha y Hora</label>
-                            <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.fechaHora" 
+                            <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.pre_fechaHora"
                                 required required-message="'Ingrese una fecha y hora'" validate-on="blur" name="AccidenteFechaHora"
                                 invalid-message="'Ingrese una fecha y hora correctamente'"/>
                         </div>
@@ -59,7 +59,7 @@
                                 ng-options="causa.id as causa.descripcion for causa in causas"
                                 ng-model="accidente.causa_id"
                                 required required-message="'Seleccione una Causa'" validate-on="blur" name="AccidenteCausa">
-                                <option value="">Selecciona una Causa</option>
+                                <option value="">{{ loading_causas }}</option>
                             </select>
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default pull-right" title="Nueva Causa"
@@ -115,7 +115,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label>Tipo de Vehiculo y Servicios</label>
+                    <label>Tipo de Vehiculos y Servicios</label>
                     <p>Tipo de Vehículo: {{ accidente.tipo_vehiculo_dirty }}</p>
                     <p>Tipo de Servicio: {{ accidente.tipo_servicio_dirty }}</p>
                     <p><button type="button" class="btn btn-primary" ng-click="showDetalleAccidentesAdd(accidente.tipo_vehiculo_dirty, accidente.tipo_servicio_dirty, $event)"><span class="glyphicon glyphicon-plus"></span> Agregar Detalle</button></p>
