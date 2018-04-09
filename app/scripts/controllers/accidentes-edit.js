@@ -18,7 +18,6 @@ angular.module('sanesacttFrontendApp')
     $scope.getAccidente = function() {
         AccidentesService.get({id: accidente_id}, function (data) {
             $scope.accidente = data.accidente;
-            console.log($scope.accidente);
             var parseDate = new Date($scope.accidente.fechaHora);
             $scope.accidente.fechaHora = parseDate;
             $scope.accidente.pre_fechaHora = $scope.accidente.fechaHora;

@@ -74,6 +74,7 @@ angular.module('sanesacttFrontendApp')
             });
 
             modalInstanceAdd.result.then(function (data) {
+                $scope.getAccidentes();
                 $scope.message = data.message;
             });
         }]
