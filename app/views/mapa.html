@@ -46,7 +46,8 @@
                     </div>
                 </info-window>
                 <marker ng-repeat="ubicacion in puntos_negros" position="{{ ubicacion.latitud }}, {{ ubicacion.longitud }}"
-                    title="dadadas" id="das" on-click="showUbicacion(event, ubicacion)">
+                    title="dadadas" id="das" on-click="showUbicacion(event, ubicacion)" 
+                    icon="{ url:'images/marker.png', scaledSize:[20, 33], origin: [0,0] }">
                 </marker>
             </ng-map>
         </div>

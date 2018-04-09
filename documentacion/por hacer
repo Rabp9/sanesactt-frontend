@@ -22,8 +22,8 @@ Cosas por hacer
 21. Mejorar lista de accidentes (paginacion, filtros por estado, etc)----------------------------
 22. Manejar accidentes a nivel de estados: activo, inactivo, sin procesar, procesado-------------
 23. Probar que funcione editar accidente---------------------------------------------------------
-24. mandar el retrieve al table en ubicaciones/getPuntosNegros
-25. Cambiar icono marker en el mapa por un punto negro
+24. mandar el retrieve al table en ubicaciones/getPuntosNegros-----------------------------------
+25. Cambiar icono marker en el mapa por un punto negro-------------------------------------------
 26. Por defecto mostrar como fecha de inicio: fecha actual - 5 años, fecha cierre: actual
 27. Implementar "Ubicaciones"
 28. Implementar "Causas"
@@ -32,8 +32,8 @@ Cosas por hacer
 31. Quitar accidente_anio de "Buevo Accidente"
 32. Quitar accidente_anio de "Subir Archivo"
 33. Enlazar "Nueva Ubicación" a "Ubicaciones"
-33. Enlazar "Modificar Ubicación" a "Ubicaciones"
-33. Enlazar "Nueva Causa" a "Causas"
-33. Enlazar "Modificar Causas" a "Causas"
-34. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc
-35. Implementar eliminar detalle de accidente en 'Modificar Accidente'
+34. Enlazar "Modificar Ubicación" a "Ubicaciones"
+35. Enlazar "Nueva Causa" a "Causas"
+36. Enlazar "Modificar Causas" a "Causas"
+37. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc
+38. Implementar eliminar detalle de accidente en 'Modificar Accidente'
