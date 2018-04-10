@@ -24,16 +24,16 @@ Cosas por hacer
 23. Probar que funcione editar accidente---------------------------------------------------------
 24. mandar el retrieve al table en ubicaciones/getPuntosNegros-----------------------------------
 25. Cambiar icono marker en el mapa por un punto negro-------------------------------------------
-26. Por defecto mostrar como fecha de inicio: fecha actual - 5 años, fecha cierre: actual
-27. Implementar "Ubicaciones"
-28. Implementar "Causas"
-29. Quitar accidente_anio del modelo de bd y de la bd
-30. Quitar accidente_anio de "Accidentes"
-31. Quitar accidente_anio de "Buevo Accidente"
-32. Quitar accidente_anio de "Subir Archivo"
-33. Enlazar "Nueva Ubicación" a "Ubicaciones"
-34. Enlazar "Modificar Ubicación" a "Ubicaciones"
-35. Enlazar "Nueva Causa" a "Causas"
-36. Enlazar "Modificar Causas" a "Causas"
+26. Por defecto mostrar como fecha de inicio: fecha actual - 5 años, fecha cierre: actual--------
+27. Implementar "Ubicaciones"--------------------------------------------------------------------
+28. Enlazar "Nueva Ubicación" a "Ubicaciones"----------------------------------------------------
+29. Implementar "Causas"-------------------------------------------------------------------------
+30. Enlazar "Nueva Causa" a "Causas"
+31. Quitar accidente_anio del modelo de bd y de la bd
+32. Quitar accidente_anio de "Accidentes"
+33. Quitar accidente_anio de "Buevo Accidente"
+34. Quitar accidente_anio de "Subir Archivo"
+35. Implementar "Modificar Ubicación"
+36. Implementar "Modificar Causas"
 37. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc
 38. Implementar eliminar detalle de accidente en 'Modificar Accidente'

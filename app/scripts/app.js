@@ -57,6 +57,24 @@ angular
         title: 'Accidentes'
     };
     
+    var ubicacionesState = {
+        name: 'ubicaciones',
+        url: '/ubicaciones',
+        templateUrl: 'views/ubicaciones.html',
+        controller: 'UbicacionesCtrl',
+        controllerAs: 'ubicaciones',
+        title: 'Ubicaciones'
+    };
+    
+    var causasState = {
+        name: 'causas',
+        url: '/causas',
+        templateUrl: 'views/causas.html',
+        controller: 'CausasCtrl',
+        controllerAs: 'causas',
+        title: 'Causas'
+    };
+    
     var mapaState = {
         name: 'mapa',
         url: '/mapa',
@@ -69,6 +87,8 @@ angular
     $stateProvider.state(mainState);
     $stateProvider.state(uploadState);
     $stateProvider.state(accidentesState);
+    $stateProvider.state(ubicacionesState);
+    $stateProvider.state(causasState);
     $stateProvider.state(mapaState);
     $urlRouterProvider.when('', '/');
 }).run(function($rootScope, $state, $window, $interval, $timeout, $cookies, $location) {

@@ -31,7 +31,6 @@ angular.module('sanesacttFrontendApp')
         $scope.loading = true;
         AccidentesService.get({
             page: $scope.page,
-            estados_id: $scope.search.estados_id,
             text: $scope.search.text,
             items_per_page: $scope.items_per_page,
             estado_1: $scope.search.estado_1,

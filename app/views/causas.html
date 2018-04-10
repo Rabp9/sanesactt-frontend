@@ -1,1 +1,64 @@
-<p>This is the causas view.</p>
+<!-- app\views\causas.html -->
+<div ng-show="message != null" class="alert alert-dismissible" ng-class="{'alert-danger': message.type == 'error', 'alert-success': message.type == 'success'}" role="alert">
+    <button type="button" class="close" ng-click="message = null"><span aria-hidden="true">&times;</span></button>
+    {{ message.text }} 
+</div>
+<h2>Causas</h2>
+<hr>
+<div class="row">
+    <div class="col-sm-12">
+        <form class="form-inline">
+            <button class="btn btn-primary" type="button" ng-click="showCausasAdd($event)"><span class="glyphicon glyphicon-plus"></span> Nueva Causa</button>
+            <input id="srBuscar" type="search" class="form-control" placeholder="Buscar" ng-model="search.text" />
+        </form>
+        <div class="radio pull-left">
+            <label>
+                <input type="checkbox" ng-model="search.check_all" ng-click="check_all_list_event()"> 
+                Todos
+            </label>
+            <label>
+                <input type="checkbox" ng-model="search.estado_1" ng-value="1" ng-click="check_change()">
+                Activos
+            </label>
+            <label>
+                <input type="checkbox" ng-model="search.estado_2" ng-value="2" ng-click="check_change()">
+                Inactivos
+            </label>
+        </div>
+        <div class="pull-right">
+            Mostrando 
+            <select class="form-control" style="width: 70px; display: inline;" ng-change="onChangeItemsPerPage()"
+                ng-model="items_per_page" ng-options="option for option in [10, 50, 100, 150]">
+            </select> 
+            resultados por página
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <scrollable-table watch="causas" class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="loading"><td colspan="2">Cargando...</td></tr>
+                    <tr ng-show="!loading && causas.length === 0"><td colspan="2">No hay registros</td></tr>
+                    <tr ng-show="!loading && causas.length !== 0" context-menu="menuOptions" ng-repeat="causa in causas" row-id="{{ causa.id }}">
+                        <td>{{ causa.id }} </td>
+                        <td>{{ causa.descripcion }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </scrollable-table>
+        
+        <ul uib-pagination total-items="pagination.totalItems" first-text="Primero" 
+            last-text="Último" next-text="Siguiente" previous-text="Anterior"
+            items-per-page="pagination.itemsPerPage" ng-model="page" 
+            class="pagination-sm" boundary-links="true" force-ellipses="true"
+            ng-change="pageChanged()"></ul>
+    </div>
+</div>

@@ -17,23 +17,22 @@
                 Todos
             </label>
             <label>
-                <input type="checkbox" ng-model="search.estado_1" ng-value="1" ng-click="check_change()">
+                <input type="checkbox" ng-model="search.estado_1" ng-click="check_change()">
                 Activos
             </label>
             <label>
-                <input type="checkbox" ng-model="search.estado_3" ng-value="1" ng-click="check_change()">
+                <input type="checkbox" ng-model="search.estado_3" ng-click="check_change()">
                 Sin procesar
             </label>
             <label>
-                <input type="checkbox" ng-model="search.estado_4" ng-value="1" ng-click="check_change()">
+                <input type="checkbox" ng-model="search.estado_4" ng-click="check_change()">
                 Procesado
             </label>
             <label>
-                <input type="checkbox" ng-model="search.estado_2" ng-value="1" ng-click="check_change()">
+                <input type="checkbox" ng-model="search.estado_2" ng-click="check_change()">
                 Inactivos
             </label>
         </div>
-        {{ search.estados_id | json }}
         <div class="pull-right">
             Mostrando 
             <select class="form-control" style="width: 70px; display: inline;" ng-change="onChangeItemsPerPage()"
