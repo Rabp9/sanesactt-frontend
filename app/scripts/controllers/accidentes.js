@@ -14,8 +14,8 @@ angular.module('sanesacttFrontendApp')
     $scope.search.text = '';
     $scope.search.estado_1 = true;
     $scope.search.estado_2 = false;
-    $scope.search.estado_3 = false;
-    $scope.search.estado_4 = false;
+    $scope.search.estado_3 = true;
+    $scope.search.estado_4 = true;
     $scope.page = 1;
     $scope.items_per_page = 10;
     $scope.check_all_estados_list = {

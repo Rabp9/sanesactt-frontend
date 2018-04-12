@@ -11,14 +11,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="txtAnio">Año</label>
-                            <input id="txtAnio" class="form-control" type="text" ng-model="accidente.anio" autofocus
-                                required required-message="'Ingrese un año'" validate-on="blur" name="AccidenteAnio"/>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="txtFechaHora">Fecha y Hora</label>
                             <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.pre_fechaHora" 
@@ -26,7 +19,7 @@
                                 invalid-message="'Ingrese una fecha y hora correctamente'"/>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="form-group">
                             <label for="sltDia">Día</label>
                             <select id="sltDia" class="form-control" ng-model="accidente.dia"

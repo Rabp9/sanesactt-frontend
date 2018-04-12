@@ -30,8 +30,8 @@ Cosas por hacer
 29. Implementar "Causas"-------------------------------------------------------------------------
 30. Enlazar "Nueva Causa" a "Causas"-------------------------------------------------------------
 31. Quitar accidente_anio del modelo de bd y de la bd--------------------------------------------
-32. Quitar accidente_anio de "Accidentes"
-33. Quitar accidente_anio de "Buevo Accidente"
+32. Quitar accidente_anio de "Accidentes"--------------------------------------------------------
+33. Quitar accidente_anio de "Buevo Accidente"---------------------------------------------------
 34. Quitar accidente_anio de "Subir Archivo"
 35. Implementar "Modificar Ubicación"
 36. Implementar "Modificar Causas"

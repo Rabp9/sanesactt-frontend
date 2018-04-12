@@ -48,7 +48,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Año</th>
+                        <th>Código</th>
                         <th>Ubicación</th>
                         <th>Causa</th>
                         <th>Fecha y Hora</th>
@@ -57,7 +57,7 @@
                 <tbody>
                     <tr ng-show="loading"><td colspan="4">Cargando...</td></tr>
                     <tr ng-show="!loading && accidentes.length === 0"><td colspan="4">No hay registros</td></tr>
-                    <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'info': accidente.estado_id == 3}" ng-repeat="accidente in accidentes" row-id="{{ accidente.id }}">
+                    <tr ng-show="!loading && accidentes.length !== 0" context-menu="menuOptions" ng-class="{'warning': accidente.estado_id == 3, 'danger': accidente.estado_id == 2}" ng-repeat="accidente in accidentes" row-id="{{ accidente.id }}">
                         <td>{{ accidente.id }} </td>
                         <td>{{ accidente.ubicacion_dirty }}<span ng-if="accidente.ubicacion !== null">{{ accidente.ubicacion.descripcion }}</span></td>
                         <td>{{ accidente.causa_dirty }}<span ng-if="accidente.causa !== null">{{ accidente.causa.descripcion }}</span></td>
