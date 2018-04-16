@@ -1,0 +1,60 @@
+<form ng-submit="saveUbicacion(ubicacion, 'btnSaveUbicacion')">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modificar Ubicación</h4>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="txtDescripcion">Descripción</label>
+            <input id="txtDescripcion" class="form-control" type="text" ng-model="ubicacion.descripcion" autofocus />
+        </div>
+        <div class="form-group">
+            <label>Ubicación</label>
+            <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{ googleMapsUrl }}">
+                <ng-map center="-8.1103401, -79.01554" zoom="13" on-click="setMarker()">
+                    <marker position="{{ubicacion.latitud}}, {{ubicacion.longitud}}">
+                </ng-map>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="flFoto">Foto</label>
+            <input id="flFoto" type="file" class="form-control" ngf-select="preview($file, $invalidFiles)" 
+                ngf-max-height="5000" ngf-max-size="10MB" accept="image/*"/>
+            <img ng-hide="ubicacion.foto === undefined || ubicacion.foto === null" class="img-responsive" ng-src="{{tmp_path}}/{{ubicacion.foto}}" alt="foto previa" />
+            <span ng-show="loading">Cargando...</span>
+            <span ng-show="!loading && ubicacion.foto === null">No fue posible cargar la foto</span>
+        </div>
+        <div class="form-group">
+            <label for="txtDato">Nueva Variación</label>
+            <div class="input-group">
+                <input id="txtDato" class="form-control" type="text" ng-model="ubicacion_variacion_nueva" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" ng-click="addVariacion(ubicacion_variacion_nueva)">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </span>
+            </div>
+            <div ui-sortable ng-model="ubicacion.detalle_ubicaciones">
+                <p class="input-group" ng-repeat="detalle_ubicacion in ubicacion.detalle_ubicaciones"
+                    style="padding: 5px 10px; cursor: move;">
+                    <input type="text" class="form-control" ng-model="detalle_ubicacion.descripcion"
+                        name="detalleUbicacion{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger" ng-click="removeDetalleUbicacion(detalle_ubicacion)">X</button>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Estado</label>
+            <div>
+                <label><input type="radio" ng-model="accidente.estado_id" ng-value="1"> Activo</label>
+                <label><input type="radio" ng-model="accidente.estado_id" ng-value="2"> Inactivo</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+        <button id="btnSaveUbicacion" class="btn btn-success" type="submit">Guardar Ubicación</button>
+    </div>
+</form>

@@ -31,9 +31,12 @@ Cosas por hacer
 30. Enlazar "Nueva Causa" a "Causas"-------------------------------------------------------------
 31. Quitar accidente_anio del modelo de bd y de la bd--------------------------------------------
 32. Quitar accidente_anio de "Accidentes"--------------------------------------------------------
-33. Quitar accidente_anio de "Buevo Accidente"---------------------------------------------------
-34. Quitar accidente_anio de "Subir Archivo"
-35. Implementar "Modificar Ubicación"
+33. Quitar accidente_anio de "Nuevo Accidente"---------------------------------------------------
+34. Quitar accidente_anio de "Subir Archivo"-----------------------------------------------------
+35. Implementar "Modificar Ubicación"------------------------------------------------------------
 36. Implementar "Modificar Causas"
 37. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc
 38. Implementar eliminar detalle de accidente en 'Modificar Accidente'
+39. En Ubicaciones add, no siempre seleccionar foto
+40. Eliminar la columna dia, determinar dia de fecha
+41. En accidentes se repite el nombre

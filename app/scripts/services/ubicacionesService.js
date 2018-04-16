@@ -3,7 +3,7 @@
 angular
 .module("sanesacttFrontendApp")
 .factory("UbicacionesService", function($resource, EnvService) {
-    return $resource(EnvService.getHost() + "ubicaciones/:id.json", {id:'@id'}, {
+    return $resource(EnvService.getHost() + "ubicaciones/:id.json", {}, {
         buscar: {
             method: 'GET',
             url: EnvService.getHost() + "ubicaciones/buscar/:texto.json"

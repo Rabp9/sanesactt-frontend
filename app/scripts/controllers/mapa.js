@@ -11,7 +11,7 @@ angular.module('sanesacttFrontendApp')
 .controller('MapaCtrl', function ($scope, NgMap, UbicacionesService) {
     $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY';
     $scope.loading_puntos_negros = true;
-    $scope.limite = 5;
+    $scope.limite = 3;
 
     NgMap.getMap().then(function(map) {
         $scope.map = map;

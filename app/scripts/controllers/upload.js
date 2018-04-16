@@ -8,8 +8,7 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('UploadCtrl', function ($scope, AccidentesService, UbicacionesService, 
-    CausasService, $uibModal, $utilsViewService) {
+.controller('UploadCtrl', function ($scope, AccidentesService, $utilsViewService) {
     $scope.highlightFilteredHeader = function( row, rowRenderIndex, col, colRenderIndex ) {
         if( col.filters[0].term ){
             return 'header-filtered';
