@@ -54,7 +54,7 @@ angular.module('sanesacttFrontendApp')
         AccidentesService.saveMany(accidentes, function(data) {
             $utilsViewService.disable('#' + boton);
             $scope.gridOptions.data = [];
-            $scope.message = data.message;
+            $scope.message = data;
         });
     };
     

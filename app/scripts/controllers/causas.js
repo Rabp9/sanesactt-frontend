@@ -70,7 +70,7 @@ angular.module('sanesacttFrontendApp')
 
             modalInstanceEdit.result.then(function (data) {
                 $scope.getCausas();
-                $scope.message = data.message;
+                $scope.message = data;
             });
         }]
     ];
