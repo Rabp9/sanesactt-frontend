@@ -35,8 +35,7 @@ angular.module('sanesacttFrontendApp')
             { displayName: 'Fll. H.',  name: 'fallecidos_hombres', field: 'fallecidos_hombres', enableCellEditOnFocus: false, width: '10%', minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
             { displayName: 'Fll. M.',  name: 'fallecidos_mujeres', field: 'fallecidos_mujeres', enableCellEditOnFocus: false, width: '10%', minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
             { displayName: 'Hr. H.',  name: 'heridos_hombres', field: 'heridos_hombres', enableCellEditOnFocus: false, width: '10%', minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
-            { displayName: 'Hr. M.',  name: 'heridos_mujeres', field: 'heridos_mujeres', enableCellEditOnFocus: false, width: '10%', minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false },
-            { displayName: 'Día',  name: 'dia', field: 'dia', enableCellEditOnFocus: false, width: '12%', minWidth: '12', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false }
+            { displayName: 'Hr. M.',  name: 'heridos_mujeres', field: 'heridos_mujeres', enableCellEditOnFocus: false, width: '10%', minWidth: '10', headerCellClass: $scope.highlightFilteredHeader, enableCellEdit: false }
         ]
     };
             

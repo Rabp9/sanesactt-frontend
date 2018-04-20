@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label for="txtFechaHora">Fecha y Hora</label>
                             <input id="txtFechaHora" class="form-control" type="datetime-local" ng-model="accidente.pre_fechaHora"
@@ -19,19 +19,7 @@
                                 invalid-message="'Ingrese una fecha y hora correctamente'"/>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="sltDia">Día</label>
-                            <select id="sltDia" class="form-control" ng-model="accidente.dia"
-                                ng-options="dia as dia for dia in ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']" 
-                                required required-message="'Seleccione un día'" validate-on="blur" name="AccidenteDia">
-                                <option value="">Selecciona uno</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label for="sltUbicacion">Ubicación</label>
                             <div class="input-group">
@@ -51,7 +39,7 @@
                             <p class="help-block">{{ accidente.ubicacion_dirty }}</p>
                         </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-4">
                         <div class="form-group">
                             <label for="sltCausa">Causa</label>
                             <div class="input-group">

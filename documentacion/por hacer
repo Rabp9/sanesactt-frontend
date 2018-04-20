@@ -38,8 +38,8 @@ Cosas por hacer
 37. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc----
 38. Implementar eliminar detalle de accidente en 'Modificar Accidente'---------------------------
 39. En Ubicaciones add, no siempre seleccionar foto----------------------------------------------
-40. Eliminar la columna dia, determinar dia de fecha
-41. En accidentes se repite el nombre
-42. Revisar "Modificar Ubicación"
-43. Revisar "Modificar Causa"
+40. Eliminar la columna dia, determinar dia de fecha---------------------------------------------
+41. En accidentes se repite el nombre------------------------------------------------------------
+42. Revisar "Modificar Ubicación" (detalle)
+43. Revisar "Modificar Causa" (detalle)
 44. En Ubicaciones edit, no siempre seleccionar foto
