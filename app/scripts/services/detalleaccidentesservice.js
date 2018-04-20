@@ -8,16 +8,11 @@
  * Factory in the sanesacttFrontendApp.
  */
 angular.module('sanesacttFrontendApp')
-  .factory('DetalleAccidentesService', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+.factory('DetalleAccidentesService', function($resource, EnvService) {
+    return $resource(EnvService.getHost() + "detalle_accidentes/:id.json", {}, {
+        remove: {
+            method: 'DELETE',
+            url: EnvService.getHost() + "detalle_accidentes/:id.json"
+        }
+    });
+});

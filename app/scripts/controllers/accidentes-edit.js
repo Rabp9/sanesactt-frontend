@@ -10,7 +10,7 @@
 angular.module('sanesacttFrontendApp')
 .controller('AccidentesEditCtrl', function ($scope, accidente_id, $uibModalInstance, 
     AccidentesService, UbicacionesService, CausasService, $uibModal, $utilsViewService,
-    TipoServiciosService, TipoVehiculosService, $q) {
+    TipoServiciosService, TipoVehiculosService, DetalleAccidentesService, $q) {
     
     $scope.accidente = {};
     $scope.message = {};
@@ -136,8 +136,12 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.removeDetalle = function(detalle_accidente) {
-        var index = $scope.accidente.detalle_accidentes.indexOf(detalle_accidente);
-        $scope.accidente.detalle_accidentes.splice(index, 1);
+        if (confirm('¿Está seguro de eliminar este registro?')) {
+            DetalleAccidentesService.remove({id: detalle_accidente.id}, function(data) {
+                var index = $scope.accidente.detalle_accidentes.indexOf(detalle_accidente);
+                $scope.accidente.detalle_accidentes.splice(index, 1);
+            });
+        }
     };
     
     $scope.saveAccidente = function(accidente, boton) {

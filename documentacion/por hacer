@@ -36,9 +36,10 @@ Cosas por hacer
 35. Implementar "Modificar Ubicación"------------------------------------------------------------
 36. Implementar "Modificar Causas"---------------------------------------------------------------
 37. Asegurar que en todas las pantallas salgan los mensajes de guardado, editado, subido, etc----
-38. Implementar eliminar detalle de accidente en 'Modificar Accidente'
-39. En Ubicaciones add, no siempre seleccionar foto
+38. Implementar eliminar detalle de accidente en 'Modificar Accidente'---------------------------
+39. En Ubicaciones add, no siempre seleccionar foto----------------------------------------------
 40. Eliminar la columna dia, determinar dia de fecha
 41. En accidentes se repite el nombre
 42. Revisar "Modificar Ubicación"
 43. Revisar "Modificar Causa"
+44. En Ubicaciones edit, no siempre seleccionar foto
