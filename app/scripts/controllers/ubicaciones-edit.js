@@ -14,12 +14,17 @@ angular.module('sanesacttFrontendApp')
     $scope.ubicacion = {};
     $scope.message = {};
     $scope.loading = false;
-    $scope.tmp_path = EnvService.getHost() + 'tmp/';
+    $scope.loading_foto = false;
+    $scope.tmp_path = EnvService.getHost() + 'img' + '/ubicaciones';
+    var tmp_path = EnvService.getHost() + 'tmp/';
     $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY";
+    var changed = false;
     
     $scope.getUbicacion = function() {
         UbicacionesService.get({id: ubicacion_id}, function (data) {
             $scope.ubicacion = data.ubicacion;
+            $scope.foto_preview = $scope.ubicacion.foto;
+            $scope.ubicacion.foto = null;
         });
     };
     
@@ -51,18 +56,36 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.preview = function(foto, errFiles) {
-        $scope.loading = true;
+        if (errFiles.length) {
+            if (errFiles[0].$errorMessages.maxSize) {
+                alert('La imagen sobrepasa los 10 MB');
+                return;
+            }
+        }
+        $scope.loading_foto = true;
         var fd = new FormData();
         fd.append('file', foto);
         
         UbicacionesService.preview(fd, function(data) {
-            $scope.ubicacion.foto = data.filename;
-            $scope.loading = false;
+            $scope.foto_preview = data.filename;
+            $scope.ubicacion.foto = null;
+            $scope.loading_foto = false;
+            $scope.tmp_path = tmp_path;
+            changed = true;
+        }, function(err) {
+            $scope.foto_preview = null;
+            $scope.loading_foto = false;
         });
     };
     
-    $scope.saveUbicacion = function(ubicacion, btn) {
+    $scope.saveUbicacion = function(ubicacion, btn, foto_preview) {
         $utilsViewService.disable('#' + btn);
+        
+        if (changed) {
+            if (foto_preview !== null) {
+                ubicacion.foto = foto_preview;
+            }
+        }
         
         UbicacionesService.save(ubicacion, function(data) {
             $uibModalInstance.close(data);

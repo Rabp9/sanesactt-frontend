@@ -2,3 +2,16 @@
     max-height: 480px;
     overflow: auto;
 }
+
+#dvContainer {
+    min-height: calc(100vh - 100px);
+}
+
+.center-image-vertical {
+    margin-top: 20%;
+}
+
+.footer {
+    height: 50px;
+    text-align: center;
+}
