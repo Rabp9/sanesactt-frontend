@@ -9,7 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesEditCtrl', function ($scope, $uibModalInstance, ubicacion_id, 
-    NgMap, UbicacionesService, EnvService, $utilsViewService) {
+    NgMap, UbicacionesService, EnvService, $utilsViewService, DetalleUbicacionesService) {
     
     $scope.ubicacion = {};
     $scope.message = {};
@@ -69,6 +69,21 @@ angular.module('sanesacttFrontendApp')
         }, function (err) {
             $uibModalInstance.close(err.data);
         });
+    };
+    
+    $scope.removeDetalleUbicacion = function(detalle_ubicacion) {
+        if (detalle_ubicacion.id === undefined) {
+            var index = $scope.ubicacion.detalle_ubicaciones.indexOf(detalle_ubicacion);
+            $scope.ubicacion.detalle_ubicaciones.splice(index, 1);
+            return;
+        }
+        if (confirm('¿Está seguro de eliminar este registro?')) {
+            DetalleUbicacionesService.remove({id: detalle_ubicacion.id}, function(data) {
+                console.log(data);
+                var index = $scope.ubicacion.detalle_ubicaciones.indexOf(detalle_ubicacion);
+                $scope.ubicacion.detalle_ubicaciones.splice(index, 1);
+            });
+        }
     };
     
     $scope.init();

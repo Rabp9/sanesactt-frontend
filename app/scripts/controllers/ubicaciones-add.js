@@ -72,5 +72,10 @@ angular.module('sanesacttFrontendApp')
         }
     };
     
+    $scope.removeDetalleUbicacion = function(detalle_ubicacion) {
+        var index = $scope.ubicacion.detalle_ubicaciones.indexOf(detalle_ubicacion);
+        $scope.ubicacion.detalle_ubicaciones.splice(index, 1);
+    };
+    
     $scope.init();
 });

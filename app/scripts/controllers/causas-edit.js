@@ -9,7 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('CausasEditCtrl', function ($scope, $uibModalInstance, causa_id, 
-    NgMap, CausasService, EnvService, $utilsViewService) {
+    NgMap, CausasService, EnvService, $utilsViewService, DetalleCausasService) {
     
     $scope.causa = {};
     $scope.message = {};
@@ -58,6 +58,20 @@ angular.module('sanesacttFrontendApp')
         }, function (err) {
             $uibModalInstance.close(err.data);
         });
+    };
+    
+    $scope.removeDetalleCausa = function(detalle_causa) {
+        if (detalle_causa.id === undefined) {
+            var index = $scope.causa.detalle_causas.indexOf(detalle_causa);
+            $scope.causa.detalle_causas.splice(index, 1);
+            return;
+        }
+        if (confirm('¿Está seguro de eliminar este registro?')) {
+            DetalleCausasService.remove({id: detalle_causa.id}, function(data) {
+                var index = $scope.causa.detalle_causas.indexOf(detalle_causa);
+                $scope.causa.detalle_causas.splice(index, 1);
+            });
+        }
     };
     
     $scope.init();

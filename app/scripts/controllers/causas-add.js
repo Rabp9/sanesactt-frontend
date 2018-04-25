@@ -49,5 +49,10 @@ angular
         }
     };
     
+    $scope.removeDetalleCausa = function(detalle_causa) {
+        var index = $scope.causa.detalle_causas.indexOf(detalle_causa);
+        $scope.causa.detalle_causas.splice(index, 1);
+    };
+    
     $scope.init();
 });
