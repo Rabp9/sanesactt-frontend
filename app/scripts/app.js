@@ -84,12 +84,22 @@ angular
         title: 'Mapa'
     };
     
+    var usersLoginState = {
+        name: 'usersLogin',
+        url: '/users/login',
+        templateUrl: 'views/users-login.html',
+        controller: 'UsersLoginCtrl',
+        controllerAs: 'usersLogin',
+        title: 'Login'
+    };
+    
     $stateProvider.state(mainState);
     $stateProvider.state(uploadState);
     $stateProvider.state(accidentesState);
     $stateProvider.state(ubicacionesState);
     $stateProvider.state(causasState);
     $stateProvider.state(mapaState);
+    $stateProvider.state(usersLoginState);
     $urlRouterProvider.when('', '/');
 }).run(function($rootScope, $state, $window, $interval, $timeout, $cookies, $location) {
     /*

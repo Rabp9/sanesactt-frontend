@@ -44,10 +44,26 @@ Cosas por hacer
 43. Revisar "Modificar Causa" (detalle)----------------------------------------------------------
 44. En Ubicaciones edit, no siempre seleccionar foto---------------------------------------------
 45. Mover footer más abajo en "main"-------------------------------------------------------------
-46. Crear Formulario Login
-47. Crear controller Login
-48. Cerar Funcionalidad Log out
-49. Crear tablas para controlar acceso
-50. Restricciones segun usuario logueado
-51. Verificar el uso de Estados en todos
-52. Quitar icono de move en  "Ubicaciones" y "Causas" -> add, edit
+46. Crear Formulario Login-----------------------------------------------------------------------
+47. Crear controller Login-----------------------------------------------------------------------
+48. Crear en el menú "Log out", "Usuarios" y "Roles"
+49. Cerar Funcionalidad Log out
+50. Crear tablas para controlar acceso
+51. Restricciones segun usuario logueado
+52. Verificar el uso de Estados en todos
+53. Quitar icono de move en  "Ubicaciones" y "Causas" -> add, edit
+54. Crear Formulario "Administrar usuarios"
+55. Crear formulario "Editar Usuarios"
+56. Crear controller "Administrar usuarios"
+57. Crear backend de "Administrar usuarios"
+58. Crear controller de "Editar usuarios"
+59. Crear backend de "Editar usuarios"
+60. Crear Formulario "Administrar roles"
+61. Crear Formulario "Nuevo rol"
+62. Crear Formulario "Editar rol"
+63. Crear Controller "Administrar roles"
+64. Crear backend "Administrar roles"
+65. Crear Controller "Nuevo rol"
+66. Crear backend "Nuevo rol"
+67. Crear Controller "Editar rol"
+68. Crear backend "Editar rol"
