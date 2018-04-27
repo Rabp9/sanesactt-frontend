@@ -29,7 +29,8 @@ angular
     'angularValidator',
     'scrollable-table'
 ])
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+    $httpProvider.interceptors.push('oauthHttpInterceptor');
     var mainState = {
         name: 'main',
         url: '/',
@@ -93,6 +94,15 @@ angular
         title: 'Login'
     };
     
+    var usersState = {
+        name: 'users',
+        url: '/users',
+        templateUrl: 'views/users.html',
+        controller: 'UsersCtrl',
+        controllerAs: 'users',
+        title: 'Usuarios'
+    };
+    
     $stateProvider.state(mainState);
     $stateProvider.state(uploadState);
     $stateProvider.state(accidentesState);
@@ -100,47 +110,25 @@ angular
     $stateProvider.state(causasState);
     $stateProvider.state(mapaState);
     $stateProvider.state(usersLoginState);
+    $stateProvider.state(usersState);
     $urlRouterProvider.when('', '/');
 }).run(function($rootScope, $state, $window, $interval, $timeout, $cookies, $location) {
-    /*
+    
     $rootScope.logged = false;
-    if ($cookies.get('pago-servicios-tmt-token')) {
+    if ($cookies.get('sanesactt-token')) {
         $rootScope.logged = true;
-        $rootScope.user = $cookies.getObject('pago-servicios-tmt-user');
+        $rootScope.user = $cookies.getObject('sanesactt-user');
     } else {
         $rootScope.logged = false;
     }
     
     $rootScope.$state = $state;
-    */
+    
    
     $rootScope.$on('$stateChangeSuccess', function(event, toParams, fromState, fromParams) {
         $rootScope.title = $state.current.title;
         $window.scrollTo(0, 0);
     });
-    
-    /*
-    if (Notification.permission !== 'granted') {
-        Notification.requestPermission();
-    }
-    
-    $interval(function() {
-        recibosservice.getPendientesPago(function(data) {
-            var recibos = data.recibos;
-            angular.forEach(recibos, function(value, key) {
-                var title = value.servicio.descripcion;
-                var extra = {
-                    icon: 'images/icono.png',
-                    body: 'Deuda de: ' + value.descripcion_detallada
-                };
-                // Lanzamos la notificación
-                var notification = new Notification(title, extra);
-                $timeout(function() {
-                    notification.close();
-                }, 30000);
-            });
-        });
-    }, 300000);
     
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
         if (!$rootScope.logged) {
@@ -161,14 +149,14 @@ angular
             }
         }
     });
-    /*
+    
     $rootScope.logout = function() {
         if (confirm('¿Está seguro de cerrar sesión?')) {
-            $cookies.remove('pago-servicios-tmt-user');
-            $cookies.remove('pago-servicios-tmt-token');
+            $cookies.remove('sanesactt-user');
+            $cookies.remove('sanesactt-token');
             $rootScope.user = undefined;
             $rootScope.logged = false;
             $state.go('usersLogin');
         }
-    };*/
+    };
 });

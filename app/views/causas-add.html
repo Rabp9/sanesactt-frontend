@@ -20,7 +20,7 @@
             </div>
             <div ui-sortable ng-model="causa.detalle_causas">
                 <p class="input-group" ng-repeat="detalle_causa in causa.detalle_causas"
-                    style="padding: 5px 10px; cursor: move;">
+                    style="padding: 5px 10px;">
                     <input type="text" class="form-control" ng-model="detalle_causa.descripcion"
                         name="detalleCausa{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
                     <span class="input-group-btn">

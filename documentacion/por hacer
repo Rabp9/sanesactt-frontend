@@ -46,14 +46,14 @@ Cosas por hacer
 45. Mover footer más abajo en "main"-------------------------------------------------------------
 46. Crear Formulario Login-----------------------------------------------------------------------
 47. Crear controller Login-----------------------------------------------------------------------
-48. Crear en el menú "Log out", "Usuarios" y "Roles"
-49. Cerar Funcionalidad Log out
-50. Crear tablas para controlar acceso
-51. Restricciones segun usuario logueado
-52. Verificar el uso de Estados en todos
-53. Quitar icono de move en  "Ubicaciones" y "Causas" -> add, edit
-54. Crear Formulario "Administrar usuarios"
-55. Crear formulario "Editar Usuarios"
+48. Crear en el menú "Log out", "Usuarios" y "Roles"---------------------------------------------
+49. Cerar Funcionalidad Log out------------------------------------------------------------------
+50. Crear tablas para controlar acceso-----------------------------------------------------------
+51. Restricciones segun usuario logueado---------------------------------------------------------
+52. Usuarios Login - backend---------------------------------------------------------------------
+53. Quitar icono de move en  "Ubicaciones" y "Causas" -> add, edit-------------------------------
+54. Crear Formulario "Administrar usuarios"------------------------------------------------------
+55. Crear formulario "Editar Usuarios"-----------------------------------------------------------
 56. Crear controller "Administrar usuarios"
 57. Crear backend de "Administrar usuarios"
 58. Crear controller de "Editar usuarios"
@@ -67,3 +67,4 @@ Cosas por hacer
 66. Crear backend "Nuevo rol"
 67. Crear Controller "Editar rol"
 68. Crear backend "Editar rol"
+69. Verificar el uso de Estados en todos

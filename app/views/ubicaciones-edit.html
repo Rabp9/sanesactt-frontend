@@ -38,7 +38,7 @@
             </div>
             <div ui-sortable ng-model="ubicacion.detalle_ubicaciones">
                 <p class="input-group" ng-repeat="detalle_ubicacion in ubicacion.detalle_ubicaciones"
-                    style="padding: 5px 10px; cursor: move;">
+                    style="padding: 5px 10px;">
                     <input type="text" class="form-control" ng-model="detalle_ubicacion.descripcion"
                         name="detalleUbicacion{{ $index }}" required required-message="'Este campo es requerido'" validate-on="blur"  />
                     <span class="input-group-btn">

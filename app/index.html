@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 </head>
-<body>
+<body ng-class="{'body-login': $state.current.controllerAs === 'usersLogin'}" ng-cloak>
     <!--[if lte IE 8]>
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -42,19 +42,22 @@
 
                     <ul class="nav navbar-nav">
                         <li ui-sref-active="active"><a ui-sref="main">Home</a></li>        
-                        <li class="dropdown">
+                        <li ng-if="user.rol_user.rol.descripcion === 'Administrador'" class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mantenedores <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li ui-sref-active="active"><a ui-sref="ubicaciones">Ubicaciones</a></li>
                                 <li ui-sref-active="active"><a ui-sref="causas">Causas</a></li>
                             </ul>
                         </li>
-                        <li ui-sref-active="active"><a ui-sref="upload">Subir</a></li>
-                        <li ui-sref-active="active"><a ui-sref="accidentes">Accidentes</a></li>
+                        <li ng-if="user.rol_user.rol.descripcion === 'Administrador'" ui-sref-active="active"><a ui-sref="upload">Subir</a></li>
+                        <li ng-if="user.rol_user.rol.descripcion === 'Administrador'" ui-sref-active="active"><a ui-sref="accidentes">Accidentes</a></li>
                         <li ui-sref-active="active"><a ui-sref="mapa">Mapa</a></li>
+                        <li ng-if="user.rol_user.rol.descripcion === 'Administrador'" ui-sref-active="active"><a ui-sref="roles">Roles</a></li>
+                        <li ng-if="user.rol_user.rol.descripcion === 'Administrador'" ui-sref-active="active"><a ui-sref="users">Usuarios</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                           <li><a style="cursor: pointer;" ng-click="logout()">Log out</a></li>
+                          <li><a href="#">{{ user.persona.full_name }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,6 +127,10 @@
     <script src="scripts/services/detallecausasservice.js"></script>
     <script src="scripts/services/detalleubicacionesservice.js"></script>
     <script src="scripts/controllers/users-login.js"></script>
+    <script src="scripts/services/usersservice.js"></script>
+    <script src="scripts/services/oauthhttpinterceptor.js"></script>
+    <script src="scripts/controllers/users.js"></script>
+    <script src="scripts/controllers/users-edit.js"></script>
     <!-- endbuild -->
 </body>
 </html>

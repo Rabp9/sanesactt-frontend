@@ -8,14 +8,14 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('UsersLoginCtrl', function ($scope, usersservice, $cookies, $state, $rootScope, $utilsViewService) {
+.controller('UsersLoginCtrl', function ($scope, UsersService, $cookies, $state, $rootScope, $utilsViewService) {
     $scope.message = {};
     
     $scope.loginUser = function(user, boton) {
         $('#' + boton).text('Login...');
         $utilsViewService.disable('#' + boton);
         
-        var data = usersservice.login(user, function() {
+        var data = UsersService.login(user, function() {
             if (!data.user) {
                 $scope.message = data.message;
             } else {
