@@ -54,8 +54,8 @@ Cosas por hacer
 53. Quitar icono de move en  "Ubicaciones" y "Causas" -> add, edit-------------------------------
 54. Crear Formulario "Administrar usuarios"------------------------------------------------------
 55. Crear formulario "Editar Usuarios"-----------------------------------------------------------
-56. Crear controller "Administrar usuarios"
-57. Crear backend de "Administrar usuarios"
+56. Crear controller "Administrar usuarios"------------------------------------------------------
+57. Crear backend de "Administrar usuarios"------------------------------------------------------
 58. Crear controller de "Editar usuarios"
 59. Crear backend de "Editar usuarios"
 60. Crear Formulario "Administrar roles"
@@ -68,3 +68,4 @@ Cosas por hacer
 67. Crear Controller "Editar rol"
 68. Crear backend "Editar rol"
 69. Verificar el uso de Estados en todos
+70. Verificar auto registro de ubicacioens y casusas al subir accidentes
