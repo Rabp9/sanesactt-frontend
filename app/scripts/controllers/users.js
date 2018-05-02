@@ -54,7 +54,7 @@ angular.module('sanesacttFrontendApp')
         
         $utilsViewService.enable(event.currentTarget);
         modalInstanceEdit.result.then(function (data) {
-            getUsers();
+            $scope.getUsers();
             $scope.message = data;
         });
     };

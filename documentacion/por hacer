@@ -56,8 +56,8 @@ Cosas por hacer
 55. Crear formulario "Editar Usuarios"-----------------------------------------------------------
 56. Crear controller "Administrar usuarios"------------------------------------------------------
 57. Crear backend de "Administrar usuarios"------------------------------------------------------
-58. Crear controller de "Editar usuarios"
-59. Crear backend de "Editar usuarios"
+58. Crear controller de "Editar usuarios"--------------------------------------------------------
+59. Crear backend de "Editar usuarios"-----------------------------------------------------------
 60. Crear Formulario "Administrar roles"
 61. Crear Formulario "Nuevo rol"
 62. Crear Formulario "Editar rol"
@@ -68,4 +68,4 @@ Cosas por hacer
 67. Crear Controller "Editar rol"
 68. Crear backend "Editar rol"
 69. Verificar el uso de Estados en todos
-70. Verificar auto registro de ubicacioens y casusas al subir accidentes
+70. Verificar auto registro de ubicaciones y causas al subir accidentes

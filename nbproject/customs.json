@@ -24,6 +24,9 @@
         "ui-i18n": {
             "context": "div"
         },
+        "sortable-header": {
+            "context": "th"
+        },
         "ngf-select": {
             "context": "input"
         },
