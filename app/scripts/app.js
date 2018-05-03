@@ -85,6 +85,15 @@ angular
         title: 'Mapa'
     };
     
+    var rolesState = {
+        name: 'roles',
+        url: '/roles',
+        templateUrl: 'views/roles.html',
+        controller: 'RolesCtrl',
+        controllerAs: 'roles',
+        title: 'Roles'
+    };
+    
     var usersLoginState = {
         name: 'usersLogin',
         url: '/users/login',
@@ -109,6 +118,7 @@ angular
     $stateProvider.state(ubicacionesState);
     $stateProvider.state(causasState);
     $stateProvider.state(mapaState);
+    $stateProvider.state(rolesState);
     $stateProvider.state(usersLoginState);
     $stateProvider.state(usersState);
     $urlRouterProvider.when('', '/');
