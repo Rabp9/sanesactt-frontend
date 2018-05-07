@@ -8,10 +8,36 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-  .controller('RolesAddCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+.controller('RolesAddCtrl', function ($scope, RolesService, $uibModalInstance, 
+ControllersService, $utilsViewService) {
+    
+    $scope.rol = {};
+    $scope.rol.controller_roles = [];
+    
+    $scope.loading = true;
+    ControllersService.get(function(data) {
+        $scope.rol.controller_roles = [];
+        angular.forEach(data.controllers, function(value, key) {
+            $scope.rol.controller_roles.push({
+                controller_id: value.id,
+                controller: value,
+                permiso: false
+            });
+        });
+        $scope.loading = false;
+    });
+    
+    $scope.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
+    };
+
+    $scope.saveRol = function(rol, boton) {
+        $utilsViewService.disable('#' + boton);
+        
+        RolesService.save(rol, function(data) {
+            $uibModalInstance.close(data);
+        }, function(err) {
+            $uibModalInstance.close(err.data);
+        });
+    };
+});
