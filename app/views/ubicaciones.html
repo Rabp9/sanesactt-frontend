@@ -47,7 +47,7 @@
                 <tbody>
                     <tr ng-show="loading"><td colspan="2">Cargando...</td></tr>
                     <tr ng-show="!loading && ubicaciones.length === 0"><td colspan="2">No hay registros</td></tr>
-                    <tr ng-show="!loading && ubicaciones.length !== 0" context-menu="menuOptions" ng-repeat="ubicacion in ubicaciones" row-id="{{ ubicacion.id }}">
+                    <tr ng-show="!loading && ubicaciones.length !== 0" ng-class="{'danger': ubicacion.estado_id == 2}" context-menu="menuOptions" ng-repeat="ubicacion in ubicaciones" row-id="{{ ubicacion.id }}">
                         <td>{{ ubicacion.id }} </td>
                         <td>{{ ubicacion.descripcion }}</td>
                     </tr>

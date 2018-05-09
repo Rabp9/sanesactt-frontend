@@ -33,6 +33,7 @@ angular
     $scope.saveCausa = function(causa, btn) {
         $utilsViewService.disable('#' + btn);
         
+        causa.estado_id = 1;
         CausasService.save(causa, function(data) {
             $uibModalInstance.close(data);
         }, function (err) {

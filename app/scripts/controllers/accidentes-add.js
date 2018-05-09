@@ -129,6 +129,7 @@ angular.module('sanesacttFrontendApp')
         if (accidente.pre_fechaHora !== null) {
             accidente.fechaHora = formatDateTime(accidente.pre_fechaHora);
         }
+        accidente.estado_id = 1;
         AccidentesService.save(accidente, function (data) {
             $uibModalInstance.close(data);
         }, function (err) {

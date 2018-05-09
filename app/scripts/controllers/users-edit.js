@@ -11,21 +11,32 @@ angular.module('sanesacttFrontendApp')
 .controller('UsersEditCtrl', function ($scope, user_id, $uibModalInstance, UsersService, 
     RolesService, $utilsViewService, RolUsersService) {
         
-    $scope.loading = true;
     $scope.rol_user = {};
     
-    UsersService.get({id: user_id}, function(data) {
-        $scope.user = data.user;
-        if ($scope.user.rol_user) {
-            $scope.rol_user.id = data.user.rol_user.id;
-        }
-        $scope.rol_user.user_id = data.user.PerCod;
-    });
+    $scope.init = function() {
+        $scope.getUsers(user_id);
+        $scope.getRoles();
+    };
     
-    RolesService.get(function(data) {
-        $scope.roles = data.roles;
-        $scope.loading = false;
-    });
+    $scope.getUsers = function() {
+        $scope.loading = true;
+        UsersService.get({id: user_id}, function(data) {
+            $scope.user_edit = data.user;
+            if ($scope.user_edit.rol_user) {
+                $scope.rol_user.id = data.user.rol_user.id;
+            }
+            $scope.rol_user.user_id = data.user.PerCod;
+            $scope.loading = false;
+        });
+    };
+    
+    $scope.getRoles = function() {
+        $scope.loading_roles = "Cargando...";
+        RolesService.getAdmin(function(data) {
+            $scope.roles = data.roles;
+            $scope.loading_roles = "Selecciona un Rol";
+        });
+    };
     
     $scope.cancel = function() {
         $uibModalInstance.dismiss('cancel');
@@ -39,4 +50,6 @@ angular.module('sanesacttFrontendApp')
             $uibModalInstance.close(err.data); 
         });
     };
+    
+    $scope.init();
 });

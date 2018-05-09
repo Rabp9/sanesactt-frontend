@@ -34,6 +34,7 @@ ControllersService, $utilsViewService) {
     $scope.saveRol = function(rol, boton) {
         $utilsViewService.disable('#' + boton);
         
+        rol.estado_id = 1;
         RolesService.save(rol, function(data) {
             $uibModalInstance.close(data);
         }, function(err) {

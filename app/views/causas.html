@@ -47,7 +47,7 @@
                 <tbody>
                     <tr ng-show="loading"><td colspan="2">Cargando...</td></tr>
                     <tr ng-show="!loading && causas.length === 0"><td colspan="2">No hay registros</td></tr>
-                    <tr ng-show="!loading && causas.length !== 0" context-menu="menuOptions" ng-repeat="causa in causas" row-id="{{ causa.id }}">
+                    <tr ng-show="!loading && causas.length !== 0" ng-class="{'danger': causa.estado_id == 2}" context-menu="menuOptions" ng-repeat="causa in causas" row-id="{{ causa.id }}">
                         <td>{{ causa.id }} </td>
                         <td>{{ causa.descripcion }}</td>
                     </tr>

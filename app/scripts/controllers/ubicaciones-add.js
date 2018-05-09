@@ -56,6 +56,7 @@ angular.module('sanesacttFrontendApp')
     $scope.saveUbicacion = function(ubicacion, btn) {
         $utilsViewService.disable('#' + btn);
         
+        ubicacion.estado_id = 1;
         UbicacionesService.save(ubicacion, function(data) {
             $uibModalInstance.close(data);
         }, function (err) {

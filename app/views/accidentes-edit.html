@@ -125,11 +125,13 @@
                         </table>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-hide="accidente.estado_id === 3">
                     <label>Estado</label>
                     <div>
                         <label><input type="radio" ng-model="accidente.estado_id" ng-value="1"> Activo</label>
                         <label><input type="radio" ng-model="accidente.estado_id" ng-value="2"> Inactivo</label>
+                        <label><input type="radio" ng-model="accidente.estado_id" ng-value="3"> Sin Procesar</label>
+                        <label><input type="radio" ng-model="accidente.estado_id" ng-value="4"> Procesado</label>
                     </div>
                 </div>
             </div>
