@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-sm-12">
         <form class="form-inline" ng-submit="getPuntosNegros(limite, fecha_inicio, fecha_cierre)">
-            Límite <input id="nmLimite" class="form-control" type="number" min="5" ng-model="limite" placeholder="Límite">
+            Límite <input id="nmLimite" class="form-control" type="number" min="3" ng-model="limite" placeholder="Límite">
             Fecha de Inicio <input id="dtFechaInicio" class="form-control" type="date" ng-model="fecha_inicio">
             Fecha de Cierre <input id="dtFechaCierre" class="form-control" type="date" ng-model="fecha_cierre">
             <button id="btnBuscar" class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search"></span> Buscar</button> 
@@ -43,6 +43,9 @@
                     <div ng-non-bindable>
                         <h5>{{ selectedUbicacion.descripcion }}</h5>
                         <p>Total de Accidentes: {{ selectedUbicacion.total }}</p>
+                        <p>
+                            <a href="{{ path_location }}">Ver más información</a>
+                        </p>
                     </div>
                 </info-window>
                 <marker ng-repeat="ubicacion in puntos_negros" position="{{ ubicacion.latitud }}, {{ ubicacion.longitud }}"

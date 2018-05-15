@@ -8,10 +8,11 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-.controller('MapaCtrl', function ($scope, NgMap, UbicacionesService) {
+.controller('MapaCtrl', function ($scope, NgMap, UbicacionesService, EnvService) {
     $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY';
     $scope.loading_puntos_negros = true;
     $scope.limite = 3;
+    $scope.pathLocation = EnvService.getHost() + "ubicaciones/puntos_negros/";
 
     NgMap.getMap().then(function(map) {
         $scope.map = map;
