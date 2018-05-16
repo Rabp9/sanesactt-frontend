@@ -18,7 +18,8 @@
     "angular-bootstrap-contextmenu": "^0.9.9",
     "ngmap": "^1.18.4",
     "tg-angular-validator": "^1.2.10",
-    "angular-scrollable-table": "^1.1.2"
+    "angular-scrollable-table": "^1.1.2",
+    "angular-chart.js": "^1.1.1"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"

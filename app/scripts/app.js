@@ -112,6 +112,15 @@ angular
         title: 'Usuarios'
     };
     
+    var ubicacionesDatosState = {
+        name: 'ubicaciones-datos',
+        url: '/ubicaciones/datos/:id',
+        templateUrl: 'views/ubicaciones-datos.html',
+        controller: 'UbicacionesDatosCtrl',
+        controllerAs: 'ubicacionesDatos',
+        title: 'Datos de Ubicación'
+    };
+    
     $stateProvider.state(mainState);
     $stateProvider.state(uploadState);
     $stateProvider.state(accidentesState);
@@ -121,6 +130,7 @@ angular
     $stateProvider.state(rolesState);
     $stateProvider.state(usersLoginState);
     $stateProvider.state(usersState);
+    $stateProvider.state(ubicacionesDatosState);
     $urlRouterProvider.when('', '/');
 }).run(function($rootScope, $state, $window, $interval, $timeout, $cookies, $location) {
     

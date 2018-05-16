@@ -44,7 +44,7 @@
                         <h5>{{ selectedUbicacion.descripcion }}</h5>
                         <p>Total de Accidentes: {{ selectedUbicacion.total }}</p>
                         <p>
-                            <a href="{{ path_location }}">Ver más información</a>
+                            <a ui-sref="ubicaciones-datos({id: selectedUbicacion.id})">Ver más información</a>
                         </p>
                     </div>
                 </info-window>
