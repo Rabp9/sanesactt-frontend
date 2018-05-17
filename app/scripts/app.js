@@ -113,7 +113,7 @@ angular
     };
     
     var ubicacionesDatosState = {
-        name: 'ubicaciones-datos',
+        name: 'ubicacionesDatos',
         url: '/ubicaciones/datos/:id',
         templateUrl: 'views/ubicaciones-datos.html',
         controller: 'UbicacionesDatosCtrl',

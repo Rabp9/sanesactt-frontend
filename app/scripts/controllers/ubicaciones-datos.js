@@ -8,10 +8,7 @@
  * Controller of the sanesacttFrontendApp
  */
 angular.module('sanesacttFrontendApp')
-  .controller('UbicacionesDatosCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+.controller('UbicacionesDatosCtrl', function ($scope) {
+    $('#nvbNavegador').css('display', 'none');
+    $('body').css('padding-top', 0);
+});
