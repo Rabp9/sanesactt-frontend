@@ -143,7 +143,7 @@ angular
                 align: 'right',
                 anchor: 'end'
             }
-        }    
+        }
     });
     
     // Configure all line charts
