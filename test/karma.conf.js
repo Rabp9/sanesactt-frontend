@@ -39,6 +39,7 @@ module.exports = function(config) {
       'bower_components/angular-scrollable-table/angular-scrollable-table.js',
       'bower_components/chart.js/dist/Chart.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
+      'bower_components/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

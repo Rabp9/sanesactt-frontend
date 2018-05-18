@@ -12,17 +12,29 @@
         }
     },
     "attributes": {
-        "ng:class": {
-            "context": "span"
-        },
-        "checklist-model": {
-            "context": "input"
-        },
         "angular-validator": {
             "context": "form"
         },
         "ui-i18n": {
             "context": "div"
+        },
+        "chart-series": {
+            "context": "canvas"
+        },
+        "map-lazy-load": {
+            "context": "div"
+        },
+        "ui-grid": {
+            "context": "div"
+        },
+        "ui-sref": {
+            "context": "a"
+        },
+        "ng:class": {
+            "context": "span"
+        },
+        "checklist-model": {
+            "context": "input"
         },
         "sortable-header": {
             "context": "th"
@@ -33,17 +45,11 @@
         "file-model": {
             "context": "input"
         },
-        "map-lazy-load": {
-            "context": "div"
-        },
-        "ui-grid": {
-            "context": "div"
+        "chart-data": {
+            "context": "canvas"
         },
         "ui-sref-active": {
             "context": "li"
-        },
-        "ui-sref": {
-            "context": "a"
         }
     }
 }

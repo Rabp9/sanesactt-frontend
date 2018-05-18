@@ -27,9 +27,10 @@ angular
     'ui.bootstrap.contextMenu',
     'ngMap',
     'angularValidator',
-    'scrollable-table'
+    'scrollable-table',
+    'chart.js'
 ])
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider, ChartJsProvider) {
     $httpProvider.interceptors.push('oauthHttpInterceptor');
     var mainState = {
         name: 'main',
@@ -132,6 +133,23 @@ angular
     $stateProvider.state(usersState);
     $stateProvider.state(ubicacionesDatosState);
     $urlRouterProvider.when('', '/');
+    
+    // Configure all charts
+    ChartJsProvider.setOptions({
+        chartColors: ['#003053', '#51BAEB', '#004272', '#0077B2'],
+        responsive: true,
+        plugins: {
+            datalabels: {
+                align: 'right',
+                anchor: 'end'
+            }
+        }    
+    });
+    
+    // Configure all line charts
+    ChartJsProvider.setOptions('bar', {
+        showLines: true
+    });
 }).run(function($rootScope, $state, $window, $interval, $timeout, $cookies, $location) {
     
     $rootScope.logged = false;
