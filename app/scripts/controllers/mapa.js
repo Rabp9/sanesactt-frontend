@@ -22,7 +22,7 @@ angular.module('sanesacttFrontendApp')
     $scope.init = function() {
         $scope.loading_puntos_negros = false;
         var date = new Date();
-        $scope.fecha_inicio = new Date(date.getFullYear() -5, '00');
+        $scope.fecha_inicio = new Date(date.getFullYear() - 5, '00');
         $scope.fecha_cierre = date;
     };
     

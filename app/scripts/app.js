@@ -137,13 +137,7 @@ angular
     // Configure all charts
     ChartJsProvider.setOptions({
         chartColors: ['#003053', '#51BAEB', '#004272', '#0077B2'],
-        responsive: true,
-        plugins: {
-            datalabels: {
-                align: 'right',
-                anchor: 'end'
-            }
-        }
+        responsive: true
     });
     
     // Configure all line charts
