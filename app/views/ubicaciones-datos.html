@@ -1,6 +1,6 @@
 <div class="row data-sheet-header">
     <div class="col-sm-3 text-center centrar">
-        <h3><strong>2018</strong></h3>
+        <h3><strong>{{ year }}</strong></h3>
     </div>
     <div class="col-sm-6 text-center centrar">
         <h3><strong>Caracterización Técnica de Puntos Negros</strong></h3>
@@ -27,14 +27,14 @@
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia Mensual</h3>
+                <h3 class="panel-title">Frecuencia de AT por Hora</h3>
             </div>
             <div class="panel-body">
                 <canvas id="bar" class="chart-bar"
-                    chart-data="dataMensual" chart-labels="labelsMensual" chart-options="optionsBarVer">
+                    chart-data="dataATHora" chart-labels="labelsATHora" chart-options="optionsBarVer">
                 </canvas>
                 <p>
-                    La mayor cantidad de accidentes ocurrieron en el mes de agosto con un estimado de 39 accidentes.
+                    Según la información recolectada, hubo mayor frecuencia de accidentes en la tarde (12-18 horas).
                 </p>
             </div>
         </div>
@@ -106,14 +106,14 @@
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia de AT por Hora</h3>
+                <h3 class="panel-title">Frecuencia Mensual</h3>
             </div>
             <div class="panel-body">
                 <canvas id="bar" class="chart-bar"
-                    chart-data="dataATHora" chart-labels="labelsATHora" chart-options="optionsBarVer">
+                    chart-data="dataMensual" chart-labels="labelsMensual" chart-options="optionsBarVer">
                 </canvas>
                 <p>
-                    Según la información recolectada, hubo mayor frecuencia de accidentes en la tarde (12-18 horas).
+                    La mayor cantidad de accidentes ocurrieron en el mes de agosto con un estimado de 39 accidentes.
                 </p>
             </div>
         </div>

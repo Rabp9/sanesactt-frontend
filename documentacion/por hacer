@@ -1,4 +1,3 @@
-Cosas por hacer
 1. revisar add ubicacion-------------------------------------------------------------------------
 2. revisar add causa-----------------------------------------------------------------------------
 3. dar los focus a los inputs--------------------------------------------------------------------
@@ -86,8 +85,14 @@ Cosas por hacer
 85. Datasheet controller grafico 7, 8------------------------------------------------------------
 86. Datasheet controller grafico 9, Detalle------------------------------------------------------
 87. Options para tipos de graficos---------------------------------------------------------------
-88. Datasheet backend grafico 1, 2
-89. Datasheet backend grafico 3, 4
-90. Datasheet backend grafico 5, 6
-91. Datasheet backend grafico 7, 8
-92. Datasheet backend grafico 9, Detalle
+88. Modificar services y routes------------------------------------------------------------------
+89. Datasheet backend grafico 1------------------------------------------------------------------
+90. Datasheet backend grafico 2------------------------------------------------------------------
+91. Datasheet backend grafico 3------------------------------------------------------------------
+92. Datasheet backend grafico 4
+93. Datasheet backend grafico 5
+94. Datasheet backend grafico 6
+95. Datasheet backend grafico 7
+96. Datasheet backend grafico 8
+97. Datasheet backend grafico 9
+98. Datasheet backend grafico Detalle

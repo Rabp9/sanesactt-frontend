@@ -9,7 +9,7 @@
  */
 angular.module('sanesacttFrontendApp')
 .controller('UbicacionesDatosCtrl', function ($scope, NgMap, UbicacionesService, 
-    AccidentesService, $state) {
+    AccidentesService, $stateParams, $utilsViewService) {
     
     $('#nvbNavegador').css('display', 'none');
     $('body').css('padding-top', 0);
@@ -32,24 +32,6 @@ angular.module('sanesacttFrontendApp')
                 anchor: 'end'
             }
         }};
-    
-    $scope.labelsAnual = ['2014', '2015', '2016', '2017'];
-    $scope.seriesAnual = ['Frecuencia Anual'];
-    $scope.dataAnual = [
-        [65, 59, 80, 81]
-    ];
-    
-    $scope.labelsMensual = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    $scope.seriesMensual = ['Frecuencia Mensual'];
-    $scope.dataMensual = [
-        [65, 59, 80, 81, 15, 50, 15, 15, 80, 70, 65, 15]
-    ];
-    
-    $scope.labelsDiaria = ['Lun.', 'Mar.', 'Mié.', 'Jue.', 'Vie.', 'Sáb.', 'Dom.'];
-    $scope.seriesDiaria = ['Frecuencia Diaria'];
-    $scope.dataDiaria = [
-        [65, 59, 80, 81, 15, 50, 15]
-    ];
     
     $scope.labelsTipoServicio = ['No Identificado', 'Transporte Privado', 'Transporte Público'];
     $scope.seriesTipoServicio = ['Tipo de Servicio'];
@@ -81,11 +63,9 @@ angular.module('sanesacttFrontendApp')
         [156, 210]
     ];
     
-    $scope.getUbicacion = function() {
+    $scope.getUbicacion = function(ubicacion_id) {
         UbicacionesService.get({id: ubicacion_id}, function (data) {
             $scope.ubicacion = data.ubicacion;
-            $scope.foto_preview = $scope.ubicacion.foto;
-            $scope.ubicacion.foto = null;
         });
     };
     
@@ -95,23 +75,26 @@ angular.module('sanesacttFrontendApp')
     
     $scope.init = function() {
         var date = new Date();
-        var fechaInicio = new Date(date.getFullYear() - 1, date.getMonth(), date.getDate());
-        var fechaCierre = date;
-        $scope.getUbicacion($state.params.ubicacion_id);
-        $scope.getReportAnual(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportMensual(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportDiaria(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportServicios(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportPorHora(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportVehiculos(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportCausas(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportConsecuencias(fechaInicio, fechaCierre, $scope.ubicacion.id);
-        $scope.getReportDetalle(fechaInicio, fechaCierre, $scope.ubicacion.id);
+        var fechaInicioPre = new Date((date.getFullYear() - 1), date.getMonth(), date.getDate());
+        var fechaCierrePre = date;
+        var fechaInicio = $utilsViewService.formatDate(fechaInicioPre);
+        var fechaCierre = $utilsViewService.formatDate(fechaCierrePre);
+                
+        $scope.year = date.getFullYear();
+        $scope.getUbicacion($stateParams.ubicacion_id);
+        $scope.getReportAnual(fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportMensual(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportDiario(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportServicios(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportPorHora(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportVehiculos(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportCausas(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportConsecuencias(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
+        $scope.getReportDetalle(fechaInicio, fechaCierre, $stateParams.ubicacion_id);
     };
     
-    $scope.getReportAnual = function(fechaInicio, fechaCierre, ubicacion_id) {
+    $scope.getReportAnual = function(fechaCierre, ubicacion_id) {
         AccidentesService.getReportAnual({
-            fechaInicio: fechaInicio,
             fechaCierre: fechaCierre,
             ubicacion_id: ubicacion_id
         }, function(data) {
@@ -121,17 +104,17 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.getReportMensual = function(fechaInicio, fechaCierre, ubicacion_id) {
-        AccidentesService.getReportAnual({
+        AccidentesService.getReportMensual({
             fechaInicio: fechaInicio,
             fechaCierre: fechaCierre,
             ubicacion_id: ubicacion_id
         }, function(data) {
-            $scope.labelsAnual = data.labels;
-            $scope.dataAnual = data.datos;
+            $scope.labelsMensual = data.labels;
+            $scope.dataMensual = data.datos;
         });
     };
     
-    $scope.getReportDiaria = function(fechaInicio, fechaCierre, ubicacion_id) {
+    $scope.getReportDiario = function(fechaInicio, fechaCierre, ubicacion_id) {
         AccidentesService.getReportDiario({
             fechaInicio: fechaInicio,
             fechaCierre: fechaCierre,
@@ -206,4 +189,6 @@ angular.module('sanesacttFrontendApp')
             $scope.cantidad = data.cantidad;
         });  
     };
+    
+    $scope.init();
 });

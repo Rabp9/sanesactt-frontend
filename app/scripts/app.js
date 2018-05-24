@@ -115,7 +115,7 @@ angular
     
     var ubicacionesDatosState = {
         name: 'ubicacionesDatos',
-        url: '/ubicaciones/datos/:id',
+        url: '/ubicaciones/datos/:ubicacion_id',
         templateUrl: 'views/ubicaciones-datos.html',
         controller: 'UbicacionesDatosCtrl',
         controllerAs: 'ubicacionesDatos',
