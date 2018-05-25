@@ -33,12 +33,6 @@ angular.module('sanesacttFrontendApp')
             }
         }};
     
-    $scope.labelsTipoServicio = ['No Identificado', 'Transporte Privado', 'Transporte Público'];
-    $scope.seriesTipoServicio = ['Tipo de Servicio'];
-    $scope.dataTipoServicio = [
-        [65, 59, 80]
-    ];
-    
     $scope.labelsATHora = ['Madrugada', 'Mañana', 'Tarde', 'Noche'];
     $scope.seriesATHora = ['Frecuencia de AT por hora'];
     $scope.dataATHora = [
@@ -49,12 +43,6 @@ angular.module('sanesacttFrontendApp')
     $scope.seriesConsInvolucrado = ['Consecuencias por Involucrado'];
     $scope.dataConsInvolucrado = [
         [65, 59, 80]
-    ];
-    
-    $scope.labelsTipoVehiculo = ['Moto Lineal', 'Camión', 'Ómnibus Urbano', 'Camioneta Rural', 'Camioneta pick up', 'Station wagon', 'Automóvil'];
-    $scope.seriesTipoVehiculo = ['Vehículos Involucrados'];
-    $scope.dataTipoVehiculo = [
-        [65, 59, 80, 15, 65, 18, 14]
     ];
     
     $scope.labelsCausa = ['Desacato a la señal de tránsito por el peatón', 'Invasión del carril /maniobras no permitidas'];
