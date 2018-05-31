@@ -21,7 +21,7 @@
                     chart-data="dataAnual" chart-labels="labelsAnual" chart-options="optionsBarHor">
                 </canvas>
                 <p>
-                    La mayor cantidad de accidentes ocurrieron en el año 2017 (81 accidentes estimados).
+                    {{ textoAnual }}
                 </p>
             </div>
         </div>
@@ -85,7 +85,7 @@
                         </tr>
                         <tr>
                             <td colspan="6">
-                                <p style="text-align: justify;">El punto negro está conformado por 11 accidentes entre las fechas 2017-01-01 a 2018-01-01 de acuerdo a los registros del sistema. El centroide de los accidentes pertenecientes a este punto negro se encuentra en las coordenadas geográficas (−79.0391, −8.0947) de longitud y latitud respectivamente.</p>
+                                <p style="text-align: justify;">El punto negro está conformado por {{ cantidad }} accidentes entre las fechas {{ fechaInicio }} a {{ fechaCierre }} de acuerdo a los registros del sistema. El centroide de los accidentes pertenecientes a este punto negro se encuentra en las coordenadas geográficas ({{ ubicacion.longitud }}, {{ ubicacion.latitud }}) de longitud y latitud respectivamente.</p>
                             </td>
                         </tr>
                     </table>

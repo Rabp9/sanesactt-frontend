@@ -24,6 +24,7 @@ angular.module('sanesacttFrontendApp')
             $scope.user_edit = data.user;
             if ($scope.user_edit.rol_user) {
                 $scope.rol_user.id = data.user.rol_user.id;
+                $scope.rol_user.rol_id = data.user.rol_user.rol_id;
             }
             $scope.rol_user.user_id = data.user.PerCod;
             $scope.loading = false;

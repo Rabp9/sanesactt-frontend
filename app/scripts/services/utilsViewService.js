@@ -31,6 +31,32 @@ angular.module('sanesacttFrontendApp')
             angular.forEach(array, function(v_array, k_array) {
                 v_array[property] = value;
             });
+        },
+        getMaxValue: function(array) {
+            if (array.length === 0) {
+                return null;
+            }
+            if (array.length === 1) {
+                return array[0];
+            }
+            var max = array[0];
+            
+            angular.forEach(array, function(v_array, k_array) {
+                if (v_array > max) {
+                    max = v_array;
+                }
+            });
+            return max;
+        },
+        getMaxIndexes: function(array) {
+            var max = this.getMaxValue(array);
+            var indexes = [];
+            angular.forEach(array, function(v_array, k_array) {
+                if (v_array === max) {
+                    indexes.push(k_array);
+                }
+            });
+            return indexes;
         }
     };
 });
