@@ -123,28 +123,71 @@ angular.module('sanesacttFrontendApp')
                 $scope.labelsAnual = data[0].labels;
                 $scope.dataAnual = data[0].datos;
                 
-                var max = $utilsViewService.getMaxValue($scope.dataAnual);
-                var maxIndexes = $utilsViewService.getMaxIndexes($scope.dataAnual);
+                var maxAnual = $utilsViewService.getMaxValue($scope.dataAnual);
+                var maxIndexesAnual = $utilsViewService.getMaxIndexes($scope.dataAnual);
 
-                if (maxIndexes.length === 1) {
-                    $scope.textoAnual = 'La mayor cantidad de accidentes ocurrieron en el año ' + $scope.labelsAnual[maxIndexes[0]] + ' (' + max + ' accidentes estimados)';
+                if (maxIndexesAnual.length === 1) {
+                    $scope.textoAnual = 'La mayor cantidad de accidentes ocurrieron en el año ' + $scope.labelsAnual[maxIndexesAnual[0]] + ' (' + maxAnual + ' accidentes estimados).';
                 } else {
                     var labelsMaxAnual = [];
-                    maxIndexes.forEach(function(index) {
+                    maxIndexesAnual.forEach(function(index) {
                         labelsMaxAnual.push($scope.labelsAnual[index]);
                     });
-                    $scope.textoAnual = 'La mayor cantidad de accidentes ocurrieron en los años ' + labelsMaxAnual.join(', ') + ' (' + max + ' accidentes estimados)';
+                    $scope.textoAnual = 'La mayor cantidad de accidentes ocurrieron en los años ' + labelsMaxAnual.join(', ') + ' (' + maxAnual + ' accidentes estimados).';
                 }
                 
+                // Mensual
                 $scope.labelsMensual = data[1].labels;
                 $scope.dataMensual = data[1].datos;
                 
+                var maxMensual = $utilsViewService.getMaxValue($scope.dataMensual);
+                var maxIndexesMensual = $utilsViewService.getMaxIndexes($scope.dataMensual);
+
+                if (maxIndexesMensual.length === 1) {
+                    $scope.textoMensual = 'La mayor cantidad de accidentes ocurrieron en el mes de ' + $scope.labelsMensual[maxIndexesMensual[0]] + ' con un estimado de ' + maxMensual + ' accidentes.';
+                } else {
+                    var labelsMaxMensual = [];
+                    maxIndexesMensual.forEach(function(index) {
+                        labelsMaxMensual.push($scope.labelsMensual[index]);
+                    });
+                    $scope.textoMensual = 'La mayor cantidad de accidentes ocurrieron en los meses de ' + labelsMaxMensual.join(', ') + ' con un estimado de ' + maxMensual + ' accidentes estimados)';
+                }
+                
+                // Diaria
                 $scope.labelsDiaria = data[2].labels;
                 $scope.dataDiaria = data[2].datos;
                 
+                var maxDiaria = $utilsViewService.getMaxValue($scope.dataDiaria);
+                var maxIndexesDiaria = $utilsViewService.getMaxIndexes($scope.dataDiaria);
+
+                if (maxIndexesDiaria.length === 1) {
+                    $scope.textoDiaria = 'Se estima que hubo mayor incidencia de accidentes en los días ' + $scope.labelsDiaria[maxIndexesDiaria[0]] + ' (' + maxDiaria + ' accidentes).';
+                } else {
+                    var labelsMaxDiaria = [];
+                    maxIndexesDiaria.forEach(function(index) {
+                        labelsMaxDiaria.push($scope.labelsDiaria[index]);
+                    });
+                    $scope.textoDiaria = 'Se estima que hubo mayor incidencia de accidentes en los días ' + labelsMaxDiaria.join(', ') + ' (' + maxDiaria + ' accidentes).';
+                }
+                
+                // TipoServicio
                 $scope.labelsTipoServicio = data[3].labels;
                 $scope.dataTipoServicio = data[3].datos;
                 
+                var maxTipoServicio = $utilsViewService.getMaxValue($scope.dataTipoServicio);
+                var maxIndexesTipoServicio = $utilsViewService.getMaxIndexes($scope.dataTipoServicio);
+
+                if (maxIndexesTipoServicio.length === 1) {
+                    $scope.textoTipoServicio = 'Los accidentes estuvieron más relacionados al ' + $scope.labelsTipoServicio[maxIndexesTipoServicio[0]] + ' (' + maxTipoServicio + ' accidentes).';
+                } else {
+                    var labelsMaxTipoServicio = [];
+                    maxIndexesTipoServicio.forEach(function(index) {
+                        labelsMaxTipoServicio.push($scope.labelsTipoServicio[index]);
+                    });
+                    $scope.textoTipoServicio = 'Los accidentes estuvieron más relacionados al ' + labelsMaxTipoServicio.join(', ') + ' (' + maxTipoServicio + ' accidentes).';
+                }
+                
+                // ATHora
                 $scope.labelsATHora = data[4].labels;
                 $scope.dataATHora = data[4].datos;
                 
