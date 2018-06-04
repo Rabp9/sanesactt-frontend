@@ -1,162 +1,164 @@
-<div class="row data-sheet-header">
-    <div class="col-sm-3 text-center centrar">
-        <h3><strong>{{ year }}</strong></h3>
-    </div>
-    <div class="col-sm-6 text-center centrar">
-        <h3><strong>Caracterización Técnica de Puntos Negros</strong></h3>
-        <p>Identificación y Priorización de Puntos Negros</p>
-    </div>
-    <div class="col-sm-3 text-center centrar">
-        <img src="images/logo.png" alt="Logo TMT">
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3 text-center centrar">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia Anual</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-horizontal-bar"
-                    chart-data="dataAnual" chart-labels="labelsAnual" chart-options="optionsBarHor">
-                </canvas>
-                <p>
-                    {{ textoAnual }}
-                </p>
-            </div>
+<div id="print" >
+    <div class="row data-sheet-header">
+        <div class="col-sm-3 text-center centrar">
+            <h3><strong>{{ year }}</strong></h3>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia de AT por Hora</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-bar"
-                    chart-data="dataATHora" chart-labels="labelsATHora" chart-options="optionsBarVer">
-                </canvas>
-                <p>
-                    Según la información recolectada, hubo mayor frecuencia de accidentes en la tarde (12-18 horas).
-                </p>
-            </div>
+        <div class="col-sm-6 text-center centrar">
+            <h3><strong>Caracterización Técnica de Puntos Negros</strong></h3>
+            <p>Identificación y Priorización de Puntos Negros</p>
+            <p><button id="btnPrint" ng-show="showBtnPrint" class="btn btn-default" ng-click="exportPDF()">Imprimir</button></p>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia Diaria</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-bar"
-                    chart-data="dataDiaria" chart-labels="labelsDiaria" chart-options="optionsBarVer">
-                </canvas>
-                <p>
-                    {{ textoDiaria }}
-                </p>
-            </div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Tipo de Servicio</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-horizontal-bar"
-                    chart-data="dataTipoServicio" chart-labels="labelsTipoServicio" chart-options="optionsBarHor">
-                </canvas>
-                <p>
-                    {{ textoTipoServicio }}
-                </p>
-            </div>
+        <div class="col-sm-3 text-center centrar">
+            <img src="images/logo.png" alt="Logo TMT">
         </div>
     </div>
-    <div class="col-sm-6 text-center centrar">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Detalles</h3>
+    <div class="row">
+        <div class="col-sm-3 text-center centrar">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Frecuencia Anual</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-horizontal-bar"
+                        chart-data="dataAnual" chart-labels="labelsAnual" chart-options="optionsBarHor">
+                    </canvas>
+                    <p>
+                        {{ textoAnual }}
+                    </p>
+                </div>
             </div>
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <td><strong>Región:</strong></td>
-                            <td>La Libertad</td>
-
-                            <td><strong>Provincia:</strong></td>
-                            <td>Trujillo</td>
-
-                            <td><strong>Distrito:</strong></td>
-                            <td>Trujillo</td>
-                        </tr>
-                        <tr>
-                            <td colspan="6">
-                                <p style="text-align: justify;">El punto negro está conformado por {{ cantidad }} accidentes entre las fechas {{ fechaInicio }} a {{ fechaCierre }} de acuerdo a los registros del sistema. El centroide de los accidentes pertenecientes a este punto negro se encuentra en las coordenadas geográficas ({{ ubicacion.longitud }}, {{ ubicacion.latitud }}) de longitud y latitud respectivamente.</p>
-                            </td>
-                        </tr>
-                    </table>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Frecuencia de AT por Hora</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-bar"
+                        chart-data="dataATHora" chart-labels="labelsATHora" chart-options="optionsBarVer">
+                    </canvas>
+                    <p>
+                        {{ textoATHora }}
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Frecuencia Diaria</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-bar"
+                        chart-data="dataDiaria" chart-labels="labelsDiaria" chart-options="optionsBarVer">
+                    </canvas>
+                    <p>
+                        {{ textoDiaria }}
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Tipo de Servicio</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-horizontal-bar"
+                        chart-data="dataTipoServicio" chart-labels="labelsTipoServicio" chart-options="optionsBarHor">
+                    </canvas>
+                    <p>
+                        {{ textoTipoServicio }}
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Ubicación</h3>
+        <div class="col-sm-6 text-center centrar">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Detalles</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td><strong>Región:</strong></td>
+                                <td>La Libertad</td>
+
+                                <td><strong>Provincia:</strong></td>
+                                <td>Trujillo</td>
+
+                                <td><strong>Distrito:</strong></td>
+                                <td>Trujillo</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <p style="text-align: justify;">El punto negro está conformado por {{ cantidad }} accidentes entre las fechas {{ fechaInicio }} a {{ fechaCierre }} de acuerdo a los registros del sistema. El centroide de los accidentes pertenecientes a este punto negro se encuentra en las coordenadas geográficas ({{ ubicacion.longitud }}, {{ ubicacion.latitud }}) de longitud y latitud respectivamente.</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-                <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{ googleMapsUrl }}">
-                    <ng-map center="-8.1103401, -79.01554" zoom="13" on-click="setMarker()">
-                        <marker position="{{ubicacion.latitud}}, {{ubicacion.longitud}}">
-                    </ng-map>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Ubicación</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="dvMap" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{ googleMapsUrl }}">
+                        <ng-map center="-8.1103401, -79.01554" zoom="13" on-click="setMarker()">
+                            <marker position="{{ubicacion.latitud}}, {{ubicacion.longitud}}">
+                        </ng-map>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Frecuencia Mensual</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-bar"
+                        chart-data="dataMensual" chart-labels="labelsMensual" chart-options="optionsBarVer">
+                    </canvas>
+                    <p>
+                        {{ textoMensual }}
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Frecuencia Mensual</h3>
+        <div class="col-sm-3 text-center centrar">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Tipo de Vehículo</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-horizontal-bar"
+                        chart-data="dataTipoVehiculo" chart-labels="labelsTipoVehiculo" chart-options="optionsBarHor">
+                    </canvas>
+                    <p>
+                        {{ textoTipoVehiculo }}
+                    </p>
+                </div>
             </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-bar"
-                    chart-data="dataMensual" chart-labels="labelsMensual" chart-options="optionsBarVer">
-                </canvas>
-                <p>
-                    {{ textoMensual }}
-                </p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Causas Asociadas</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-horizontal-bar"
+                        chart-data="dataCausa" chart-labels="labelsCausa" chart-options="optionsBarHor">
+                    </canvas>
+                    <p>
+                        {{ textoCausa }}
+                    </p>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-sm-3 text-center centrar">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Tipo de Vehículo</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-horizontal-bar"
-                    chart-data="dataTipoVehiculo" chart-labels="labelsTipoVehiculo" chart-options="optionsBarHor">
-                </canvas>
-                <p>
-                    El tipo de vehículo más asociado a los accidentes fue automóvil (143 vehículos).
-                </p>
-            </div>
-        </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Causas Asociadas</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-horizontal-bar"
-                    chart-data="dataCausa" chart-labels="labelsCausa" chart-options="optionsBarHor">
-                </canvas>
-                <p>
-                    El principal factor asociado a los accidentes de este punto negro fue Invasión del carril /maniobras no permitidas (210 AT).
-                </p>
-            </div>
-        </div>
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Consecuencias por Involucrado</h3>
-            </div>
-            <div class="panel-body">
-                <canvas id="bar" class="chart-horizontal-bar"
-                    chart-data="dataConsInvolucrado" chart-labels="labelsConsInvolucrado" chart-options="optionsBarHor">
-                </canvas>
-                <p>
-                    La mayoría de accidentes ocurridos en esta ubicación presentaron fallecidos (80).
-                </p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Consecuencias por Involucrado</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="bar" class="chart-horizontal-bar"
+                        chart-data="dataConsInvolucrado" chart-labels="labelsConsInvolucrado" chart-options="optionsBarHor">
+                    </canvas>
+                    <p>
+                        {{ textoConsInvolucrado }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module("sanesacttFrontendApp")
+angular.module('sanesacttFrontendApp')
     .directive('fileModel', ['$parse', function ($parse) {
         return {
             restrict: 'A',

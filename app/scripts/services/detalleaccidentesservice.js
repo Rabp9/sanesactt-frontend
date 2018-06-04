@@ -9,10 +9,10 @@
  */
 angular.module('sanesacttFrontendApp')
 .factory('DetalleAccidentesService', function($resource, EnvService) {
-    return $resource(EnvService.getHost() + "detalle_accidentes/:id.json", {}, {
+    return $resource(EnvService.getHost() + 'detalle_accidentes/:id.json', {}, {
         remove: {
             method: 'DELETE',
-            url: EnvService.getHost() + "detalle_accidentes/:id.json"
+            url: EnvService.getHost() + 'detalle_accidentes/:id.json'
         }
     });
 });

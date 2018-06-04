@@ -21,7 +21,7 @@ angular.module('sanesacttFrontendApp')
         google.maps.event.trigger(map, 'resize'); 
     });
     
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY";
+    $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY';
         
     $scope.setMarker = function(event) {
         var ll = event.latLng;

@@ -12,10 +12,16 @@
         }
     },
     "attributes": {
+        "print-remove": {
+            "context": "div"
+        },
         "angular-validator": {
             "context": "form"
         },
         "ui-i18n": {
+            "context": "div"
+        },
+        "print-only": {
             "context": "div"
         },
         "chart-series": {
@@ -29,6 +35,9 @@
         },
         "ui-sref": {
             "context": "a"
+        },
+        "print-section": {
+            "context": "div"
         },
         "ng:class": {
             "context": "span"

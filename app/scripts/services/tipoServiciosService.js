@@ -9,5 +9,5 @@
  */
 angular.module('sanesacttFrontendApp')
 .factory('TipoServiciosService', function ($resource, EnvService) {
-    return $resource(EnvService.getHost() + "tipo_servicios/:id.json");
+    return $resource(EnvService.getHost() + 'tipo_servicios/:id.json');
 });

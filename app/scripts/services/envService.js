@@ -14,6 +14,8 @@ angular.module('sanesacttFrontendApp')
             switch (window.location.hostname) {
                 case 'localhost':
                     return 'http://localhost:8000/sanesactt-backend/';
+                case '172.20.1.2':
+                    return 'http://172.20.1.2:8989/sanesactt/api/';
             }
         }
     };

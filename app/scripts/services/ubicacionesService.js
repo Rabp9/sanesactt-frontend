@@ -1,16 +1,16 @@
 'use strict';
 
 angular
-.module("sanesacttFrontendApp")
-.factory("UbicacionesService", function($resource, EnvService) {
-    return $resource(EnvService.getHost() + "ubicaciones/:id.json", {}, {
+.module('sanesacttFrontendApp')
+.factory('UbicacionesService', function($resource, EnvService) {
+    return $resource(EnvService.getHost() + 'ubicaciones/:id.json', {}, {
         buscar: {
             method: 'GET',
-            url: EnvService.getHost() + "ubicaciones/buscar/:texto.json"
+            url: EnvService.getHost() + 'ubicaciones/buscar/:texto.json'
         },
         buscarUbicaciones: {
             method: 'POST',
-            url: EnvService.getHost() + "ubicaciones/buscarUbicaciones/.json"
+            url: EnvService.getHost() + 'ubicaciones/buscarUbicaciones/.json'
         },
         preview: {
             method: 'POST',
@@ -20,7 +20,7 @@ angular
         },
         getPuntosNegros: {
             method: 'GET',
-            url: EnvService.getHost() + "ubicaciones/getPuntosNegros.json"
+            url: EnvService.getHost() + 'ubicaciones/getPuntosNegros.json'
         }
     });
 });

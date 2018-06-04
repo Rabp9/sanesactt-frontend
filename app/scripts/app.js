@@ -23,7 +23,7 @@ angular
     'ui.grid.rowEdit',
     'ui.grid.resizeColumns',
     'ui.bootstrap',
-    "checklist-model",
+    'checklist-model',
     'ui.bootstrap.contextMenu',
     'ngMap',
     'angularValidator',
@@ -170,6 +170,17 @@ angular
         } else {
             if ($rootScope.user.rol_user.rol.permisos.search(toState.controllerAs) >= 0) {
                 $rootScope.message_root = null;
+                if (toState.controllerAs === 'ubicacionesDatos') {
+                    $('#nvbNavegador').css('display', 'none');
+                    $('body').css('padding-top', 0);
+                    $('#dvContainer').removeClass('container');
+                    $('#dvContainer').addClass('container-fluid');
+                } else {
+                    $('#nvbNavegador').css('display', 'block');
+                    $('body').css('padding-top', '50px');
+                    $('#dvContainer').removeClass('container-fluid');
+                    $('#dvContainer').addClass('container');
+                }
             } else {
                 if (toState.controllerAs !== 'main' && toState.controllerAs !== 'usersLogin') {
                     event.preventDefault();

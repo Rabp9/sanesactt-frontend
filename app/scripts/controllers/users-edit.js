@@ -32,10 +32,10 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.getRoles = function() {
-        $scope.loading_roles = "Cargando...";
+        $scope.loading_roles = 'Cargando...';
         RolesService.getAdmin(function(data) {
             $scope.roles = data.roles;
-            $scope.loading_roles = "Selecciona un Rol";
+            $scope.loading_roles = 'Selecciona un Rol';
         });
     };
     

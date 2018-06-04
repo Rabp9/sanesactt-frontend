@@ -17,7 +17,7 @@ angular.module('sanesacttFrontendApp')
     $scope.loading_foto = false;
     $scope.tmp_path = EnvService.getHost() + 'img' + '/ubicaciones';
     var tmp_path = EnvService.getHost() + 'tmp/';
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY";
+    $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY';
     var changed = false;
     
     $scope.getUbicacion = function() {

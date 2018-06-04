@@ -5,6 +5,7 @@
     <title ng-bind="title + ' - SANESACTT'">SANESACTT</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" type="image/png" href="images/icono.ico"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -96,7 +97,11 @@
     <script src="bower_components/chart.js/dist/Chart.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="bower_components/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"></script>
+    <script src="bower_components/pdfmake/build/pdfmake.js"></script>
+    <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
+    <script src="bower_components/html2canvas/build/html2canvas.js"></script>
     <!-- endbower -->
+    <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -109,7 +114,6 @@
     <script src="scripts/controllers/ubicaciones-add.js"></script>
     <script src="scripts/filters/searchTextFilter.js"></script> 
     <script src="scripts/directives/fileModel.js"></script> 
-    <script src="scripts/services/csvService.js"></script> 
     <script src="scripts/services/accidentesService.js"></script>
     <script src="scripts/services/ubicacionesService.js"></script>
     <script src="scripts/services/causasService.js"></script>

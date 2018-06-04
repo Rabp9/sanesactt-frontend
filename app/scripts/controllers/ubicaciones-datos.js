@@ -11,12 +11,9 @@ angular.module('sanesacttFrontendApp')
 .controller('UbicacionesDatosCtrl', function ($scope, NgMap, UbicacionesService, 
     AccidentesService, $stateParams, $utilsViewService, $q) {
     
-    $('#nvbNavegador').css('display', 'none');
-    $('body').css('padding-top', 0);
-    $('#dvContainer').removeClass('container');
-    $('#dvContainer').addClass('container-fluid');
-    $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY";
-   
+    $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBN3iXCosOm01j8X97QyrYYGfGRRRuyMFY';
+    $scope.showBtnPrint = false;
+    
     $scope.optionsBarHor = {
         scales: {
             xAxes: [{
@@ -189,19 +186,107 @@ angular.module('sanesacttFrontendApp')
                 
                 // ATHora
                 $scope.labelsATHora = data[4].labels;
+                $scope.labelsATHoraExtra = data[4].labelsExtra;
                 $scope.dataATHora = data[4].datos;
                 
+                var maxATHora = $utilsViewService.getMaxValue($scope.dataATHora);
+                var maxIndexesATHora = $utilsViewService.getMaxIndexes($scope.dataATHora);
+
+                if (maxIndexesATHora.length === 1) {
+                    $scope.textoATHora = 'Según la información recolectada, hubo mayor frecuencia de accidentes en la ' + $scope.labelsATHora[maxIndexesATHora[0]] + ' (' + $scope.labelsATHoraExtra[maxIndexesATHora[0]] + ').';
+                } else {
+                    var labelsMaxATHora = [];
+                    maxIndexesATHora.forEach(function(index) {
+                        labelsMaxATHora.push($scope.labelsATHora[index]);
+                    });
+                    $scope.textoATHora = 'Según la información recolectada, hubo mayor frecuencia de accidentes en la ' + labelsMaxATHora.join(', ') + ' (' + maxATHora + ' accidentes)';
+                }
+                
+                // TipoVehiculo
                 $scope.labelsTipoVehiculo = data[5].labels;
                 $scope.dataTipoVehiculo = data[5].datos;
                 
+                var maxTipoVehiculo = $utilsViewService.getMaxValue($scope.dataTipoVehiculo);
+                var maxIndexesTipoVehiculo = $utilsViewService.getMaxIndexes($scope.dataTipoVehiculo);
+
+                if (maxIndexesTipoVehiculo.length === 1) {
+                    $scope.textoTipoVehiculo = 'El tipo de vehículo más asociado a los accidentes fue ' + $scope.labelsTipoVehiculo[maxIndexesTipoVehiculo[0]] + ' (' + maxTipoVehiculo + ' accidentes).';
+                } else {
+                    var labelsMaxTipoVehiculo = [];
+                    maxIndexesTipoVehiculo.forEach(function(index) {
+                        labelsMaxTipoVehiculo.push($scope.labelsTipoVehiculo[index]);
+                    });
+                    $scope.textoTipoVehiculo = 'Los tipos de vehículos más asociados a los accidentes fueron ' + labelsMaxTipoVehiculo.join(', ') + ' (' + maxTipoVehiculo + ' accidentes).';
+                }
+                
+                // Causa
                 $scope.labelsCausa = data[6].labels;
                 $scope.dataCausa = data[6].datos;
                 
+                var maxCausa = $utilsViewService.getMaxValue($scope.dataCausa);
+                var maxIndexesCausa = $utilsViewService.getMaxIndexes($scope.dataCausa);
+
+                if (maxIndexesCausa.length === 1) {
+                    $scope.textoCausa = 'El principal factor asociado a los accidentes de este punto negro fue ' + $scope.labelsCausa[maxIndexesCausa[0]] + ' (' + maxCausa + ' accidentes).';
+                } else {
+                    var labelsMaxCausa = [];
+                    maxIndexesCausa.forEach(function(index) {
+                        labelsMaxCausa.push($scope.labelsCausa[index]);
+                    });
+                    $scope.textoCausa = 'Los principales factores asociados a los accidentes de este punto negro fueron ' + labelsMaxCausa.join(', ') + ' (' + maxCausa + ' accidentes).';
+                }
+                
+                // ConsInvolucrado
                 $scope.labelsConsInvolucrado = data[7].labels;
                 $scope.dataConsInvolucrado = data[7].datos;
                 
+                var maxConsInvolucrado = $utilsViewService.getMaxValue($scope.dataConsInvolucrado);
+                var maxIndexesConsInvolucrado = $utilsViewService.getMaxIndexes($scope.dataConsInvolucrado);
+
+                if (maxIndexesConsInvolucrado.length === 1) {
+                    $scope.textoConsInvolucrado = 'La mayoría de accidentes ocurridos en esta ubicación presentaron ' + $scope.labelsConsInvolucrado[maxIndexesConsInvolucrado[0]] + ' (' + maxConsInvolucrado + ').';
+                } else {
+                    var labelsMaxConsInvolucrado = [];
+                    maxIndexesConsInvolucrado.forEach(function(index) {
+                        labelsMaxConsInvolucrado.push($scope.labelsConsInvolucrado[index]);
+                    });
+                    $scope.textoConsInvolucrado = 'La mayoría de accidentes ocurridos en esta ubicación presentaron ' + labelsMaxConsInvolucrado.join(', ') + ' (' + maxConsInvolucrado + ').';
+                }
+                
                 $scope.cantidad = data[8].cantidad;
+                
+                $scope.showBtnPrint = true;
             });
+        });
+    };
+    
+    $scope.exportPDF = function() {
+        $('#btnPrint').hide();
+        html2canvas(document.getElementById('print'), {
+            useCORS: true,
+            optimized: false,
+            allowTaint: false,
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition  = {
+                    pageSize: 'A4',
+                    pageOrientation: 'landscape',
+                    pageMargins: [ 10, 2, 10, 2],
+                    info: {
+                        title: 'TTTTTT',
+                        author: 'TTTTTT',
+                        subject: 'TTTTTTTTT',
+                        keywords: 'TTTTTTTTT'
+                    },
+                    content: [{
+                        image: data,
+                        width: 822,
+                        height: 600
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).open();
+                $('#btnPrint').show();
+            }
         });
     };
     

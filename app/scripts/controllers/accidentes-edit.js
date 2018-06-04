@@ -25,18 +25,18 @@ angular.module('sanesacttFrontendApp')
     };
     
     $scope.getUbicaciones = function() {
-        $scope.loading_ubicaciones = "Cargando...";
+        $scope.loading_ubicaciones = 'Cargando...';
         UbicacionesService.get(function (data) {
             $scope.ubicaciones = data.ubicaciones;
-            $scope.loading_ubicaciones = "Selecciona una Ubicación";
+            $scope.loading_ubicaciones = 'Selecciona una Ubicación';
         });
     };
     
     $scope.getCausas = function() {
-        $scope.loading_causas = "Cargando...";
+        $scope.loading_causas = 'Cargando...';
         CausasService.get(function (data) {
             $scope.causas = data.causas;
-            $scope.loading_causas = "Selecciona una Causa";
+            $scope.loading_causas = 'Selecciona una Causa';
         });
     };
     
